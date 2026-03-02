@@ -5,7 +5,6 @@ const fs = require("fs");
 const categories = JSON.parse(fs.readFileSync("categories.json"));
 
 (async () => {
-
   for (const cat of categories) {
 
     const filePath = `data/${cat.slug}.json`;
@@ -18,73 +17,65 @@ const categories = JSON.parse(fs.readFileSync("categories.json"));
     const oldMap = new Map();
     oldData.forEach(m => oldMap.set(m.link, m));
 
-    let newMovies = [];
+    let updated = [...oldData];
 
-    const { data } = await axios.get(`${cat.url}/page/1`);
-    const $ = cheerio.load(data);
+    // ดึงหน้าหมวด หน้า 1
+    const { data: catHtml } = await axios.get(`${cat.url}/page/1`);
+    const $cat = cheerio.load(catHtml);
 
-    const articles = $("article");
+    const articles = $cat("article");
 
     for (let el of articles) {
-
-      const title = $(el).find(".entry-title").text().trim();
-      const link = $(el).find("a.post-thumbnail").attr("href");
-      const img = $(el).find("img").attr("data-src");
+      const title = $cat(el).find(".entry-title").text().trim();
+      const link = $cat(el).find("a.post-thumbnail").attr("href");
+      const img = $cat(el).find("img").attr("data-src");
 
       if (!link) continue;
 
-      if (!oldMap.has(link)) {
+      let movie = oldMap.get(link);
 
-        const detailRes = await axios.get(link);
-        const $$ = cheerio.load(detailRes.data);
+      // ถ้าเป็นเรื่องใหม่
+      if (!movie) {
+        movie = { title, link, image: img, episodes: [] };
 
-        let episodes = [];
+        // ดึงรายละเอียดเรื่อง
+        const { data: detailHtml } = await axios.get(link);
+        const $detail = cheerio.load(detailHtml);
 
-        $$("a").each((i, a) => {
-          const text = $$(a).text().trim();
-          const epLink = $$(a).attr("href");
+        $detail("a").each((i, a) => {
+          const text = $detail(a).text().trim();
+          const epUrl = $detail(a).attr("href");
 
-          if (text.includes("ตอนที่")) {
-            episodes.push({ name: text, link: epLink });
+          if (text.match(/ตอน/i) && epUrl) {
+            movie.episodes.push({ name: text, link: epUrl, servers: [] });
           }
         });
 
-        newMovies.push({
-          title,
-          link,
-          image: img,
-          episodes
-        });
+        updated.unshift(movie);
 
       } else {
+        // เรื่องเก่า → เช็คว่ามีตอนใหม่
+        const { data: detailHtml } = await axios.get(link);
+        const $detail = cheerio.load(detailHtml);
 
-        const existingMovie = oldMap.get(link);
-
-        const detailRes = await axios.get(link);
-        const $$ = cheerio.load(detailRes.data);
-
-        let currentEpisodes = [];
-
-        $$("a").each((i, a) => {
-          const text = $$(a).text().trim();
-          const epLink = $$(a).attr("href");
-
-          if (text.includes("ตอนที่")) {
-            currentEpisodes.push({ name: text, link: epLink });
-          }
+        let found = [];
+        $detail("a").each((i, a) => {
+          const text = $detail(a).text().trim();
+          const epUrl = $detail(a).attr("href");
+          if (text.match(/ตอน/i) && epUrl) found.push({ name: text, link: epUrl });
         });
 
-        if (currentEpisodes.length > existingMovie.episodes.length) {
-          existingMovie.episodes = currentEpisodes;
-        } else {
-          break;
+        // ถ้ามีตอนใหม่เพิ่ม
+        if (found.length > movie.episodes.length) {
+          for (let ep of found) {
+            if (!movie.episodes.find(x => x.link === ep.link)) {
+              movie.episodes.push({ ...ep, servers: [] });
+            }
+          }
         }
       }
     }
 
-    const finalData = [...newMovies, ...oldData];
-
-    fs.writeFileSync(filePath, JSON.stringify(finalData, null, 2));
+    fs.writeFileSync(filePath, JSON.stringify(updated, null, 2));
   }
-
 })();
