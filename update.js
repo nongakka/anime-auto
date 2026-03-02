@@ -76,7 +76,7 @@ async function getEpisodeServers(epUrl) {
 
     console.log("📂 หมวด:", cat.name);
 
-    for (let page = 1; page <= 100; page++) {
+    for (let page = 1; page <= 3; page++) {
 
       console.log(`📄 หน้า ${page}`);
 
