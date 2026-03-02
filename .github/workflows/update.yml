@@ -1,0 +1,28 @@
+name: Auto Update
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - run: npm install axios cheerio
+
+      - run: node update.js
+
+      - run: |
+          git config user.name "auto"
+          git config user.email "auto@github.com"
+          git add .
+          git commit -m "auto update"
+          git push
