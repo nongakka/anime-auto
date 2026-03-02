@@ -4,7 +4,9 @@ const fs = require("fs");
 
 const categories = JSON.parse(fs.readFileSync("categories.json"));
 
+// =========================
 // ตั้งค่าป้องกันโดนบล็อก
+// =========================
 const client = axios.create({
   headers: {
     "User-Agent":
@@ -53,6 +55,9 @@ async function getEpisodeServers(epUrl) {
   }
 }
 
+// ==========================
+// MAIN
+// ==========================
 (async () => {
 
   for (const cat of categories) {
@@ -71,7 +76,6 @@ async function getEpisodeServers(epUrl) {
 
     console.log("📂 หมวด:", cat.name);
 
-    // 🔥 ไล่ 1 - 100 หน้า
     for (let page = 1; page <= 100; page++) {
 
       console.log(`📄 หน้า ${page}`);
@@ -102,7 +106,7 @@ async function getEpisodeServers(epUrl) {
           let movie = oldMap.get(link);
 
           // ========================
-          // 🔵 เรื่องใหม่
+          // ถ้าเป็นเรื่องใหม่
           // ========================
           if (!movie) {
 
@@ -115,77 +119,46 @@ async function getEpisodeServers(epUrl) {
               episodes: []
             };
 
-            const { data: detailHtml } = await client.get(link);
-            const $detail = cheerio.load(detailHtml);
+            updated.unshift(movie);
+            oldMap.set(link, movie);
+          }
 
-            const episodeLinks = [];
+          // ========================
+          // ดึงหน้า detail
+          // ========================
+          const { data: detailHtml } =
+            await client.get(link);
 
-            $detail("ul#MVP li.mvp a.ep-a-link").each((i, a) => {
+          const $detail = cheerio.load(detailHtml);
 
-              const epName =
-                $detail(a).find(".eptitle").text().trim();
-              const epLink =
-                $detail(a).attr("href");
+          const epElements =
+            $detail("ul#MVP li.mvp a.ep-a-link");
 
-              episodeLinks.push({
-                name: `ตอนที่ ${epName}`,
-                link: epLink
-              });
-            });
+          for (let i = 0; i < epElements.length; i++) {
 
-            for (let ep of episodeLinks) {
+            const a = epElements[i];
 
-              console.log("   ↳ ดึงตอน:", ep.name);
+            const epName =
+              $detail(a).find(".eptitle").text().trim();
+
+            const epLink =
+              $detail(a).attr("href");
+
+            if (!movie.episodes.find(x => x.link === epLink)) {
+
+              console.log("   ↳ ดึงตอน:", epName);
 
               const servers =
-                await getEpisodeServers(ep.link);
+                await getEpisodeServers(epLink);
 
               movie.episodes.push({
-                ...ep,
+                name: `ตอนที่ ${epName}`,
+                link: epLink,
                 servers
               });
 
               await delay(700);
             }
-
-            updated.unshift(movie);
-          }
-
-          // ========================
-          // 🔵 เรื่องเก่า → เช็คตอนใหม่
-          // ========================
-          else {
-
-            const { data: detailHtml } =
-              await client.get(link);
-
-            const $detail = cheerio.load(detailHtml);
-
-            $detail("ul#MVP li.mvp a.ep-a-link")
-              .each(async (i, a) => {
-
-                const epName =
-                  $detail(a).find(".eptitle").text().trim();
-
-                const epLink =
-                  $detail(a).attr("href");
-
-                if (!movie.episodes.find(x => x.link === epLink)) {
-
-                  console.log("🆕 ตอนใหม่:", title, "-", epName);
-
-                  const servers =
-                    await getEpisodeServers(epLink);
-
-                  movie.episodes.push({
-                    name: `ตอนที่ ${epName}`,
-                    link: epLink,
-                    servers
-                  });
-
-                  await delay(700);
-                }
-              });
           }
 
           await delay(800);
@@ -195,13 +168,14 @@ async function getEpisodeServers(epUrl) {
         console.log("⚠️ ข้ามหน้า", page);
       }
 
+      // 💾 บันทึกทุกหน้า ป้องกันข้อมูลหาย
+      fs.writeFileSync(
+        filePath,
+        JSON.stringify(updated, null, 2)
+      );
+
       await delay(1500);
     }
-
-    fs.writeFileSync(
-      filePath,
-      JSON.stringify(updated, null, 2)
-    );
 
     console.log("✅ เสร็จหมวด:", cat.name);
   }
