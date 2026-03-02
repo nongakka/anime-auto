@@ -13,27 +13,27 @@
     "name": "Anime จีน",
     "slug": "china",
     "url": "https://anime-good.com/category/category/china-no1/"
-  }
+  },
   {
     "name": "Anime ไทย",
     "slug": "thai2",
     "url": "https://anime-good.com/lang/mojianimeth/"
-  }
+  },
 {
     "name": "Anime Movie",
     "slug": "movie",
     "url": "https://anime-good.com/category/category/themovie/"
-  }
+  },
   {
     "name": "Anime end",
     "slug": "end",
     "url": "https://anime-good.com/air/%e0%b8%88%e0%b8%9a%e0%b9%81%e0%b8%a5%e0%b9%89%e0%b8%a7/"
-  }
+  },
  {
     "name": "Anime noend",
     "slug": "noend",
     "url": "https://anime-good.com/air/%e0%b8%a2%e0%b8%b1%e0%b8%87%e0%b9%84%e0%b8%a1%e0%b9%88%e0%b8%88%e0%b8%9a/"
-  }
+  },
 
   
 ]
