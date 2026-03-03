@@ -3,7 +3,7 @@ name: Daily Update
 on:
   schedule:
     - cron: '0 19 * * *'   # 02:00 เวลาไทย (UTC+7)
-  workflow_dispatch:       # กดรันเองได้
+  workflow_dispatch:
 
 jobs:
   update:
@@ -16,21 +16,21 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20   # 🔥 เปลี่ยนเป็น 20
 
       - name: Install Dependencies
         run: npm install
 
       - name: Run Scraper
         run: |
-          node ubdate.js thai
-          node ubdate.js subthai
-          node ubdate.js china
-          node ubdate.js thai2
-          node ubdate.js movie
-          node ubdate.js end
-          node ubdate.js noend
-      
+          node update.js thai
+          node update.js subthai
+          node update.js china
+          node update.js thai2
+          node update.js movie
+          node update.js end
+          node update.js noend
+
       - name: Commit if changed
         run: |
           git config --global user.name "auto-bot"
