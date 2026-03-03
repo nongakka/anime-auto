@@ -1,28 +1,40 @@
-name: Auto Update
+name: Daily Update
 
 on:
   schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:
+    - cron: '0 19 * * *'   # 02:00 เวลาไทย (UTC+7)
+  workflow_dispatch:       # กดรันเองได้
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - run: npm install axios cheerio
+      - name: Install Dependencies
+        run: npm install
 
-      - run: node update.js
-
-      - run: |
-          git config user.name "auto"
-          git config user.email "auto@github.com"
+      - name: Run Scraper
+        run: |
+          node ubdate.js thai
+          node ubdate.js subthai
+          node ubdate.js china
+          node ubdate.js thai2
+          node ubdate.js movie
+          node ubdate.js end
+          node ubdate.js noend
+      
+      - name: Commit if changed
+        run: |
+          git config --global user.name "auto-bot"
+          git config --global user.email "auto@bot.com"
           git add .
-          git commit -m "auto update"
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto update"
           git push
