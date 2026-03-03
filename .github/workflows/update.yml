@@ -1,8 +1,11 @@
 name: Daily Update
 
+permissions:
+  contents: write
+
 on:
   schedule:
-    - cron: '0 19 * * *'   # 02:00 เวลาไทย (UTC+7)
+    - cron: '0 19 * * *'
   workflow_dispatch:
 
 jobs:
@@ -16,10 +19,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 20   # 🔥 เปลี่ยนเป็น 20
+          node-version: 20
 
       - name: Install Dependencies
         run: npm install
+
+      - name: Ensure data folder
+        run: mkdir -p data
 
       - name: Run Scraper
         run: |
