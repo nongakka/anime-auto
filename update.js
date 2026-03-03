@@ -4,6 +4,26 @@ const fs = require("fs");
 
 const categories = JSON.parse(fs.readFileSync("categories.json"));
 
+// ==========================
+// รับชื่อหมวดจาก command line
+// ==========================
+const selectedSlug = process.argv[2];
+
+if (!selectedSlug) {
+  console.log("❌ กรุณาระบุ slug หมวด");
+  console.log("ตัวอย่าง: node app.js thai");
+  process.exit(1);
+}
+
+const cat = categories.find(c => c.slug === selectedSlug);
+
+if (!cat) {
+  console.log("❌ ไม่พบหมวด:", selectedSlug);
+  process.exit(1);
+}
+
+console.log("🎯 เลือกหมวด:", cat.name);
+
 // =========================
 // ตั้งค่าป้องกันโดนบล็อก
 // =========================
@@ -17,6 +37,10 @@ const client = axios.create({
 });
 
 const delay = (ms) => new Promise(r => setTimeout(r, ms));
+
+function normalizeUrl(url) {
+  return url?.replace(/\/+$/, "");
+}
 
 // ==========================
 // ดึง server จากหน้า episode
@@ -56,13 +80,81 @@ async function getEpisodeServers(epUrl) {
 }
 
 // ==========================
+// AUTO DETECT STRUCTURE
+// ==========================
+
+function autoDetectArticles($) {
+  const selectors = [
+    "article",
+    ".movie-item",
+    ".post",
+    ".item",
+    ".anime-item"
+  ];
+
+  for (const sel of selectors) {
+    const found = $(sel);
+    if (
+  found.length > 0 &&
+  found.find("a").length > 0 &&
+  found.find("img").length > 0
+){
+      console.log("🔍 ใช้ selector:", sel);
+      return found;
+    }
+  }
+
+  return [];
+}
+
+function extractBasicInfo($, el) {
+  const titleSelectors = [
+    ".entry-title",
+    ".title",
+    "h2",
+    "h3"
+  ];
+
+  let title = "";
+  for (const sel of titleSelectors) {
+    title = $(el).find(sel).first().text().trim();
+    if (title) break;
+  }
+
+  const link = $(el).find("a").attr("href");
+
+  const image =
+    $(el).find("img").attr("data-src") ||
+    $(el).find("img").attr("src");
+
+  return { title, link, image };
+}
+
+function autoDetectEpisodes($) {
+  const selectors = [
+    "ul#MVP li a",
+    ".episode-list a",
+    ".ep a",
+    ".episodes a"
+  ];
+
+  for (const sel of selectors) {
+    const found = $(sel);
+    if (found.length > 0) {
+      console.log("🔍 ใช้ episode selector:", sel);
+      return found;
+    }
+  }
+
+  return [];
+}
+
+// ==========================
 // MAIN
 // ==========================
 (async () => {
 
-  for (const cat of categories) {
-
-    const filePath = `data/${cat.slug}.json`;
+   const filePath = `data/${cat.slug}.json`;
 
     let oldData = [];
     if (fs.existsSync(filePath)) {
@@ -76,7 +168,7 @@ async function getEpisodeServers(epUrl) {
 
     console.log("📂 หมวด:", cat.name);
 
-    for (let page = 1; page <= 3; page++) {
+    for (let page = 1; page <= 1; page++) {
 
       console.log(`📄 หน้า ${page}`);
 
@@ -86,7 +178,7 @@ async function getEpisodeServers(epUrl) {
           await client.get(`${cat.url}/page/${page}`);
 
         const $cat = cheerio.load(catHtml);
-        const articles = $cat("article");
+        const articles = autoDetectArticles($cat);
 
         if (articles.length === 0) {
           console.log("ไม่มีข้อมูลแล้ว หยุดที่หน้า", page);
@@ -95,11 +187,12 @@ async function getEpisodeServers(epUrl) {
 
         for (let el of articles) {
 
-          const title = $cat(el).find(".entry-title").text().trim();
-          const link = $cat(el).find("a.post-thumbnail").attr("href");
-          const image =
-            $cat(el).find("img").attr("data-src") ||
-            $cat(el).find("img").attr("src");
+          const basic =
+  extractBasicInfo($cat, el);
+
+const title = basic.title;
+const link = normalizeUrl(basic.link);
+const image = basic.image;
 
           if (!link) continue;
 
@@ -132,17 +225,22 @@ async function getEpisodeServers(epUrl) {
           const $detail = cheerio.load(detailHtml);
 
           const epElements =
-            $detail("ul#MVP li.mvp a.ep-a-link");
+  autoDetectEpisodes($detail);
 
           for (let i = 0; i < epElements.length; i++) {
 
             const a = epElements[i];
 
-            const epName =
-              $detail(a).find(".eptitle").text().trim();
+            let epName =
+  $detail(a).find(".eptitle").text().trim();
 
-            const epLink =
-              $detail(a).attr("href");
+
+if (!epName) {
+  epName = $detail(a).text().trim();
+}
+
+            let epLink = normalizeUrl($detail(a).attr("href"));
+if (!epLink) continue;
 
             if (!movie.episodes.find(x => x.link === epLink)) {
 
@@ -178,8 +276,7 @@ async function getEpisodeServers(epUrl) {
     }
 
     console.log("✅ เสร็จหมวด:", cat.name);
-  }
-
+  
   console.log("🎉 เสร็จทั้งหมด");
 
 })();
