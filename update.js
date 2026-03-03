@@ -38,8 +38,18 @@ const client = axios.create({
 
 const delay = (ms) => new Promise(r => setTimeout(r, ms));
 
+function randomDelay(min = 700, max = 1500) {
+  return new Promise(r =>
+    setTimeout(r, Math.floor(Math.random() * (max - min)) + min)
+  );
+}
+
 function normalizeUrl(url) {
-  return url?.replace(/\/+$/, "");
+  if (!url) return null;
+
+  return url
+    .split("?")[0]
+    .replace(/\/+$/, "");
 }
 
 // ==========================
@@ -47,7 +57,7 @@ function normalizeUrl(url) {
 // ==========================
 async function getEpisodeServers(epUrl) {
   try {
-    const { data } = await client.get(epUrl);
+    const { data } = await fetchWithRetry(epUrl);
     const $ = cheerio.load(data);
 
     let servers = [];
@@ -85,12 +95,13 @@ async function getEpisodeServers(epUrl) {
 
 function autoDetectArticles($) {
   const selectors = [
-    "article",
-    ".movie-item",
-    ".post",
-    ".item",
-    ".anime-item"
-  ];
+  "article",
+  ".movie-item",
+  ".post",
+  ".item",
+  ".anime-item",
+  ".-movie" // ✅ เพิ่มอันนี้
+];
 
   for (const sel of selectors) {
     const found = $(sel);
@@ -135,7 +146,8 @@ function autoDetectEpisodes($) {
     "ul#MVP li a",
     ".episode-list a",
     ".ep a",
-    ".episodes a"
+    ".episodes a",
+    ".mp-ep-btn" // ✅ เพิ่มอันนี้
   ];
 
   for (const sel of selectors) {
@@ -149,33 +161,142 @@ function autoDetectEpisodes($) {
   return [];
 }
 
+async function fetchWithRetry(url, retries = 3) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      return await client.get(url);
+    } catch (err) {
+      if (i === retries - 1) throw err;
+      console.log("🔁 retry:", url);
+      await delay(1000);
+    }
+  }
+}
+
+async function fetchPlayerFromAjax(epId) {
+  try {
+    const url = "https://goseries4k.com/wp-admin/admin-ajax.php";
+
+    const form = new URLSearchParams();
+    form.append("action", "miru_load_player");
+    form.append("id", epId);
+
+    const { data } = await client.post(
+      url,
+      form.toString(),
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      }
+    );
+
+    const $ = cheerio.load(data);
+
+    const iframe =
+      $("iframe").attr("src") ||
+      $("iframe").attr("data-src");
+
+    return iframe || null;
+
+  } catch (err) {
+    console.log("❌ AJAX player fail:", epId);
+    return null;
+  }
+}
+
+// ==========================
+// FILE SIZE CONTROL
+// ==========================
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+
+
 // ==========================
 // MAIN
 // ==========================
 (async () => {
 
-   const filePath = `data/${cat.slug}.json`;
+if (!fs.existsSync("data")) {
+  fs.mkdirSync("data");
+}
 
-    let oldData = [];
-    if (fs.existsSync(filePath)) {
-      oldData = JSON.parse(fs.readFileSync(filePath));
-    }
+let fileIndex = 1;
+let currentData = [];
+let currentFilePath = `data/${cat.slug}_${fileIndex}.json`;
+   
+// โหลดข้อมูลเก่าเพื่อกันดึงซ้ำ
+const oldMap = new Map();
 
-    const oldMap = new Map();
-    oldData.forEach(m => oldMap.set(m.link, m));
+// โหลดทุกไฟล์ที่เคย split ไว้
+const files = fs.readdirSync("data")
+  .filter(f => f.startsWith(cat.slug + "_"));
 
-    let updated = [...oldData];
+if (files.length > 0) {
+  const numbers = files
+    .map(f => parseInt(f.match(/_(\d+)\.json$/)?.[1] || 0))
+    .filter(n => n > 0);
+
+  if (numbers.length > 0) {
+    fileIndex = Math.max(...numbers);
+    currentFilePath = `data/${cat.slug}_${fileIndex}.json`;
+  }
+}
+
+for (const file of files) {
+  const data = JSON.parse(
+    fs.readFileSync(`data/${file}`)
+  );
+  data.forEach(m => {
+  if (!m.episodes) m.episodes = [];
+  oldMap.set(m.link, m);
+});
+}
+// เอาข้อมูลเก่าใส่ currentData ก่อนเริ่มโหลดเพิ่ม
+for (const movie of oldMap.values()) {
+  currentData.push(movie);
+}
+
+function saveWithSizeCheck() {
+
+  const jsonString = JSON.stringify(currentData, null, 2);
+  const size = Buffer.byteLength(jsonString, "utf8");
+
+  if (size > MAX_FILE_SIZE) {
+
+    const lastItem = currentData.pop();
+
+    // 🔥 เขียนไฟล์ก่อนปิด
+    fs.writeFileSync(
+      currentFilePath,
+      JSON.stringify(currentData, null, 2)
+    );
+
+    console.log("📦 ปิดไฟล์:", currentFilePath);
+
+    fileIndex++;
+    currentFilePath = `data/${cat.slug}_${fileIndex}.json`;
+
+    currentData = [lastItem];
+
+    // 🔥 เขียนไฟล์ใหม่ทันที
+    fs.writeFileSync(
+      currentFilePath,
+      JSON.stringify(currentData, null, 2)
+    );
+  }
+}
 
     console.log("📂 หมวด:", cat.name);
 
-    for (let page = 1; page <= 1; page++) {
+    for (let page = 1; page <= 999; page++) {
 
       console.log(`📄 หน้า ${page}`);
 
       try {
 
         const { data: catHtml } =
-          await client.get(`${cat.url}/page/${page}`);
+  await fetchWithRetry(`${cat.url}/page/${page}`);
 
         const $cat = cheerio.load(catHtml);
         const articles = autoDetectArticles($cat);
@@ -185,12 +306,14 @@ function autoDetectEpisodes($) {
           break;
         }
 
-        for (let el of articles) {
+const articleArray = articles.toArray();
 
-          const basic =
-  extractBasicInfo($cat, el);
+for (const el of articleArray) {
+           
+   const basic = extractBasicInfo($cat, el);
 
 const title = basic.title;
+if (!title) continue;
 const link = normalizeUrl(basic.link);
 const image = basic.image;
 
@@ -211,72 +334,116 @@ const image = basic.image;
               image,
               episodes: []
             };
+	    currentData.push(movie);
+	    saveWithSizeCheck();
+           
 
-            updated.unshift(movie);
-            oldMap.set(link, movie);
+ oldMap.set(link, movie);
           }
 
           // ========================
-          // ดึงหน้า detail
+                          // ดึงหน้า detail
           // ========================
-          const { data: detailHtml } =
-            await client.get(link);
+          // ถ้าเป็นเรื่องเก่า ให้เช็คแค่ตอนล่าสุด
 
-          const $detail = cheerio.load(detailHtml);
+const { data: detailHtml } =
+  await fetchWithRetry(link);
 
-          const epElements =
-  autoDetectEpisodes($detail);
+const $detail = cheerio.load(detailHtml);
 
-          for (let i = 0; i < epElements.length; i++) {
+const epElements =
+  autoDetectEpisodes($detail).toArray();
 
-            const a = epElements[i];
-
-            let epName =
-  $detail(a).find(".eptitle").text().trim();
-
-
-if (!epName) {
-  epName = $detail(a).text().trim();
+if (!epElements || epElements.length === 0) {
+  continue;
 }
 
-            let epLink = normalizeUrl($detail(a).attr("href"));
-if (!epLink) continue;
+// ถ้ามีตอนใหม่ หรือเป็นเรื่องใหม่
+for (let i = 0; i < epElements.length; i++) {
 
-            if (!movie.episodes.find(x => x.link === epLink)) {
+  const a = epElements[i];
+  const $a = $detail(a);
 
-              console.log("   ↳ ดึงตอน:", epName);
+  // ===============================
+  // 🟢 mp-ep-btn (AJAX)
+  // ===============================
+  if ($a.hasClass("mp-ep-btn")) {
 
-              const servers =
-                await getEpisodeServers(epLink);
+    const epId = $a.attr("data-id");
+    const epName = $a.text().trim();
+    if (!epId) continue;
 
-              movie.episodes.push({
-                name: `ตอนที่ ${epName}`,
-                link: epLink,
-                servers
-              });
+    // 🔥 ถ้าเจอตอนที่มีอยู่แล้ว = หยุดทั้งเรื่องทันที
+    if (movie.episodes.find(x => x.id === epId)) {
+      console.log("   ⛔ เจอตอนซ้ำ หยุดเรื่องนี้");
+      break;
+    }
 
-              await delay(700);
-            }
-          }
+    console.log("   ↳ ดึงตอน (AJAX):", epName);
 
-          await delay(800);
+    const playerUrl = await fetchPlayerFromAjax(epId);
+
+    movie.episodes.push({
+      id: epId,
+      name: epName,
+      player: playerUrl
+    });
+
+    saveWithSizeCheck();
+    await randomDelay();
+    continue;
+  }
+
+  // ===============================
+  // 🔵 แบบ href ปกติ
+  // ===============================
+
+  let epName =
+    $a.find(".eptitle").text().trim() ||
+    $a.text().trim();
+
+  let epLink = normalizeUrl($a.attr("href"));
+  if (!epLink) continue;
+
+  // 🔥 ถ้าเจอตอนซ้ำ = หยุดทั้งเรื่อง
+  if (movie.episodes.find(x => x.link === epLink)) {
+    console.log("   ⛔ เจอตอนซ้ำ หยุดเรื่องนี้");
+    break;
+  }
+
+  console.log("   ↳ ดึงตอน:", epName);
+
+  const servers = await getEpisodeServers(epLink);
+
+  movie.episodes.push({
+    name: `ตอนที่ ${epName}`,
+    link: epLink,
+    servers
+  });
+
+  saveWithSizeCheck();
+  await randomDelay();
+}
+
+       await randomDelay();
+  
         }
 
       } catch (err) {
         console.log("⚠️ ข้ามหน้า", page);
       }
 
-      // 💾 บันทึกทุกหน้า ป้องกันข้อมูลหาย
-      fs.writeFileSync(
-        filePath,
-        JSON.stringify(updated, null, 2)
-      );
-
-      await delay(1500);
+            
+      await randomDelay(1500, 2500);
     }
 
     console.log("✅ เสร็จหมวด:", cat.name);
   
-  console.log("🎉 เสร็จทั้งหมด");
-
+if (currentData.length > 0) {
+  fs.writeFileSync(
+    currentFilePath,
+    JSON.stringify(currentData, null, 2)
+  );
+  console.log("💾 บันทึกไฟล์สุดท้าย:", currentFilePath);
+}
 })();
