@@ -38,7 +38,7 @@ jobs:
         run: npm install
 
       - name: Run Scraper
-        run: node update.js ${{ matrix.category }}
+        run: node update5.js ${{ matrix.category }}
 
       - name: Commit if changed
         run: |
