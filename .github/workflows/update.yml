@@ -8,18 +8,26 @@ on:
     - cron: '0 19 * * *'
   workflow_dispatch:
 
+# 🔒 ป้องกันรันซ้อนกันเอง
+concurrency:
+  group: daily-update
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      max-parallel: 2   # 🔥 จำกัดรันพร้อมกันแค่ 2 หมวด
+      matrix:
+        category: [thai, subthai, china, thai2, movie, end, noend]
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v4   # 🔥 ใช้ v4
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0           # 🔥 ดึง repo เต็ม
-
-      - name: Debug list files     # 🔥 เช็คว่ามี package.json ไหม
-        run: ls -la
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -30,19 +38,12 @@ jobs:
         run: npm install
 
       - name: Run Scraper
-        run: |
-          node update.js thai
-          node update.js subthai
-          node update.js china
-          node update.js thai2
-          node update.js movie
-          node update.js end
-          node update.js noend
+        run: node update.js ${{ matrix.category }}
 
       - name: Commit if changed
         run: |
           git config --global user.name "auto-bot"
           git config --global user.email "auto@bot.com"
           git add .
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto update"
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto update ${{ matrix.category }}"
           git push
