@@ -1,0 +1,357 @@
+const axios = require("axios");
+const cheerio = require("cheerio");
+const fs = require("fs");
+const { URL } = require("url");
+
+const categories = JSON.parse(fs.readFileSync("categories.json"));
+
+// ==========================
+// รับชื่อหมวดจาก command line
+// ==========================
+const selectedSlug = process.argv[2];
+
+if (!selectedSlug) {
+  console.log("❌ กรุณาระบุ slug");
+  process.exit(1);
+}
+
+const cat = categories.find(c => c.slug === selectedSlug);
+if (!cat) {
+  console.log("❌ ไม่พบหมวด:", selectedSlug);
+  process.exit(1);
+}
+
+console.log("🎯 เลือกหมวด:", cat.name);
+
+// =========================
+// AXIOS CONFIG
+// =========================
+const client = axios.create({
+  headers: {
+    "User-Agent":
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
+    "Accept-Language": "th-TH,th;q=0.9"
+  },
+  timeout: 20000
+});
+
+const delay = ms => new Promise(r => setTimeout(r, ms));
+const randomDelay = (min=700,max=1500) =>
+  delay(Math.floor(Math.random()*(max-min))+min);
+
+function normalizeUrl(url) {
+  if (!url) return null;
+  return url.split("?")[0].replace(/\/+$/, "");
+}
+
+function getDomain(url) {
+  try {
+    return new URL(url).hostname.replace("www.","");
+  } catch {
+    return "";
+  }
+}
+
+// ==========================
+// FETCH WITH RETRY
+// ==========================
+async function fetchWithRetry(url, retries=3) {
+  for (let i=0;i<retries;i++) {
+    try {
+      return await client.get(url);
+    } catch (err) {
+      if (i===retries-1) throw err;
+      console.log("🔁 retry:", url);
+      await delay(1000);
+    }
+  }
+}
+
+// ==========================
+// SITE HANDLERS
+// ==========================
+const SiteHandlers = {
+
+  // ======================
+  // DEFAULT HANDLER
+  // ======================
+  default: {
+    articleSelectors: [
+      "article",".movie-item",".post",".item",".anime-item",".-movie"
+    ],
+    episodeSelectors: [
+      "ul#MVP li a",".episode-list a",".ep a",".episodes a",".mp-ep-btn"
+    ],
+    async getServers(epUrl) {
+      const { data } = await fetchWithRetry(epUrl);
+      const $ = cheerio.load(data);
+
+      let servers = [];
+
+      const main =
+        $("div.mpIframe iframe").attr("data-src") ||
+        $("div.mpIframe iframe").attr("src");
+
+      if (main) servers.push({ name:"Main", url:main });
+
+      $(".toolbar-item.mp-s-sl").each((i,el)=>{
+        const name=$(el).find(".item-text").text().trim();
+        const id=$(el).attr("data-id");
+        if (id) servers.push({ name:name||`Player ${i+1}`, url:id });
+      });
+
+      return servers;
+    }
+  },
+
+  // ======================
+  // 123HDTV
+  // ======================
+  "123hdtv.com": {
+    articleSelectors: [
+      ".grid-item",".item-movie",".movie","article"
+    ],
+    episodeSelectors: [
+      ".list-episode a",".episode-item a",".episodes a"
+    ],
+    async getServers(epUrl) {
+      const { data } = await fetchWithRetry(epUrl);
+      const $ = cheerio.load(data);
+      let servers = [];
+
+      $("iframe").each((i,el)=>{
+        const src=$(el).attr("data-src")||$(el).attr("src");
+        if (src) servers.push({ name:`Server ${i+1}`, url:src });
+      });
+
+      return servers;
+    }
+  }
+
+};
+
+// ==========================
+// SELECT HANDLER
+// ==========================
+function getHandler(url) {
+  const domain = getDomain(url);
+  return SiteHandlers[domain] || SiteHandlers.default;
+}
+
+// ==========================
+// AUTO DETECT HELPERS
+// ==========================
+function autoDetect($, selectors) {
+  for (const sel of selectors) {
+    const found = $(sel);
+    if (found.length>0) {
+      console.log("🔍 ใช้ selector:", sel);
+      return found;
+    }
+  }
+  return [];
+}
+
+function extractBasicInfo($, el) {
+  const title =
+    $(el).find(".entry-title,.title,h2,h3").first().text().trim();
+
+  const link=$(el).find("a").attr("href");
+  const image=$(el).find("img").attr("data-src")||
+               $(el).find("img").attr("src");
+
+  return { title, link, image };
+}
+
+// ==========================
+// FILE SIZE CONTROL
+// ==========================
+const MAX_FILE_SIZE = 5*1024*1024;
+
+// ==========================
+// MAIN
+// ==========================
+(async()=>{
+
+if(!fs.existsSync("data")) fs.mkdirSync("data");
+
+const progressFile = `data/${cat.slug}_progress.json`;
+
+let startPage = 1;
+
+if (fs.existsSync(progressFile)) {
+  const saved = JSON.parse(fs.readFileSync(progressFile));
+  startPage = saved.page || 1;
+  console.log("🔁 Resume จากหน้า", startPage);
+}
+
+let fileIndex=1;
+let currentData=[];
+let currentFilePath=`data/${cat.slug}_${fileIndex}.json`;
+
+const oldMap=new Map();
+
+const files = fs.readdirSync("data")
+  .filter(f =>
+    f.startsWith(cat.slug + "_") &&
+    f.endsWith(".json") &&
+    !f.includes("progress")
+  );
+
+for(const file of files){
+  const data=JSON.parse(fs.readFileSync(`data/${file}`));
+  data.forEach(m=>{
+    if(!m.episodes)m.episodes=[];
+    oldMap.set(m.link,m);
+  });
+}
+
+currentData=[...oldMap.values()];
+
+function saveWithSizeCheck(){
+  const json=JSON.stringify(currentData,null,2);
+  if(Buffer.byteLength(json)>MAX_FILE_SIZE){
+    const last=currentData.pop();
+    fs.writeFileSync(currentFilePath,
+      JSON.stringify(currentData,null,2));
+    fileIndex++;
+    currentFilePath=`data/${cat.slug}_${fileIndex}.json`;
+    currentData=[last];
+  }
+}
+
+const handler = getHandler(cat.url);
+
+//save auto
+setInterval(()=>{
+  if(currentData.length > 0){
+    fs.writeFileSync(
+      currentFilePath,
+      JSON.stringify(currentData,null,2)
+    );
+    console.log("💾 Auto save");
+  }
+}, 5*60*1000);
+
+//LOOP
+
+for(let page=startPage;page<=999;page++){
+
+  console.log("📄 หน้า",page);
+
+  let pageSuccess = false;   // ✅ เพิ่มตรงนี้
+
+  try{
+
+    const {data:catHtml}=
+      await fetchWithRetry(`${cat.url}/page/${page}`);
+
+    const $cat=cheerio.load(catHtml);
+
+    const articles=
+      autoDetect($cat, handler.articleSelectors).toArray();
+
+    if(articles.length===0){
+   console.log("ไม่มีข้อมูลแล้ว");
+
+   fs.writeFileSync(progressFile,
+     JSON.stringify({ page: page })
+   );
+
+   break;
+}
+
+    for(const el of articles){
+
+      const basic=extractBasicInfo($cat,el);
+      if(!basic.title) continue;
+
+      const link=normalizeUrl(basic.link);
+      if(!link) continue;
+
+      let movie = oldMap.get(link);
+
+      if (movie && movie.episodes && movie.episodes.length > 0) {
+        console.log("⏭ ข้ามเรื่อง (มีแล้ว):", movie.title);
+        continue;
+      }
+
+      if (!movie) {
+        movie = {
+          title: basic.title,
+          link,
+          image: basic.image,
+          episodes: []
+        };
+        currentData.push(movie);
+        oldMap.set(link, movie);
+        saveWithSizeCheck();
+      }
+
+      const {data:detailHtml}=
+        await fetchWithRetry(link);
+
+      const $detail=cheerio.load(detailHtml);
+
+      const epElements=
+        autoDetect($detail, handler.episodeSelectors).toArray();
+
+      for(const el2 of epElements){
+
+        const $a=$detail(el2);
+        let epLink=normalizeUrl($a.attr("href"));
+        if(!epLink) continue;
+
+        if(movie.episodes.find(x=>x.link===epLink)){
+          console.log("⛔ ตอนซ้ำ หยุดเรื่อง");
+          break;
+        }
+
+        console.log("↳ ดึงตอน:",$a.text().trim());
+
+        const siteHandler=getHandler(epLink);
+        const servers=
+          await siteHandler.getServers(epLink);
+
+        movie.episodes.push({
+          name:$a.text().trim(),
+          link:epLink,
+          servers
+        });
+
+        saveWithSizeCheck();
+        await randomDelay();
+      }
+
+      await randomDelay();
+    }
+
+    pageSuccess = true;   // ✅ หน้านี้ทำเสร็จครบแล้ว
+
+  }catch(err){
+    console.log("⚠️ ข้ามหน้า",page);
+  }
+
+  // ✅ เขียน progress เฉพาะตอนสำเร็จจริงเท่านั้น
+  if(pageSuccess){
+    fs.writeFileSync(
+      progressFile,
+      JSON.stringify({ page: page + 1 })
+    );
+
+    console.log("💾 บันทึก progress:", page + 1);
+  }
+
+  await randomDelay(1500,2500);
+}
+
+if(currentData.length>0){
+  fs.writeFileSync(currentFilePath,
+    JSON.stringify(currentData,null,2));
+}
+
+console.log("✅ เสร็จหมวด:",cat.name);
+
+
+
+})();
