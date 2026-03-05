@@ -1,0 +1,52 @@
+name: Test Categories Matrix
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  prepare:
+    runs-on: ubuntu-latest
+
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+    steps:
+
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Show categories.json
+        run: |
+          echo "===== categories.json ====="
+          cat categories.json
+
+      - name: Generate Matrix
+        id: set-matrix
+        run: |
+
+          MATRIX=$(node -e "
+          const cats=require('./categories.json');
+          console.log(JSON.stringify({
+            category: cats.map(c=>c.slug)
+          }));
+          ")
+
+          echo "Matrix Generated:"
+          echo $MATRIX
+
+          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
+
+
+  test-matrix:
+    needs: prepare
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+
+    steps:
+
+      - name: Show Category
+        run: |
+          echo "Running category: ${{ matrix.category }}"
