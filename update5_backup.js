@@ -169,17 +169,28 @@ function extractBasicInfo($, el) {
 // ==========================
 const MAX_FILE_SIZE = 5*1024*1024;
 
-
 function commitProgress(message){
   try{
+
     execSync("git config user.name 'github-actions'");
     execSync("git config user.email 'actions@github.com'");
+
     execSync("git add data");
-    execSync(`git commit -m "${message}"`);
+
+    try{
+      execSync(`git commit -m "${message}"`);
+    }catch{
+      console.log("ไม่มีการเปลี่ยนแปลง");
+      return;
+    }
+
+    execSync("git pull --rebase origin main");
     execSync("git push");
+
     console.log("🚀 pushed to github");
+
   }catch(err){
-    console.log("ไม่มีการเปลี่ยนแปลง");
+    console.log("⚠️ push error");
   }
 }
 
@@ -213,15 +224,47 @@ const files = fs.readdirSync("data")
     !f.includes("progress")
   );
 
+if(files.length>0){
+
+  const indexes = files
+    .map(f => {
+      const m = f.match(/_(\d+)\.json/);
+      return m ? parseInt(m[1]) : 1;
+    });
+
+  fileIndex = Math.max(...indexes);
+
+  currentFilePath = `data/${cat.slug}_${fileIndex}.json`;
+
+}
+
 for(const file of files){
-  const data=JSON.parse(fs.readFileSync(`data/${file}`));
+  let data = [];
+
+try{
+  data = JSON.parse(fs.readFileSync(`data/${file}`));
+}catch(e){
+  console.log("⚠️ json error:", file);
+}
   data.forEach(m=>{
     if(!m.episodes)m.episodes=[];
     oldMap.set(m.link,m);
   });
 }
 
-currentData=[...oldMap.values()];
+if (fs.existsSync(currentFilePath)) {
+  try {
+    currentData = JSON.parse(fs.readFileSync(currentFilePath));
+  } catch {
+    currentData = [];
+  }
+} else {
+  currentData = [];
+}
+
+currentData.forEach(m=>{
+  oldMap.set(m.link,m);
+});
 
 function saveWithSizeCheck(){
   const json = JSON.stringify(currentData, null, 2);
@@ -249,6 +292,8 @@ function saveWithSizeCheck(){
 
 const handler = getHandler(cat.url);
 let finished = false;
+let episodeCounter = 0;
+
 //save auto
 setInterval(()=>{
   if(currentData.length > 0){
@@ -262,42 +307,43 @@ setInterval(()=>{
 
 //LOOP
 
-for(let page=startPage;page<=999;page++){
+for (let page = startPage; page <= 999; page++) {
 
-  console.log("📄 หน้า",page);
+  console.log("📄 หน้า", page);
 
-  let pageSuccess = false;   // ✅ เพิ่มตรงนี้
+  let pageSuccess = false;
 
-  try{
+  try {
 
-    const {data:catHtml}=
+    const { data: catHtml } =
       await fetchWithRetry(`${cat.url}/page/${page}`);
 
-    const $cat=cheerio.load(catHtml);
+    const $cat = cheerio.load(catHtml);
 
-    const articles=
+    const articles =
       autoDetect($cat, handler.articleSelectors).toArray();
 
-    if(articles.length===0){
-  
-   console.log("ไม่มีข้อมูลแล้ว");
+    if (articles.length === 0) {
 
-   finished = true;   // ✅ เพิ่มบรรทัดนี้
+      console.log("ไม่มีข้อมูลแล้ว");
 
-   fs.writeFileSync(progressFile,
-     JSON.stringify({ page: page })
-   );
+      finished = true;
 
-   break;
-}
+      fs.writeFileSync(
+        progressFile,
+        JSON.stringify({ page: page })
+      );
 
-    for(const el of articles){
+      break;
+    }
 
-      const basic=extractBasicInfo($cat,el);
-      if(!basic.title) continue;
+    for (const el of articles) {
 
-      const link=normalizeUrl(basic.link);
-      if(!link) continue;
+      const basic = extractBasicInfo($cat, el);
+      if (!basic.title) continue;
+
+      const link = normalizeUrl(basic.link);
+      if (!link) continue;
 
       let movie = oldMap.get(link);
 
@@ -310,72 +356,98 @@ for(let page=startPage;page<=999;page++){
         movie = {
           title: basic.title,
           link,
-          image: basic.image,
+          image: basic.image || "",
           episodes: []
         };
+
         currentData.push(movie);
         oldMap.set(link, movie);
         saveWithSizeCheck();
       }
 
-      const {data:detailHtml}=
+      const { data: detailHtml } =
         await fetchWithRetry(link);
 
-      const $detail=cheerio.load(detailHtml);
+      const $detail = cheerio.load(detailHtml);
 
-      const epElements=
+      const epElements =
         autoDetect($detail, handler.episodeSelectors).toArray();
 
-      for(const el2 of epElements){
+      for (const el2 of epElements) {
 
-        const $a=$detail(el2);
-        let epLink=normalizeUrl($a.attr("href"));
-        if(!epLink) continue;
+        const $a = $detail(el2);
 
-        if(movie.episodes.find(x=>x.link===epLink)){
+        let epLink = normalizeUrl($a.attr("href"));
+        if (!epLink) continue;
+
+        if (movie.episodes.find(x => x.link === epLink)) {
           console.log("⛔ ตอนซ้ำ หยุดเรื่อง");
           break;
         }
 
-        console.log("↳ ดึงตอน:",$a.text().trim());
+        console.log("↳ ดึงตอน:", $a.text().trim());
 
-        const siteHandler=getHandler(epLink);
-        const servers=
-          await siteHandler.getServers(epLink);
+        const siteHandler = getHandler(epLink);
+
+        let servers = [];
+
+        try {
+          servers = await siteHandler.getServers(epLink);
+        } catch (err) {
+          console.log("⚠️ server error:", epLink);
+        }
 
         movie.episodes.push({
-          name:$a.text().trim(),
-          link:epLink,
+          name: $a.text().trim(),
+          link: epLink,
           servers
         });
 
+        episodeCounter++;
+
         saveWithSizeCheck();
+
+        if (episodeCounter % 50 === 0) {
+
+          console.log("🚀 commit partial");
+
+          commitProgress(
+            `update ${cat.slug} episodes ${episodeCounter}`
+          );
+        }
+
         await randomDelay();
       }
 
-      await randomDelay();
     }
 
-    pageSuccess = true;   // ✅ หน้านี้ทำเสร็จครบแล้ว
+    pageSuccess = true;
 
-  }catch(err){
-    console.log("⚠️ ข้ามหน้า",page);
+  } catch (err) {
+
+    console.log("⚠️ ข้ามหน้า", page);
+
   }
 
-  // ✅ เขียน progress เฉพาะตอนสำเร็จจริงเท่านั้น
-  if(pageSuccess){
+  if (pageSuccess) {
 
-  fs.writeFileSync(
-    progressFile,
-    JSON.stringify({ page: page + 1 })
-  );
+    saveWithSizeCheck();
 
-  console.log("💾 บันทึก progress:", page + 1);
+    commitProgress(
+      `update ${cat.slug} page ${page}`
+    );
 
-  commitProgress(`update ${cat.slug} page ${page}`);
-}
+    fs.writeFileSync(
+      progressFile,
+      JSON.stringify({ page: page + 1 })
+    );
 
-  await randomDelay(1500,2500);
+    console.log("💾 บันทึก progress:", page + 1);
+
+  }
+
+  await randomDelay(1500, 2500);
+
 }
 
 if(currentData.length>0){
