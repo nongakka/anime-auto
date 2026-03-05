@@ -2,6 +2,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
 const { URL } = require("url");
+const { execSync } = require("child_process");
 
 const categories = JSON.parse(fs.readFileSync("categories.json"));
 
@@ -167,6 +168,20 @@ function extractBasicInfo($, el) {
 // FILE SIZE CONTROL
 // ==========================
 const MAX_FILE_SIZE = 5*1024*1024;
+
+
+function commitProgress(message){
+  try{
+    execSync("git config user.name 'github-actions'");
+    execSync("git config user.email 'actions@github.com'");
+    execSync("git add data/*.json");
+    execSync(`git commit -m "${message}"`);
+    execSync("git push");
+    console.log("🚀 pushed to github");
+  }catch(err){
+    console.log("ไม่มีการเปลี่ยนแปลง");
+  }
+}
 
 // ==========================
 // MAIN
@@ -346,13 +361,16 @@ for(let page=startPage;page<=999;page++){
 
   // ✅ เขียน progress เฉพาะตอนสำเร็จจริงเท่านั้น
   if(pageSuccess){
-    fs.writeFileSync(
-      progressFile,
-      JSON.stringify({ page: page + 1 })
-    );
 
-    console.log("💾 บันทึก progress:", page + 1);
-  }
+  fs.writeFileSync(
+    progressFile,
+    JSON.stringify({ page: page + 1 })
+  );
+
+  console.log("💾 บันทึก progress:", page + 1);
+
+  commitProgress(`update ${cat.slug} page ${page}`);
+}
 
   await randomDelay(1500,2500);
 }
