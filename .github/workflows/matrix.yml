@@ -1,4 +1,4 @@
-name: Daily Update
+name: matrix Update
 
 permissions:
   contents: write
