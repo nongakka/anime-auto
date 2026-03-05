@@ -8,7 +8,6 @@ on:
     - cron: '0 19 * * *'
   workflow_dispatch:
 
-# 🔒 ป้องกันรันซ้อนกันเอง
 concurrency:
   group: daily-update
   cancel-in-progress: false
@@ -16,12 +15,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false
-      max-parallel: 2   # 🔥 จำกัดรันพร้อมกันแค่ 2 หมวด
-      matrix:
-        category: [thai, subthai, china, thai2, movie, end, noend]
+    timeout-minutes: 180   # กันค้างยาวเกินไป (3 ชม.)
 
     steps:
       - name: Checkout
@@ -35,15 +29,31 @@ jobs:
           node-version: 20
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run Scraper
-        run: node update5.js ${{ matrix.category }}
+      # 🔥 รันทีละหมวดแบบปลอดภัย
+      - name: Run Scrapers
+        run: |
+          node update5.js thai
+          node update5.js subthai
+          node update5.js china
+          node update5.js thai2
+          node update5.js movie
+          node update5.js end
+          node update5.js noend
 
-      - name: Commit if changed
+      # ✅ Commit เฉพาะ data เท่านั้น
+      - name: Commit & Push if changed
         run: |
           git config --global user.name "auto-bot"
           git config --global user.email "auto@bot.com"
-          git add .
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto update ${{ matrix.category }}"
-          git push
+
+          git add data/*.json
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto daily update"
+            git pull --rebase origin main
+            git push
+          fi
