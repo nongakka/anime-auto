@@ -307,42 +307,43 @@ setInterval(()=>{
 
 //LOOP
 
-for(let page=startPage;page<=999;page++){
+for (let page = startPage; page <= 999; page++) {
 
-  console.log("📄 หน้า",page);
+  console.log("📄 หน้า", page);
 
-  let pageSuccess = false;   // ✅ เพิ่มตรงนี้
+  let pageSuccess = false;
 
-  try{
+  try {
 
-    const {data:catHtml}=
+    const { data: catHtml } =
       await fetchWithRetry(`${cat.url}/page/${page}`);
 
-    const $cat=cheerio.load(catHtml);
+    const $cat = cheerio.load(catHtml);
 
-    const articles=
+    const articles =
       autoDetect($cat, handler.articleSelectors).toArray();
 
-    if(articles.length===0){
-  
-   console.log("ไม่มีข้อมูลแล้ว");
+    if (articles.length === 0) {
 
-   finished = true;   // ✅ เพิ่มบรรทัดนี้
+      console.log("ไม่มีข้อมูลแล้ว");
 
-   fs.writeFileSync(progressFile,
-     JSON.stringify({ page: page })
-   );
+      finished = true;
 
-   break;
-}
+      fs.writeFileSync(
+        progressFile,
+        JSON.stringify({ page: page })
+      );
 
-    for(const el of articles){
+      break;
+    }
 
-      const basic=extractBasicInfo($cat,el);
-      if(!basic.title) continue;
+    for (const el of articles) {
 
-      const link=normalizeUrl(basic.link);
-      if(!link) continue;
+      const basic = extractBasicInfo($cat, el);
+      if (!basic.title) continue;
+
+      const link = normalizeUrl(basic.link);
+      if (!link) continue;
 
       let movie = oldMap.get(link);
 
@@ -358,88 +359,95 @@ for(let page=startPage;page<=999;page++){
           image: basic.image || "",
           episodes: []
         };
+
         currentData.push(movie);
         oldMap.set(link, movie);
         saveWithSizeCheck();
       }
 
-      const {data:detailHtml}=
+      const { data: detailHtml } =
         await fetchWithRetry(link);
 
-      const $detail=cheerio.load(detailHtml);
+      const $detail = cheerio.load(detailHtml);
 
-      const epElements=
+      const epElements =
         autoDetect($detail, handler.episodeSelectors).toArray();
 
-      for(const el2 of epElements){
+      for (const el2 of epElements) {
 
-        const $a=$detail(el2);
-        let epLink=normalizeUrl($a.attr("href"));
-        if(!epLink) continue;
+        const $a = $detail(el2);
 
-        if(movie.episodes.find(x=>x.link===epLink)){
+        let epLink = normalizeUrl($a.attr("href"));
+        if (!epLink) continue;
+
+        if (movie.episodes.find(x => x.link === epLink)) {
           console.log("⛔ ตอนซ้ำ หยุดเรื่อง");
           break;
         }
 
-        console.log("↳ ดึงตอน:",$a.text().trim());
+        console.log("↳ ดึงตอน:", $a.text().trim());
 
-        const siteHandler=getHandler(epLink);
-        
-	let servers = [];
+        const siteHandler = getHandler(epLink);
 
-	try{
-  	  servers = await siteHandler.getServers(epLink);
-	}catch(err){
-  	  console.log("⚠️ server error:", epLink);
-	}
+        let servers = [];
+
+        try {
+          servers = await siteHandler.getServers(epLink);
+        } catch (err) {
+          console.log("⚠️ server error:", epLink);
+        }
 
         movie.episodes.push({
-  name:$a.text().trim(),
-  link:epLink,
-  servers
-});
+          name: $a.text().trim(),
+          link: epLink,
+          servers
+        });
 
-episodeCounter++;   // ✅ เพิ่ม
+        episodeCounter++;
 
-saveWithSizeCheck();
+        saveWithSizeCheck();
 
-if(episodeCounter % 20 === 0){   // ✅ เพิ่ม
-  console.log("🚀 commit partial");
-  commitProgress(
-    `update ${cat.slug} episodes ${episodeCounter}`
-  );
-}
+        if (episodeCounter % 20 === 0) {
 
-await randomDelay();
-}
+          console.log("🚀 commit partial");
 
+          commitProgress(
+            `update ${cat.slug} episodes ${episodeCounter}`
+          );
+        }
 
-    pageSuccess = true;   // ✅ หน้านี้ทำเสร็จครบแล้ว
+        await randomDelay();
+      }
 
-  }catch(err){
-    console.log("⚠️ ข้ามหน้า",page);
+    }
+
+    pageSuccess = true;
+
+  } catch (err) {
+
+    console.log("⚠️ ข้ามหน้า", page);
+
   }
 
-  // ✅ เขียน progress เฉพาะตอนสำเร็จจริงเท่านั้น
-  if(pageSuccess){
+  if (pageSuccess) {
 
-  saveWithSizeCheck();
+    saveWithSizeCheck();
 
-  commitProgress(
-    `update ${cat.slug} page ${page}`
-  );
+    commitProgress(
+      `update ${cat.slug} page ${page}`
+    );
 
-  fs.writeFileSync(
-    progressFile,
-    JSON.stringify({ page: page + 1 })
-  );
+    fs.writeFileSync(
+      progressFile,
+      JSON.stringify({ page: page + 1 })
+    );
 
-  console.log("💾 บันทึก progress:", page + 1);
+    console.log("💾 บันทึก progress:", page + 1);
 
-}
+  }
 
-  await randomDelay(1500,2500);
+  await randomDelay(1500, 2500);
+
 }
 
 if(currentData.length>0){
