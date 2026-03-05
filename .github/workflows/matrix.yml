@@ -101,22 +101,26 @@ jobs:
           git config --global user.name "auto-bot"
           git config --global user.email "auto@bot.com"
 
-          git add data/*.json
+          git add data/*.json || true
 
           if git diff --staged --quiet; then
             echo "No changes"
           else
             git commit -m "update ${{ matrix.category }}"
-            git pull --rebase origin main
-            git push
-          fi
 
+            # retry push
+            for i in {1..5}; do
+              git pull --rebase origin main && git push && break
+              echo "Retry push..."
+              sleep 5
+            done
+          fi
 
       # --------------------------------
       # ยิงรันต่อ
       # --------------------------------
       - name: Trigger Next Run
-        if: steps.scraper_step.outputs.continue == 'true'
+        if: steps.scraper_step.outputs.continue == 'true' && strategy.job-index == 0
         run: |
           gh workflow run "Daily Update"
         env:
