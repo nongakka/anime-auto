@@ -1,0 +1,128 @@
+name: Daily Update
+
+permissions:
+  contents: write
+  actions: write
+
+on:
+  schedule:
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: daily-update
+  cancel-in-progress: false
+
+
+jobs:
+
+  # --------------------------------
+  # STEP 1
+  # อ่าน categories.json
+  # --------------------------------
+  prepare:
+    runs-on: ubuntu-latest
+
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - name: Generate Matrix
+        id: set-matrix
+        run: |
+
+          MATRIX=$(node -e "
+          const cats=require('./categories.json');
+          console.log(JSON.stringify({
+            category: cats.map(c=>c.slug)
+          }));
+          ")
+
+          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
+
+
+  # --------------------------------
+  # STEP 2
+  # รัน scraper หลายหมวด
+  # --------------------------------
+  update:
+
+    needs: prepare
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+
+      - name: Install Dependencies
+        run: npm ci
+
+
+      # 🔥 รัน scraper
+      - name: Run Scraper
+        id: scraper_step
+        run: |
+
+          echo "RUN CATEGORY: ${{ matrix.category }}"
+
+          node update5.js ${{ matrix.category }} > output.txt
+
+          cat output.txt
+
+          if grep -q "SCRAPER_STATUS:IN_PROGRESS" output.txt; then
+            echo "continue=true" >> $GITHUB_OUTPUT
+          else
+            echo "continue=false" >> $GITHUB_OUTPUT
+          fi
+
+
+      # --------------------------------
+      # commit data
+      # --------------------------------
+      - name: Commit & Push if changed
+        run: |
+
+          git config --global user.name "auto-bot"
+          git config --global user.email "auto@bot.com"
+
+          git add data/*.json
+
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "update ${{ matrix.category }}"
+            git pull --rebase origin main
+            git push
+          fi
+
+
+      # --------------------------------
+      # ยิงรันต่อ
+      # --------------------------------
+      - name: Trigger Next Run
+        if: steps.scraper_step.outputs.continue == 'true'
+        run: |
+          gh workflow run "Daily Update"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
