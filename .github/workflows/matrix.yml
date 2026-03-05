@@ -13,7 +13,6 @@ concurrency:
   group: daily-update
   cancel-in-progress: false
 
-
 jobs:
 
   # --------------------------------
@@ -33,7 +32,6 @@ jobs:
       - name: Generate Matrix
         id: set-matrix
         run: |
-
           MATRIX=$(node -e "
           const cats=require('./categories.json');
           console.log(JSON.stringify({
@@ -51,7 +49,6 @@ jobs:
   update:
 
     needs: prepare
-
     runs-on: ubuntu-latest
     timeout-minutes: 355
 
@@ -86,9 +83,7 @@ jobs:
 
           echo "RUN CATEGORY: ${{ matrix.category }}"
 
-          node update5.js ${{ matrix.category }} > output.txt
-
-          cat output.txt
+          node update5.js ${{ matrix.category }} | tee output.txt
 
           if grep -q "SCRAPER_STATUS:IN_PROGRESS" output.txt; then
             echo "continue=true" >> $GITHUB_OUTPUT
