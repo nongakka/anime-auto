@@ -321,7 +321,7 @@ setInterval(()=>{
 
 //LOOP
 
-for (let page = startPage; page <= 999; page++) {
+for (let page = startPage; page <= 200; page++) {
 
   // ⭐ เพิ่มตรงนี้
   fs.writeFileSync(
