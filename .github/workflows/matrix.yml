@@ -122,6 +122,6 @@ jobs:
       - name: Trigger Next Run
         if: steps.scraper_step.outputs.continue == 'true' && strategy.job-index == 0
         run: |
-          gh workflow run "matrix Update"
+          gh workflow run matrix.yml
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
