@@ -5,49 +5,50 @@ permissions:
   actions: write
 
 on:
-  schedule:
-    - cron: '0 19 * * *'
   workflow_dispatch:
+  schedule:
+    - cron: "0 19 * * *"
 
 concurrency:
-  group: daily-update
+  group: scraper
   cancel-in-progress: false
 
 jobs:
 
-# --------------------------------
-# STEP 1
-# อ่าน categories.json
-# --------------------------------
+# -----------------------------
+# PREPARE MATRIX
+# -----------------------------
+
   prepare:
+
     runs-on: ubuntu-latest
 
     outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      matrix: ${{ steps.set.outputs.matrix }}
 
     steps:
 
       - uses: actions/checkout@v4
 
       - name: Generate Matrix
-        id: set-matrix
+        id: set
         run: |
 
-          MATRIX=$(node -e "
-          const cats=require('./categories.json');
+          MATRIX=$(node -e '
+          const cats=require("./data/categories.json");
           console.log(JSON.stringify({
             category: cats.map(c=>c.slug)
           }));
-          ")
+          ')
 
           echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
 
 
-# --------------------------------
-# STEP 2
-# scraper
-# --------------------------------
-  update:
+# -----------------------------
+# SCRAPER
+# -----------------------------
+
+  scraper:
 
     needs: prepare
     runs-on: ubuntu-latest
@@ -55,7 +56,7 @@ jobs:
 
     strategy:
       fail-fast: false
-      max-parallel: 3
+      max-parallel: 2
       matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
 
     steps:
@@ -63,7 +64,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: true
 
       - uses: actions/setup-node@v4
         with:
@@ -72,59 +72,57 @@ jobs:
       - name: Install
         run: npm ci
 
-
-# -------------------------------
-# RUN SCRAPER
-# -------------------------------
       - name: Run Scraper
-        id: scraper
+        env:
+          CATEGORY: ${{ matrix.category }}
         run: |
 
-          echo "RUN CATEGORY: ${{ matrix.category }}"
+          echo "CATEGORY: $CATEGORY"
 
-          node update5.js ${{ matrix.category }} | tee output.txt
+          node update.js "$CATEGORY"
 
-          if grep -q "SCRAPER_STATUS:IN_PROGRESS" output.txt; then
-            echo "continue=true" >> $GITHUB_OUTPUT
-          else
-            echo "continue=false" >> $GITHUB_OUTPUT
-          fi
-
-
-# -------------------------------
-# COMMIT
-# -------------------------------
       - name: Commit Data
         run: |
 
           git config --global user.name "auto-bot"
-          git config --global user.email "auto@bot.com"
+          git config --global user.email "bot@github.com"
 
-          git add data/*.json progress.json || true
+          git add data || true
 
-          if git diff --staged --quiet; then
-            echo "No changes"
+          if git diff --staged --quiet
+          then
+            echo "no change"
           else
+
             git commit -m "update ${{ matrix.category }}"
 
             for i in {1..5}; do
               git pull --rebase origin main && git push && break
-              echo "Retry push..."
+              echo "retry push"
               sleep 5
             done
+
           fi
 
 
-# -------------------------------
-# TRIGGER NEXT RUN
-# -------------------------------
+# -----------------------------
+# AUTO CONTINUE
+# -----------------------------
+
+  restart:
+
+    needs: scraper
+    runs-on: ubuntu-latest
+
+    if: always()
+
+    steps:
+
       - name: Trigger Next Run
-        if: steps.scraper.outputs.continue == 'true'
-        run: |
-
-          echo "Trigger next workflow..."
-
-          gh workflow run matrix.yml
-
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+
+          echo "restart workflow"
+
+          gh workflow run matrix.yml
