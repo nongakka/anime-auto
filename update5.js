@@ -174,7 +174,7 @@ function commitProgress(message){
   try{
     execSync("git config user.name 'github-actions'");
     execSync("git config user.email 'actions@github.com'");
-    execSync("git add data/*.json");
+    execSync("git add data");
     execSync(`git commit -m "${message}"`);
     execSync("git push");
     console.log("🚀 pushed to github");
