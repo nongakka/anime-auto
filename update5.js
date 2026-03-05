@@ -407,7 +407,7 @@ for (let page = startPage; page <= 999; page++) {
 
         saveWithSizeCheck();
 
-        if (episodeCounter % 20 === 0) {
+        if (episodeCounter % 50 === 0) {
 
           console.log("🚀 commit partial");
 
