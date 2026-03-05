@@ -15,10 +15,10 @@ concurrency:
 
 jobs:
 
-  # --------------------------------
-  # STEP 1
-  # อ่าน categories.json
-  # --------------------------------
+# --------------------------------
+# STEP 1
+# อ่าน categories.json
+# --------------------------------
   prepare:
     runs-on: ubuntu-latest
 
@@ -32,6 +32,7 @@ jobs:
       - name: Generate Matrix
         id: set-matrix
         run: |
+
           MATRIX=$(node -e "
           const cats=require('./categories.json');
           console.log(JSON.stringify({
@@ -42,10 +43,10 @@ jobs:
           echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
 
 
-  # --------------------------------
-  # STEP 2
-  # รัน scraper หลายหมวด
-  # --------------------------------
+# --------------------------------
+# STEP 2
+# scraper
+# --------------------------------
   update:
 
     needs: prepare
@@ -59,26 +60,24 @@ jobs:
 
     steps:
 
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: true
 
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-
-      - name: Install Dependencies
+      - name: Install
         run: npm ci
 
 
-      # 🔥 รัน scraper
+# -------------------------------
+# RUN SCRAPER
+# -------------------------------
       - name: Run Scraper
-        id: scraper_step
+        id: scraper
         run: |
 
           echo "RUN CATEGORY: ${{ matrix.category }}"
@@ -92,23 +91,22 @@ jobs:
           fi
 
 
-      # --------------------------------
-      # commit data
-      # --------------------------------
-      - name: Commit & Push if changed
+# -------------------------------
+# COMMIT
+# -------------------------------
+      - name: Commit Data
         run: |
 
           git config --global user.name "auto-bot"
           git config --global user.email "auto@bot.com"
 
-          git add data/*.json || true
+          git add data/*.json progress.json || true
 
           if git diff --staged --quiet; then
             echo "No changes"
           else
             git commit -m "update ${{ matrix.category }}"
 
-            # retry push
             for i in {1..5}; do
               git pull --rebase origin main && git push && break
               echo "Retry push..."
@@ -116,12 +114,17 @@ jobs:
             done
           fi
 
-      # --------------------------------
-      # ยิงรันต่อ
-      # --------------------------------
+
+# -------------------------------
+# TRIGGER NEXT RUN
+# -------------------------------
       - name: Trigger Next Run
-        if: steps.scraper_step.outputs.continue == 'true' && strategy.job-index == 0
+        if: steps.scraper.outputs.continue == 'true'
         run: |
+
+          echo "Trigger next workflow..."
+
           gh workflow run matrix.yml
+
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
