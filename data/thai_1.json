@@ -92066,6 +92066,42 @@
             "url": "//ok.ru/videoembed/4819548310033"
           }
         ]
+      },
+      {
+        "name": "Black Clover แบล็คโคลเวอร์ Season 2 พากย์ไทย ตอนที่ 101",
+        "link": "https://anime-good.com/watch/black-clover-season-2-ep-101",
+        "servers": [
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/83pfNl58/"
+          },
+          {
+            "name": "Player 1",
+            "url": "https://moji.team-indy.net/embed/83pfNl58/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://anime-infy.com/embed/83pfNl58/"
+          }
+        ]
+      },
+      {
+        "name": "Black Clover แบล็คโคลเวอร์ Season 2 พากย์ไทย ตอนที่ 102",
+        "link": "https://anime-good.com/watch/black-clover-season-2-ep-102",
+        "servers": [
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/Bo8blyvS/"
+          },
+          {
+            "name": "Player 1",
+            "url": "https://moji.team-indy.net/embed/Bo8blyvS/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://anime-infy.com/embed/Bo8blyvS/"
+          }
+        ]
       }
     ]
   }
