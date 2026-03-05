@@ -2,6 +2,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
 const { URL } = require("url");
+const { execSync } = require("child_process");
 
 const categories = JSON.parse(fs.readFileSync("categories.json"));
 
@@ -168,6 +169,31 @@ function extractBasicInfo($, el) {
 // ==========================
 const MAX_FILE_SIZE = 5*1024*1024;
 
+function commitProgress(message){
+  try{
+
+    execSync("git config user.name 'github-actions'");
+    execSync("git config user.email 'actions@github.com'");
+
+    execSync("git add data");
+
+    try{
+      execSync(`git commit -m "${message}"`);
+    }catch{
+      console.log("ไม่มีการเปลี่ยนแปลง");
+      return;
+    }
+
+    execSync("git pull --rebase origin main");
+    execSync("git push");
+
+    console.log("🚀 pushed to github");
+
+  }catch(err){
+    console.log("⚠️ push error");
+  }
+}
+
 // ==========================
 // MAIN
 // ==========================
@@ -175,42 +201,117 @@ const MAX_FILE_SIZE = 5*1024*1024;
 
 if(!fs.existsSync("data")) fs.mkdirSync("data");
 
+const progressFile = `data/${cat.slug}_progress.json`;
+
+let startPage = 1;
+
+if (fs.existsSync(progressFile)) {
+  const saved = JSON.parse(fs.readFileSync(progressFile));
+  startPage = saved.page || 1;
+  console.log("🔁 Resume จากหน้า", startPage);
+}
+
 let fileIndex=1;
 let currentData=[];
 let currentFilePath=`data/${cat.slug}_${fileIndex}.json`;
 
 const oldMap=new Map();
 
-const files=fs.readdirSync("data")
-  .filter(f=>f.startsWith(cat.slug+"_"));
+const files = fs.readdirSync("data")
+  .filter(f =>
+    f.startsWith(cat.slug + "_") &&
+    f.endsWith(".json") &&
+    !f.includes("progress")
+  );
+
+if(files.length>0){
+
+  const indexes = files
+    .map(f => {
+      const m = f.match(/_(\d+)\.json/);
+      return m ? parseInt(m[1]) : 1;
+    });
+
+  fileIndex = Math.max(...indexes);
+
+  currentFilePath = `data/${cat.slug}_${fileIndex}.json`;
+
+}
 
 for(const file of files){
-  const data=JSON.parse(fs.readFileSync(`data/${file}`));
+  let data = [];
+
+try{
+  data = JSON.parse(fs.readFileSync(`data/${file}`));
+}catch(e){
+  console.log("⚠️ json error:", file);
+}
   data.forEach(m=>{
     if(!m.episodes)m.episodes=[];
     oldMap.set(m.link,m);
   });
 }
 
-currentData=[...oldMap.values()];
+if (fs.existsSync(currentFilePath)) {
+  try {
+    currentData = JSON.parse(fs.readFileSync(currentFilePath));
+  } catch {
+    currentData = [];
+  }
+} else {
+  currentData = [];
+}
+
+currentData.forEach(m=>{
+  oldMap.set(m.link,m);
+});
 
 function saveWithSizeCheck(){
-  const json=JSON.stringify(currentData,null,2);
-  if(Buffer.byteLength(json)>MAX_FILE_SIZE){
-    const last=currentData.pop();
-    fs.writeFileSync(currentFilePath,
-      JSON.stringify(currentData,null,2));
+  const json = JSON.stringify(currentData, null, 2);
+
+  if (Buffer.byteLength(json) > MAX_FILE_SIZE) {
+
+    const last = currentData.pop();
+
+    fs.writeFileSync(
+      currentFilePath,
+      JSON.stringify(currentData, null, 2)
+    );
+
     fileIndex++;
-    currentFilePath=`data/${cat.slug}_${fileIndex}.json`;
-    currentData=[last];
+    currentFilePath = `data/${cat.slug}_${fileIndex}.json`;
+    currentData = [last];
+
+  } else {
+
+    // ✅ เพิ่มบรรทัดนี้เข้าไป
+    fs.writeFileSync(currentFilePath, json);
+
   }
 }
 
 const handler = getHandler(cat.url);
+let finished = false;
+let episodeCounter = 0;
 
-for(let page=1;page<=999;page++){
+//save auto
+setInterval(()=>{
+  if(currentData.length > 0){
+    fs.writeFileSync(
+      currentFilePath,
+      JSON.stringify(currentData,null,2)
+    );
+    console.log("💾 Auto save");
+  }
+}, 5*60*1000);
+
+//LOOP
+
+for(let page=startPage;page<=999;page++){
 
   console.log("📄 หน้า",page);
+
+  let pageSuccess = false;   // ✅ เพิ่มตรงนี้
 
   try{
 
@@ -223,9 +324,17 @@ for(let page=1;page<=999;page++){
       autoDetect($cat, handler.articleSelectors).toArray();
 
     if(articles.length===0){
-      console.log("ไม่มีข้อมูลแล้ว");
-      break;
-    }
+  
+   console.log("ไม่มีข้อมูลแล้ว");
+
+   finished = true;   // ✅ เพิ่มบรรทัดนี้
+
+   fs.writeFileSync(progressFile,
+     JSON.stringify({ page: page })
+   );
+
+   break;
+}
 
     for(const el of articles){
 
@@ -235,17 +344,22 @@ for(let page=1;page<=999;page++){
       const link=normalizeUrl(basic.link);
       if(!link) continue;
 
-      let movie=oldMap.get(link);
+      let movie = oldMap.get(link);
 
-      if(!movie){
-        movie={
-          title:basic.title,
+      if (movie && movie.episodes && movie.episodes.length > 0) {
+        console.log("⏭ ข้ามเรื่อง (มีแล้ว):", movie.title);
+        continue;
+      }
+
+      if (!movie) {
+        movie = {
+          title: basic.title,
           link,
-          image:basic.image,
-          episodes:[]
+          image: basic.image || "",
+          episodes: []
         };
         currentData.push(movie);
-        oldMap.set(link,movie);
+        oldMap.set(link, movie);
         saveWithSizeCheck();
       }
 
@@ -260,7 +374,6 @@ for(let page=1;page<=999;page++){
       for(const el2 of epElements){
 
         const $a=$detail(el2);
-
         let epLink=normalizeUrl($a.attr("href"));
         if(!epLink) continue;
 
@@ -272,26 +385,59 @@ for(let page=1;page<=999;page++){
         console.log("↳ ดึงตอน:",$a.text().trim());
 
         const siteHandler=getHandler(epLink);
+        
+	let servers = [];
 
-        const servers=
-          await siteHandler.getServers(epLink);
+	try{
+  	  servers = await siteHandler.getServers(epLink);
+	}catch(err){
+  	  console.log("⚠️ server error:", epLink);
+	}
 
         movie.episodes.push({
-          name:$a.text().trim(),
-          link:epLink,
-          servers
-        });
+  name:$a.text().trim(),
+  link:epLink,
+  servers
+});
 
-        saveWithSizeCheck();
-        await randomDelay();
-      }
+episodeCounter++;   // ✅ เพิ่ม
 
-      await randomDelay();
-    }
+saveWithSizeCheck();
+
+if(episodeCounter % 20 === 0){   // ✅ เพิ่ม
+  console.log("🚀 commit partial");
+  commitProgress(
+    `update ${cat.slug} episodes ${episodeCounter}`
+  );
+}
+
+await randomDelay();
+}
+
+
+    pageSuccess = true;   // ✅ หน้านี้ทำเสร็จครบแล้ว
 
   }catch(err){
     console.log("⚠️ ข้ามหน้า",page);
   }
+
+  // ✅ เขียน progress เฉพาะตอนสำเร็จจริงเท่านั้น
+  if(pageSuccess){
+
+  saveWithSizeCheck();
+
+  commitProgress(
+    `update ${cat.slug} page ${page}`
+  );
+
+  fs.writeFileSync(
+    progressFile,
+    JSON.stringify({ page: page + 1 })
+  );
+
+  console.log("💾 บันทึก progress:", page + 1);
+
+}
 
   await randomDelay(1500,2500);
 }
@@ -300,7 +446,13 @@ if(currentData.length>0){
   fs.writeFileSync(currentFilePath,
     JSON.stringify(currentData,null,2));
 }
-
+if (finished) {
+  console.log("SCRAPER_STATUS:FINISHED");
+} else {
+  console.log("SCRAPER_STATUS:IN_PROGRESS");
+}
 console.log("✅ เสร็จหมวด:",cat.name);
+
+
 
 })();
