@@ -113,18 +113,20 @@ jobs:
               sleep 5
             done
           fi
+      
+      - name: Install GitHub CLI
+        run: |
+          sudo apt update
+          sudo apt install gh -y
 
 
-# -------------------------------
-# TRIGGER NEXT RUN
-# -------------------------------
       - name: Trigger Next Run
         if: steps.scraper.outputs.continue == 'true'
         run: |
 
           echo "Trigger next workflow..."
 
-          gh workflow run matrix.yml
+          gh workflow run matrix.yml --repo ${{ github.repository }}
 
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
