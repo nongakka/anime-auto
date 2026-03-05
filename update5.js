@@ -209,14 +209,26 @@ for(const file of files){
 currentData=[...oldMap.values()];
 
 function saveWithSizeCheck(){
-  const json=JSON.stringify(currentData,null,2);
-  if(Buffer.byteLength(json)>MAX_FILE_SIZE){
-    const last=currentData.pop();
-    fs.writeFileSync(currentFilePath,
-      JSON.stringify(currentData,null,2));
+  const json = JSON.stringify(currentData, null, 2);
+
+  if (Buffer.byteLength(json) > MAX_FILE_SIZE) {
+
+    const last = currentData.pop();
+
+    fs.writeFileSync(
+      currentFilePath,
+      JSON.stringify(currentData, null, 2)
+    );
+
     fileIndex++;
-    currentFilePath=`data/${cat.slug}_${fileIndex}.json`;
-    currentData=[last];
+    currentFilePath = `data/${cat.slug}_${fileIndex}.json`;
+    currentData = [last];
+
+  } else {
+
+    // ✅ เพิ่มบรรทัดนี้เข้าไป
+    fs.writeFileSync(currentFilePath, json);
+
   }
 }
 
