@@ -248,7 +248,7 @@ function saveWithSizeCheck(){
 }
 
 const handler = getHandler(cat.url);
-
+let finished = false;
 //save auto
 setInterval(()=>{
   if(currentData.length > 0){
@@ -279,7 +279,10 @@ for(let page=startPage;page<=999;page++){
       autoDetect($cat, handler.articleSelectors).toArray();
 
     if(articles.length===0){
+  
    console.log("ไม่มีข้อมูลแล้ว");
+
+   finished = true;   // ✅ เพิ่มบรรทัดนี้
 
    fs.writeFileSync(progressFile,
      JSON.stringify({ page: page })
@@ -379,7 +382,11 @@ if(currentData.length>0){
   fs.writeFileSync(currentFilePath,
     JSON.stringify(currentData,null,2));
 }
-
+if (finished) {
+  console.log("SCRAPER_STATUS:FINISHED");
+} else {
+  console.log("SCRAPER_STATUS:IN_PROGRESS");
+}
 console.log("✅ เสร็จหมวด:",cat.name);
 
 
