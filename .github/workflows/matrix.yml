@@ -79,7 +79,7 @@ jobs:
 
           echo "CATEGORY: $CATEGORY"
 
-          node update.js "$CATEGORY"
+          node update5.js "$CATEGORY"
 
       - name: Commit Data
         run: |
