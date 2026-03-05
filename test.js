@@ -365,7 +365,14 @@ for (let page = startPage; page <= 999; page++) {
       const link = normalizeUrl(basic.link);
       if (!link) continue;
 
+      // ⭐ เพิ่มตรงนี้
+      if (oldMap.has(link)) {
+        console.log("🌐 ซ้ำข้ามหมวด:", basic.title);
+        continue;
+      }
+
       let movie = oldMap.get(link);
+      
 
       if (movie && movie.episodes && movie.episodes.length > 0) {
         console.log("⏭ ข้ามเรื่อง (มีแล้ว):", movie.title);
