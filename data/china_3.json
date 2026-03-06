@@ -15512,5 +15512,48 @@
         ]
       }
     ]
+  },
+  {
+    "title": "GhostCode รหัสผีวันที่ 16",
+    "link": "https://anime-good.com/ghostcode",
+    "image": "https://anime-good.com/wp-content/uploads/2021/05/GhostCode-e1620461370208.jpg",
+    "episodes": [
+      {
+        "name": "GhostCode รหัสผีวันที่ 16  ตอนที่ 1",
+        "link": "https://anime-good.com/watch/ghostcode-16-ep-1",
+        "servers": [
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/OMVjvtIB/"
+          },
+          {
+            "name": "Player 1",
+            "url": "https://moji.team-indy.net/embed/OMVjvtIB/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://anime-infy.com/embed/OMVjvtIB/"
+          }
+        ]
+      },
+      {
+        "name": "GhostCode รหัสผีวันที่ 16  ตอนที่ 2",
+        "link": "https://anime-good.com/watch/ghostcode-16-ep-2",
+        "servers": [
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/xMeg03l9/"
+          },
+          {
+            "name": "Player 1",
+            "url": "https://moji.team-indy.net/embed/xMeg03l9/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://anime-infy.com/embed/xMeg03l9/"
+          }
+        ]
+      }
+    ]
   }
 ]
