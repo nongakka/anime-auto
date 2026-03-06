@@ -50035,6 +50035,50 @@
             "url": "//ok.ru/videoembed/8006814534161"
           }
         ]
+      },
+      {
+        "name": "Watashi no Oshi wa Akuyaku Reijou ทำไงดีเกมนี้นางร้ายน่ารัก ซับไทย ตอนที่ 11",
+        "link": "https://anime-good.com/watch/watashi-no-oshi-wa-akuyaku-reijou-ep-11-subth",
+        "servers": [
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/0y1cEyWc/"
+          },
+          {
+            "name": "Player 1",
+            "url": "https://moji.team-indy.net/embed/0y1cEyWc/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://anime-infy.com/embed/0y1cEyWc/"
+          },
+          {
+            "name": "Player 3",
+            "url": "//ok.ru/videoembed/8049914415633"
+          }
+        ]
+      },
+      {
+        "name": "Watashi no Oshi wa Akuyaku Reijou ทำไงดีเกมนี้นางร้ายน่ารัก ซับไทย ตอนที่ 12",
+        "link": "https://anime-good.com/watch/watashi-no-oshi-wa-akuyaku-reijou-ep-12-subth",
+        "servers": [
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/q8GFEh6P6p/"
+          },
+          {
+            "name": "Player 1",
+            "url": "https://moji.team-indy.net/embed/q8GFEh6P6p/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://anime-infy.com/embed/q8GFEh6P6p/"
+          },
+          {
+            "name": "Player 3",
+            "url": "//ok.ru/videoembed/8049914481169"
+          }
+        ]
       }
     ]
   }
