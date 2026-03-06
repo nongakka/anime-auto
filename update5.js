@@ -37,7 +37,7 @@ const client = axios.create({
 });
 
 const delay = ms => new Promise(r => setTimeout(r, ms));
-const randomDelay = (min=700,max=1500) =>
+const randomDelay = (min=100,max=300) =>
   delay(Math.floor(Math.random()*(max-min))+min);
 
 function normalizeUrl(url) {
@@ -63,7 +63,7 @@ async function fetchWithRetry(url, retries=3) {
     } catch (err) {
       if (i===retries-1) throw err;
       console.log("🔁 retry:", url);
-      await delay(1000);
+      await delay(300);
     }
   }
 }
@@ -455,7 +455,7 @@ emptyPageCount = 0;
           );
         }
 
-        await randomDelay();
+        await randomDelay(50,150);
       }
 
     }
@@ -485,8 +485,7 @@ emptyPageCount = 0;
 
   }
 
-  await randomDelay(1500, 2500);
-
+  await randomDelay(300,600);
 }
 
 if(currentData.length>0){
