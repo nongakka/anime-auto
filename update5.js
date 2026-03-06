@@ -307,6 +307,7 @@ function saveWithSizeCheck(){
 const handler = getHandler(cat.url);
 let finished = false;
 let episodeCounter = 0;
+let emptyPageCount = 0;
 
 //save auto
 setInterval(()=>{
@@ -345,18 +346,29 @@ for (let page = startPage; page <= 200; page++) {
 
     if (articles.length === 0) {
 
-      console.log("ไม่มีข้อมูลแล้ว");
+  emptyPageCount++;
 
-      finished = true;
+  console.log(`ไม่มีข้อมูล หน้า ${page} (${emptyPageCount}/3)`);
 
-      fs.writeFileSync(
-        progressFile,
-        JSON.stringify({ page: page })
-      );
+  if (emptyPageCount >= 3) {
 
-      break;
-    }
+    console.log("หยุด scraper เพราะเจอหน้าว่าง 3 หน้า");
 
+    finished = true;
+
+    fs.writeFileSync(
+      progressFile,
+      JSON.stringify({ page: page })
+    );
+
+    break;
+  }
+
+  pageSuccess = true;
+  continue;
+}
+
+emptyPageCount = 0;
     for (const el of articles) {
 
       const basic = extractBasicInfo($cat, el);
