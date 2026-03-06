@@ -206,9 +206,22 @@ const progressFile = `data/${cat.slug}_progress.json`;
 let startPage = 1;
 
 if (fs.existsSync(progressFile)) {
+
   const saved = JSON.parse(fs.readFileSync(progressFile));
   startPage = saved.page || 1;
+
   console.log("🔁 Resume จากหน้า", startPage);
+
+} else {
+
+  // ⭐ เพิ่มตรงนี้
+  fs.writeFileSync(
+    progressFile,
+    JSON.stringify({ page: 1 }, null, 2)
+  );
+
+  console.log("🆕 สร้าง progress ใหม่");
+
 }
 
 let fileIndex=1;
@@ -227,10 +240,11 @@ const files = fs.readdirSync("data")
 if(files.length>0){
 
   const indexes = files
-    .map(f => {
-      const m = f.match(/_(\d+)\.json/);
-      return m ? parseInt(m[1]) : 1;
-    });
+  .map(f => {
+    const m = f.match(/_(\d+)\.json$/);
+    return m ? parseInt(m[1]) : null;
+  })
+  .filter(x => x !== null);
 
   fileIndex = Math.max(...indexes);
 
@@ -307,7 +321,13 @@ setInterval(()=>{
 
 //LOOP
 
-for (let page = startPage; page <= 999; page++) {
+for (let page = startPage; page <= 200; page++) {
+
+  // ⭐ เพิ่มตรงนี้
+  fs.writeFileSync(
+    progressFile,
+    JSON.stringify({ page: page }, null, 2)
+  );
 
   console.log("📄 หน้า", page);
 
@@ -345,7 +365,14 @@ for (let page = startPage; page <= 999; page++) {
       const link = normalizeUrl(basic.link);
       if (!link) continue;
 
+      // ⭐ เพิ่มตรงนี้
+      if (oldMap.has(link)) {
+        console.log("🌐 ซ้ำข้ามหมวด:", basic.title);
+        continue;
+      }
+
       let movie = oldMap.get(link);
+      
 
       if (movie && movie.episodes && movie.episodes.length > 0) {
         console.log("⏭ ข้ามเรื่อง (มีแล้ว):", movie.title);
