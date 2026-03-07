@@ -2235,6 +2235,50 @@
             "url": "//ok.ru/videoembed/7653230119441"
           }
         ]
+      },
+      {
+        "name": "Isekai wa Smartphone to Tomo ni 2 ไปต่างโลกก็ต้องไปกับสมาร์ทโฟนสิ ภาค 2 พากย์ไทย ตอนที่ 11",
+        "link": "https://anime-good.com/watch/isekai-wa-smartphone-to-tomo-ni-2-season-2-ep-11",
+        "servers": [
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/jwMoenKIwZ/"
+          },
+          {
+            "name": "Player 1",
+            "url": "https://moji.team-indy.net/embed/jwMoenKIwZ/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://anime-infy.com/embed/jwMoenKIwZ/"
+          },
+          {
+            "name": "Player 3",
+            "url": "//ok.ru/videoembed/7581082257937"
+          }
+        ]
+      },
+      {
+        "name": "Isekai wa Smartphone to Tomo ni 2 ไปต่างโลกก็ต้องไปกับสมาร์ทโฟนสิ ภาค 2 พากย์ไทย ตอนที่ 12",
+        "link": "https://anime-good.com/watch/isekai-wa-smartphone-to-tomo-ni-2-season-2-ep-12",
+        "servers": [
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/nCIvjqpb2Y/"
+          },
+          {
+            "name": "Player 1",
+            "url": "https://moji.team-indy.net/embed/nCIvjqpb2Y/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://anime-infy.com/embed/nCIvjqpb2Y/"
+          },
+          {
+            "name": "Player 3",
+            "url": "//ok.ru/videoembed/7581082323473"
+          }
+        ]
       }
     ]
   }
