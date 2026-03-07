@@ -110128,5 +110128,82 @@
         ]
       }
     ]
+  },
+  {
+    "title": "Spy x Family สปาย x แฟมิลี",
+    "link": "https://anime-good.com/spy-x-family",
+    "image": "https://anime-good.com/wp-content/uploads/2022/04/Spy-x-Family.jpg",
+    "episodes": [
+      {
+        "name": "Spy x Family สปาย × แฟมิลี ซับไทย ตอนที่ 1",
+        "link": "https://anime-good.com/watch/spy-x-family-ep-1-subth",
+        "servers": [
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/OMgcV0jZ/"
+          },
+          {
+            "name": "Player 1",
+            "url": "https://moji.team-indy.net/embed/OMgcV0jZ/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://anime-infy.com/embed/OMgcV0jZ/"
+          },
+          {
+            "name": "Player 3",
+            "url": "//ok.ru/videoembed/4725588036113"
+          }
+        ]
+      },
+      {
+        "name": "Spy x Family สปาย × แฟมิลี ซับไทย ตอนที่ 2",
+        "link": "https://anime-good.com/watch/spy-x-family-ep-2-subth",
+        "servers": [
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/OecA5rCh/"
+          },
+          {
+            "name": "Player 1",
+            "url": "https://moji.team-indy.net/embed/OecA5rCh/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://anime-infy.com/embed/OecA5rCh/"
+          },
+          {
+            "name": "Player 3",
+            "url": "//ok.ru/videoembed/4729676892689"
+          }
+        ]
+      },
+      {
+        "name": "Spy x Family สปาย × แฟมิลี ซับไทย ตอนที่ 3",
+        "link": "https://anime-good.com/watch/spy-x-family-ep-3-subth",
+        "servers": [
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/Uekhqv7/"
+          },
+          {
+            "name": "Player 1",
+            "url": "https://moji.team-indy.net/embed/Uekhqv7/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://anime-infy.com/embed/Uekhqv7/"
+          },
+          {
+            "name": "Player 3",
+            "url": "//ok.ru/videoembed/4746800073233"
+          },
+          {
+            "name": "Player 4",
+            "url": "https://vk.com/video_ext.php?oid=707948460&id=456239175&hash=0485a7152785ccf0&hd=1"
+          }
+        ]
+      }
+    ]
   }
 ]
