@@ -310,7 +310,7 @@ let episodeCounter = 0;
 let emptyPageCount = 0;
 
 //save auto
-setInterval(()=>{
+const autoSave = setInterval(()=>{
   if(currentData.length > 0){
     fs.writeFileSync(
       currentFilePath,
@@ -322,9 +322,8 @@ setInterval(()=>{
 
 //LOOP
 
-for (let page = startPage; page <= 200; page++) {
-
-  // ⭐ เพิ่มตรงนี้
+for (let page = startPage; page <= 150; page++) {
+  
   fs.writeFileSync(
     progressFile,
     JSON.stringify({ page: page }, null, 2)
@@ -499,6 +498,6 @@ if (finished) {
 }
 console.log("✅ เสร็จหมวด:",cat.name);
 
-
-
+clearInterval(autoSave);
+process.exit(0);
 })();
