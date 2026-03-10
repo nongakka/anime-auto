@@ -463,9 +463,25 @@ emptyPageCount = 0;
 
   } catch (err) {
 
-    console.log("⚠️ ข้ามหน้า", page);
+  emptyPageCount++;
 
+  console.log(`⚠️ ข้ามหน้า ${page} (${emptyPageCount}/5)`);
+
+  if (emptyPageCount >= 5) {
+
+    console.log("หยุด scraper เพราะ error/หน้าว่าง 5 หน้า");
+
+    finished = true;
+
+    fs.writeFileSync(
+      progressFile,
+      JSON.stringify({ page: page }, null, 2)
+    );
+
+    break;
   }
+
+}
 
   if (pageSuccess) {
 
