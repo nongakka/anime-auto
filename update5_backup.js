@@ -396,13 +396,7 @@ if (movie && movie.episodes && movie.episodes.length > 0) {
 }
 
       let movie = oldMap.get(link);
-      
-
-      if (movie && movie.episodes && movie.episodes.length > 0) {
-        console.log("⏭ ข้ามเรื่อง (มีแล้ว):", movie.title);
-        continue;
-      }
-
+ 
       if (!movie) {
         movie = {
           title: basic.title,
