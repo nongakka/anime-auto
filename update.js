@@ -48,10 +48,9 @@ function normalizeUrl(url) {
 function fixCategoryUrl(url) {
   if (!url) return url;
 
-  return url.replace(
-    /\/category\/category\//,
-    "/category/"
-  );
+  return url
+    .replace(/\/category\/category\//, "/category/")
+    .replace(/([^:]\/)\/+/g, "$1");
 }
 
 function getDomain(url) {
@@ -348,7 +347,8 @@ for (let page = startPage; page <= 150; page++) {
 
 const { data: catHtml } =
   await fetchWithRetry(pageUrl);
-
+emptyPageCount = 0;
+    
     const $cat = cheerio.load(catHtml);
 
     const articles =
@@ -467,9 +467,20 @@ if (movie && movie.episodes && movie.episodes.length > 0) {
 
   } catch (err) {
 
-    console.log("⚠️ ข้ามหน้า", page);
+  console.log("⚠️ ข้ามหน้า", page);
 
+  emptyPageCount++;
+
+  if (emptyPageCount >= 3) {
+
+    console.log("หยุด scraper เพราะโหลดหน้าไม่ได้ 3 หน้า");
+
+    finished = true;
+
+    break;
   }
+
+}
 
   if (pageSuccess) {
 
