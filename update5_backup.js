@@ -37,7 +37,7 @@ const client = axios.create({
 });
 
 const delay = ms => new Promise(r => setTimeout(r, ms));
-const randomDelay = (min=700,max=1500) =>
+const randomDelay = (min=100,max=300) =>
   delay(Math.floor(Math.random()*(max-min))+min);
 
 function normalizeUrl(url) {
@@ -63,7 +63,7 @@ async function fetchWithRetry(url, retries=3) {
     } catch (err) {
       if (i===retries-1) throw err;
       console.log("🔁 retry:", url);
-      await delay(1000);
+      await delay(300);
     }
   }
 }
@@ -307,9 +307,10 @@ function saveWithSizeCheck(){
 const handler = getHandler(cat.url);
 let finished = false;
 let episodeCounter = 0;
+let emptyPageCount = 0;
 
 //save auto
-setInterval(()=>{
+const autoSave = setInterval(()=>{
   if(currentData.length > 0){
     fs.writeFileSync(
       currentFilePath,
@@ -321,9 +322,8 @@ setInterval(()=>{
 
 //LOOP
 
-for (let page = startPage; page <= 200; page++) {
-
-  // ⭐ เพิ่มตรงนี้
+for (let page = startPage; page <= 150; page++) {
+  
   fs.writeFileSync(
     progressFile,
     JSON.stringify({ page: page }, null, 2)
@@ -345,18 +345,29 @@ for (let page = startPage; page <= 200; page++) {
 
     if (articles.length === 0) {
 
-      console.log("ไม่มีข้อมูลแล้ว");
+  emptyPageCount++;
 
-      finished = true;
+  console.log(`ไม่มีข้อมูล หน้า ${page} (${emptyPageCount}/3)`);
 
-      fs.writeFileSync(
-        progressFile,
-        JSON.stringify({ page: page })
-      );
+  if (emptyPageCount >= 3) {
 
-      break;
-    }
+    console.log("หยุด scraper เพราะเจอหน้าว่าง 3 หน้า");
 
+    finished = true;
+
+    fs.writeFileSync(
+      progressFile,
+      JSON.stringify({ page: page })
+    );
+
+    break;
+  }
+
+  pageSuccess = true;
+  continue;
+}
+
+emptyPageCount = 0;
     for (const el of articles) {
 
       const basic = extractBasicInfo($cat, el);
@@ -443,7 +454,7 @@ for (let page = startPage; page <= 200; page++) {
           );
         }
 
-        await randomDelay();
+        await randomDelay(50,150);
       }
 
     }
@@ -473,8 +484,7 @@ for (let page = startPage; page <= 200; page++) {
 
   }
 
-  await randomDelay(1500, 2500);
-
+  await randomDelay(300,600);
 }
 
 if(currentData.length>0){
@@ -488,6 +498,6 @@ if (finished) {
 }
 console.log("✅ เสร็จหมวด:",cat.name);
 
-
-
+clearInterval(autoSave);
+process.exit(0);
 })();
