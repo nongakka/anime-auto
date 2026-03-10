@@ -45,6 +45,15 @@ function normalizeUrl(url) {
   return url.split("?")[0].replace(/\/+$/, "");
 }
 
+function fixCategoryUrl(url) {
+  if (!url) return url;
+
+  return url.replace(
+    /\/category\/category\//,
+    "/category/"
+  );
+}
+
 function getDomain(url) {
   try {
     return new URL(url).hostname.replace("www.","");
@@ -335,8 +344,10 @@ for (let page = startPage; page <= 150; page++) {
 
   try {
 
-    const { data: catHtml } =
-      await fetchWithRetry(`${cat.url}/page/${page}`);
+    const pageUrl = fixCategoryUrl(`${cat.url}/page/${page}`);
+
+const { data: catHtml } =
+  await fetchWithRetry(pageUrl);
 
     const $cat = cheerio.load(catHtml);
 
@@ -377,10 +388,12 @@ emptyPageCount = 0;
       if (!link) continue;
 
       // ⭐ เพิ่มตรงนี้
-      if (oldMap.has(link)) {
-        console.log("🌐 ซ้ำข้ามหมวด:", basic.title);
-        continue;
-      }
+      let movie = oldMap.get(link);
+
+if (movie && movie.episodes && movie.episodes.length > 0) {
+  console.log("⏭ ข้ามเรื่อง (มีแล้ว):", movie.title);
+  continue;
+}
 
       let movie = oldMap.get(link);
       
