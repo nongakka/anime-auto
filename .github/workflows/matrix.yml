@@ -80,7 +80,7 @@ jobs:
 
           echo "RUN CATEGORY: ${{ matrix.category }}"
 
-          node update5.js ${{ matrix.category }} | tee output.txt
+          node animegood.js ${{ matrix.category }} | tee output.txt
 
           if grep -q "SCRAPER_STATUS:IN_PROGRESS" output.txt; then
             echo "continue=true" >> $GITHUB_OUTPUT
