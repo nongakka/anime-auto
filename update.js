@@ -388,15 +388,12 @@ emptyPageCount = 0;
       if (!link) continue;
 
       // ⭐ เพิ่มตรงนี้
-      let movie = oldMap.get(link);
+let movie = oldMap.get(link);
 
 if (movie && movie.episodes && movie.episodes.length > 0) {
-  console.log("⏭ ข้ามเรื่อง (มีแล้ว):", movie.title);
-  continue;
+  console.log("🔄 ตรวจ EP ใหม่:", movie.title);
 }
-
-      let movie = oldMap.get(link);
- 
+  
       if (!movie) {
         movie = {
           title: basic.title,
