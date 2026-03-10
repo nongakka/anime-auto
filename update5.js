@@ -347,11 +347,11 @@ for (let page = startPage; page <= 150; page++) {
 
   emptyPageCount++;
 
-  console.log(`ไม่มีข้อมูล หน้า ${page} (${emptyPageCount}/3)`);
+  console.log(`ไม่มีข้อมูล หน้า ${page} (${emptyPageCount}/5)`);
 
-  if (emptyPageCount >= 3) {
+  if (emptyPageCount >= 5) {
 
-    console.log("หยุด scraper เพราะเจอหน้าว่าง 3 หน้า");
+    console.log("หยุด scraper เพราะเจอหน้าว่าง 5 หน้า");
 
     finished = true;
 
