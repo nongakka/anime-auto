@@ -53,7 +53,7 @@ jobs:
 
     strategy:
       fail-fast: false
-      max-parallel: 3
+      max-parallel: 1
       matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
 
     steps:
@@ -98,7 +98,7 @@ jobs:
           git config --global user.name "auto-bot"
           git config --global user.email "auto@bot.com"
 
-          git add data/*.json progress.json || true
+          git add data/*.json data/*progress*.json || true
 
           if git diff --staged --quiet; then
             echo "No changes"
@@ -116,15 +116,4 @@ jobs:
         run: |
           sudo apt update
           sudo apt install gh -y
-
-
-      - name: Trigger Next Run
-        if: steps.scraper.outputs.continue == 'true' && github.run_attempt == 1
-        run: |
-
-          echo "Trigger next workflow..."
-
-          gh workflow run matrix.yml --repo ${{ github.repository }}
-
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
