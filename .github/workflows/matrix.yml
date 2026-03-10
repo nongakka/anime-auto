@@ -110,10 +110,5 @@ jobs:
               echo "Retry push..."
               sleep 5
             done
-          fi
-      
-      - name: Install GitHub CLI
-        run: |
-          sudo apt update
-          sudo apt install gh -y
-      
+          fi    
+             
