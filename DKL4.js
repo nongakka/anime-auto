@@ -6,11 +6,8 @@ const API = "https://liveplayback.net/api/channels"
 const LOGO = "https://liveplayback.net/uploads/"
 
 const CDN = [
-"https://aisth.online/dookeela/",
-"https://stereomax.shop/dookeela/",
-"https://dkl-1.shop/dookeela/",
-"https://floral-night-e2a4.dookeela.workers.dev/edge/",
-"https://az-id.dontblockmeplease.shop/edge/"
+"https://d16nfrkchxr2en.cloudfront.net",
+
 ]
 
 async function run(){
