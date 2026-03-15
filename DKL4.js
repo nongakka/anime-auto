@@ -6,7 +6,7 @@ const API = "https://liveplayback.net/api/channels"
 const LOGO = "https://liveplayback.net/uploads/"
 
 const CDN = [
-"https://d16nfrkchxr2en.cloudfront.net",
+"https://d16nfrkchxr2en.cloudfront.net/",
 
 ]
 
