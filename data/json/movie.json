@@ -1250,5 +1250,59 @@
         ]
       }
     ]
+  },
+  {
+    "title": "Fate Grand Order: Shinsei Entaku Ryouiki Camelot 1-Wandering Agateram The Movie เดอะมูฟวี่ ซับไทย",
+    "link": "https://anime-good.com/fate-grand-order-shinsei-entaku-ryouiki-camelot-1",
+    "image": "https://anime-good.com/wp-content/uploads/2022/07/Fate-Grand-Order-Shinsei-Entaku-Ryouiki-Camelot-1-Wandering-Agateram.jpg",
+    "episodes": [
+      {
+        "name": "Fate Grand Order Shinsei Entaku Ryouiki Camelot 1 : Wandering Agateram เดอะมูฟวี่ ซับไทยดูเรื่องนี้เดอะมูฟวี่",
+        "link": "https://anime-good.com/watch/fategrand-order-shinsei-entaku-ryouiki-camelot-1-wandering-agateram-subth",
+        "servers": [
+          {
+            "name": "Main m3u8",
+            "url": "https://moji.abcdxzy.xyz:8443/vod/m4kG9xRb/video.mp4/playlist.m3u8"
+          },
+          {
+            "name": "Player 1",
+            "url": "https://moji.team-indy.net/embed/m4kG9xRb/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://anime-infy.com/embed/m4kG9xRb/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Sea Beast อสูรทะเล (2022) เดอะมูฟวี่",
+    "link": "https://anime-good.com/the-sea-beast-th",
+    "image": "https://anime-good.com/wp-content/uploads/2022/07/The-Sea-Beast-อสูรทะเล.jpg",
+    "episodes": [
+      {
+        "name": "The Sea Beast อสูรทะเล (2022) เดอะมูฟวี่ พากย์ไทยดูเรื่องนี้เดอะมูฟวี่",
+        "link": "https://anime-good.com/watch/the-sea-beast-2022",
+        "servers": [
+          {
+            "name": "Main m3u8",
+            "url": "https://moji.abcdxzy.xyz:8443/vod/VfKWEiiq/video.mp4/playlist.m3u8"
+          },
+          {
+            "name": "Player 1",
+            "url": "https://moji.team-indy.net/embed/VfKWEiiq/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://anime-infy.com/embed/VfKWEiiq/"
+          },
+          {
+            "name": "Player 3",
+            "url": "//ok.ru/videoembed/4987144243729"
+          }
+        ]
+      }
+    ]
   }
 ]
