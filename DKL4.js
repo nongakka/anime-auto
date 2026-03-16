@@ -6,8 +6,10 @@ const API = "https://liveplayback.net/api/channels"
 const LOGO = "https://liveplayback.net/uploads/"
 
 const CDN = [
-"https://d16nfrkchxr2en.cloudfront.net/",
 
+"https://floral-night-e2a4.dookeela.workers.dev/edge/",
+"https://d16nfrkchxr2en.cloudfront.net/",
+  
 ]
 
 async function run(){
