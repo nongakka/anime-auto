@@ -402,6 +402,9 @@ https://floral-night-e2a4.dookeela.workers.dev/edge/nickjr/playlist.m3u8
 #EXTINF:-1 tvg-id="nickelodeon" tvg-name="Nickelodeon" tvg-logo="https://liveplayback.net/uploads/1708344306.png" group-title="การ์ตูนและรายการเด็ก",Nickelodeon
 https://floral-night-e2a4.dookeela.workers.dev/edge/nickelodeon/playlist.m3u8
 
+#EXTINF:-1 tvg-id="onefc" tvg-name="ONE Championship" tvg-logo="https://liveplayback.net/uploads/1774002787.png" group-title="กีฬา",ONE Championship
+https://floral-night-e2a4.dookeela.workers.dev/edge/onefc/playlist.m3u8
+
 #EXTINF:-1 tvg-id="playsports63" tvg-name="PLAY SPORTS 63" tvg-logo="https://liveplayback.net/uploads/1772699287.png" group-title="กีฬา",PLAY SPORTS 63
 https://floral-night-e2a4.dookeela.workers.dev/edge/playsports63/playlist.m3u8
 
