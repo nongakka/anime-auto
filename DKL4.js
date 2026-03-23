@@ -7,8 +7,8 @@ const LOGO = "https://liveplayback.net/uploads/"
 
 const CDN = [
 
-"https://floral-night-e2a4.dookeela.workers.dev/edge/",
-"https://d16nfrkchxr2en.cloudfront.net/",
+"https://ec2.stream.liveplayback.net/dookeela/",
+
   
 ]
 
