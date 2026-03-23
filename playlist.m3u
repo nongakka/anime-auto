@@ -1,773 +1,773 @@
 #EXTM3U
 
 #EXTINF:-1 tvg-id="amc" tvg-name="AMC | USA" tvg-logo="https://liveplayback.net/uploads/1716339097.png" group-title="บันเทิง",AMC | USA
-https://floral-night-e2a4.dookeela.workers.dev/edge/amc/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/amc/playlist.m3u8
 
 #EXTINF:-1 tvg-id="anipluschannel" tvg-name="ANIPLUS Channel" tvg-logo="https://liveplayback.net/uploads/1749743199.png" group-title="การ์ตูนและรายการเด็ก",ANIPLUS Channel
-https://floral-night-e2a4.dookeela.workers.dev/edge/anipluschannel/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/anipluschannel/playlist.m3u8
 
 #EXTINF:-1 tvg-id="astrocrickethd" tvg-name="ASTRO CRICKET HD | Malaysia" tvg-logo="https://liveplayback.net/uploads/1720166377.png" group-title="กีฬา",ASTRO CRICKET HD | Malaysia
-https://floral-night-e2a4.dookeela.workers.dev/edge/astrocrickethd/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/astrocrickethd/playlist.m3u8
 
 #EXTINF:-1 tvg-id="axn" tvg-name="AXN HD" tvg-logo="https://liveplayback.net/uploads/1719897010.png" group-title="บันเทิง",AXN HD
-https://floral-night-e2a4.dookeela.workers.dev/edge/axn/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/axn/playlist.m3u8
 
 #EXTINF:-1 tvg-id="al-jazeera-english-hd" tvg-name="Al Jazeera English HD" tvg-logo="https://liveplayback.net/uploads/1730731551.png" group-title="ข่าว",Al Jazeera English HD
-https://floral-night-e2a4.dookeela.workers.dev/edge/al-jazeera-english-hd/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/al-jazeera-english-hd/playlist.m3u8
 
 #EXTINF:-1 tvg-id="alure-channel" tvg-name="Alure Channel" tvg-logo="https://liveplayback.net/uploads/1731057748.png" group-title="บันเทิง",Alure Channel
-https://floral-night-e2a4.dookeela.workers.dev/edge/alure-channel/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/alure-channel/playlist.m3u8
 
 #EXTINF:-1 tvg-id="amarintv" tvg-name="AmarinTV HD" tvg-logo="https://liveplayback.net/uploads/1704117706.png" group-title="บันเทิง",AmarinTV HD
-https://floral-night-e2a4.dookeela.workers.dev/edge/amarintv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/amarintv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="animalshow" tvg-name="Animal Show" tvg-logo="https://liveplayback.net/uploads/1705537126.png" group-title="สาระความรู้",Animal Show
-https://floral-night-e2a4.dookeela.workers.dev/edge/animalshow/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/animalshow/playlist.m3u8
 
 #EXTINF:-1 tvg-id="animax" tvg-name="Animax | Singapore" tvg-logo="https://liveplayback.net/uploads/1704038567.png" group-title="การ์ตูนและรายการเด็ก",Animax | Singapore
-https://floral-night-e2a4.dookeela.workers.dev/edge/animax/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/animax/playlist.m3u8
 
 #EXTINF:-1 tvg-id="arirang" tvg-name="Arirang" tvg-logo="https://liveplayback.net/uploads/1739186052.png" group-title="ข่าว",Arirang
-https://floral-night-e2a4.dookeela.workers.dev/edge/arirang/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/arirang/playlist.m3u8
 
 #EXTINF:-1 tvg-id="afn" tvg-name="Asian Food Network" tvg-logo="https://liveplayback.net/uploads/1717696078.png" group-title="บันเทิง",Asian Food Network
-https://floral-night-e2a4.dookeela.workers.dev/edge/afn/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/afn/playlist.m3u8
 
 #EXTINF:-1 tvg-id="3bbasian" tvg-name="Asian Hits" tvg-logo="https://liveplayback.net/uploads/1703829940.png" group-title="บันเทิง",Asian Hits
-https://floral-night-e2a4.dookeela.workers.dev/edge/3bbasian/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/3bbasian/playlist.m3u8
 
 #EXTINF:-1 tvg-id="astroarena" tvg-name="Astro Arena" tvg-logo="https://liveplayback.net/uploads/1697812603.png" group-title="กีฬา",Astro Arena
-https://floral-night-e2a4.dookeela.workers.dev/edge/astroarena/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/astroarena/playlist.m3u8
 
 #EXTINF:-1 tvg-id="astroarena2" tvg-name="Astro Arena 2" tvg-logo="https://liveplayback.net/uploads/1719768111.png" group-title="กีฬา",Astro Arena 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/astroarena2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/astroarena2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="astroarenabola" tvg-name="Astro Arena Bola" tvg-logo="https://liveplayback.net/uploads/1700012376.png" group-title="กีฬา",Astro Arena Bola
-https://floral-night-e2a4.dookeela.workers.dev/edge/astroarenabola/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/astroarenabola/playlist.m3u8
 
 #EXTINF:-1 tvg-id="astroarenabola2" tvg-name="Astro Arena Bola 2" tvg-logo="https://liveplayback.net/uploads/1698351468.png" group-title="กีฬา",Astro Arena Bola 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/astroarenabola2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/astroarenabola2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="astrobadminton" tvg-name="Astro Badminton" tvg-logo="https://liveplayback.net/uploads/1729385788.png" group-title="กีฬา",Astro Badminton
-https://floral-night-e2a4.dookeela.workers.dev/edge/astrobadminton/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/astrobadminton/playlist.m3u8
 
 #EXTINF:-1 tvg-id="astrofootball" tvg-name="Astro Football" tvg-logo="https://liveplayback.net/uploads/1729384406.png" group-title="กีฬา",Astro Football
-https://floral-night-e2a4.dookeela.workers.dev/edge/astrofootball/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/astrofootball/playlist.m3u8
 
 #EXTINF:-1 tvg-id="astrograndstand" tvg-name="Astro Grandstand" tvg-logo="https://liveplayback.net/uploads/1729384448.png" group-title="กีฬา",Astro Grandstand
-https://floral-night-e2a4.dookeela.workers.dev/edge/astrograndstand/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/astrograndstand/playlist.m3u8
 
 #EXTINF:-1 tvg-id="astropremierleague" tvg-name="Astro Premier League" tvg-logo="https://liveplayback.net/uploads/1729384542.png" group-title="กีฬา",Astro Premier League
-https://floral-night-e2a4.dookeela.workers.dev/edge/astropremierleague/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/astropremierleague/playlist.m3u8
 
 #EXTINF:-1 tvg-id="astropremierleague2" tvg-name="Astro Premier League 2" tvg-logo="https://liveplayback.net/uploads/1729384502.png" group-title="กีฬา",Astro Premier League 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/astropremierleague2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/astropremierleague2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="astrosportsplus" tvg-name="Astro Sports Plus" tvg-logo="https://liveplayback.net/uploads/1729385809.png" group-title="กีฬา",Astro Sports Plus
-https://floral-night-e2a4.dookeela.workers.dev/edge/astrosportsplus/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/astrosportsplus/playlist.m3u8
 
 #EXTINF:-1 tvg-id="astrosportsplus2" tvg-name="Astro Sports Plus 2" tvg-logo="https://liveplayback.net/uploads/1733771622.png" group-title="กีฬา",Astro Sports Plus 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/astrosportsplus2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/astrosportsplus2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bbc-earth" tvg-name="BBC Earth" tvg-logo="https://liveplayback.net/uploads/1736064117.png" group-title="สาระความรู้",BBC Earth
-https://floral-night-e2a4.dookeela.workers.dev/edge/bbc-earth/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bbc-earth/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bbc-lifestyle" tvg-name="BBC Lifestyle" tvg-logo="https://liveplayback.net/uploads/1727766790.png" group-title="บันเทิง",BBC Lifestyle
-https://floral-night-e2a4.dookeela.workers.dev/edge/bbc-lifestyle/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bbc-lifestyle/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bbc-news" tvg-name="BBC News" tvg-logo="https://liveplayback.net/uploads/1705785324.png" group-title="ข่าว",BBC News
-https://floral-night-e2a4.dookeela.workers.dev/edge/bbc-news/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bbc-news/playlist.m3u8
 
 #EXTINF:-1 tvg-id="btsport1" tvg-name="BT Sport 1 UK" tvg-logo="https://liveplayback.net/uploads/1664577275.png" group-title="กีฬา",BT Sport 1 UK
-https://floral-night-e2a4.dookeela.workers.dev/edge/btsport1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/btsport1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="btsport2" tvg-name="BT Sport 2 UK" tvg-logo="https://liveplayback.net/uploads/1664577284.png" group-title="กีฬา",BT Sport 2 UK
-https://floral-night-e2a4.dookeela.workers.dev/edge/btsport2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/btsport2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="btsport3" tvg-name="BT Sport 3 UK" tvg-logo="https://liveplayback.net/uploads/1664577293.png" group-title="กีฬา",BT Sport 3 UK
-https://floral-night-e2a4.dookeela.workers.dev/edge/btsport3/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/btsport3/playlist.m3u8
 
 #EXTINF:-1 tvg-id="btsport4" tvg-name="BT Sport 4 UK" tvg-logo="https://liveplayback.net/uploads/1667415893.png" group-title="กีฬา",BT Sport 4 UK
-https://floral-night-e2a4.dookeela.workers.dev/edge/btsport4/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/btsport4/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bloomberg-television" tvg-name="Bloomberg Television" tvg-logo="https://liveplayback.net/uploads/1705785346.png" group-title="ข่าว",Bloomberg Television
-https://floral-night-e2a4.dookeela.workers.dev/edge/bloomberg-television/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bloomberg-television/playlist.m3u8
 
 #EXTINF:-1 tvg-id="boomerang" tvg-name="Boomerang" tvg-logo="https://liveplayback.net/uploads/1705504202.png" group-title="การ์ตูนและรายการเด็ก",Boomerang
-https://floral-night-e2a4.dookeela.workers.dev/edge/boomerang/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/boomerang/playlist.m3u8
 
 #EXTINF:-1 tvg-id="cbssports" tvg-name="CBS Sports Network [USA]" tvg-logo="https://liveplayback.net/uploads/1697707418.png" group-title="กีฬา",CBS Sports Network [USA]
-https://floral-night-e2a4.dookeela.workers.dev/edge/cbssports/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/cbssports/playlist.m3u8
 
 #EXTINF:-1 tvg-id="cbeebies" tvg-name="CBeebies" tvg-logo="https://liveplayback.net/uploads/1709573298.png" group-title="การ์ตูนและรายการเด็ก",CBeebies
-https://floral-night-e2a4.dookeela.workers.dev/edge/cbeebies/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/cbeebies/playlist.m3u8
 
 #EXTINF:-1 tvg-id="ccm" tvg-name="CCM" tvg-logo="https://liveplayback.net/uploads/1719803240.png" group-title="บันเทิง",CCM
-https://floral-night-e2a4.dookeela.workers.dev/edge/ccm/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/ccm/playlist.m3u8
 
 #EXTINF:-1 tvg-id="cctv4" tvg-name="CCTV4" tvg-logo="https://liveplayback.net/uploads/1705785371.png" group-title="ข่าว",CCTV4
-https://floral-night-e2a4.dookeela.workers.dev/edge/cctv4/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/cctv4/playlist.m3u8
 
 #EXTINF:-1 tvg-id="cgtn" tvg-name="CGTN" tvg-logo="https://liveplayback.net/uploads/1730731019.png" group-title="ข่าว",CGTN
-https://floral-night-e2a4.dookeela.workers.dev/edge/cgtn/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/cgtn/playlist.m3u8
 
 #EXTINF:-1 tvg-id="ch8" tvg-name="CH8" tvg-logo="https://liveplayback.net/uploads/1704117313.png" group-title="บันเทิง",CH8
-https://floral-night-e2a4.dookeela.workers.dev/edge/ch8/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/ch8/playlist.m3u8
 
 #EXTINF:-1 tvg-id="cinemax" tvg-name="CINEMAX" tvg-logo="https://liveplayback.net/uploads/1703786799.png" group-title="บันเทิง",CINEMAX
-https://floral-night-e2a4.dookeela.workers.dev/edge/cinemax/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/cinemax/playlist.m3u8
 
 #EXTINF:-1 tvg-id="cna" tvg-name="CNA" tvg-logo="https://liveplayback.net/uploads/1730731242.png" group-title="ข่าว",CNA
-https://floral-night-e2a4.dookeela.workers.dev/edge/cna/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/cna/playlist.m3u8
 
 #EXTINF:-1 tvg-id="cnbc" tvg-name="CNBC" tvg-logo="https://liveplayback.net/uploads/1719802797.png" group-title="ข่าว",CNBC
-https://floral-night-e2a4.dookeela.workers.dev/edge/cnbc/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/cnbc/playlist.m3u8
 
 #EXTINF:-1 tvg-id="cnn" tvg-name="CNN" tvg-logo="https://liveplayback.net/uploads/1705785357.png" group-title="ข่าว",CNN
-https://floral-night-e2a4.dookeela.workers.dev/edge/cnn/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/cnn/playlist.m3u8
 
 #EXTINF:-1 tvg-id="canal11pt" tvg-name="Canal 11 Protugal" tvg-logo="https://liveplayback.net/uploads/1663979533.png" group-title="กีฬา",Canal 11 Protugal
-https://floral-night-e2a4.dookeela.workers.dev/edge/canal11pt/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/canal11pt/playlist.m3u8
 
 #EXTINF:-1 tvg-id="cartoon-network" tvg-name="Cartoon Network" tvg-logo="https://liveplayback.net/uploads/1708344243.png" group-title="การ์ตูนและรายการเด็ก",Cartoon Network
-https://floral-night-e2a4.dookeela.workers.dev/edge/cartoon-network/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/cartoon-network/playlist.m3u8
 
 #EXTINF:-1 tvg-id="crime-investigation" tvg-name="Crime + Investigation" tvg-logo="https://liveplayback.net/uploads/1714101661.png" group-title="สาระความรู้",Crime + Investigation
-https://floral-night-e2a4.dookeela.workers.dev/edge/crime-investigation/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/crime-investigation/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dazn1" tvg-name="DAZN 1 Germany" tvg-logo="https://liveplayback.net/uploads/1679423986.png" group-title="กีฬา",DAZN 1 Germany
-https://floral-night-e2a4.dookeela.workers.dev/edge/dazn1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dazn1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dazn1es" tvg-name="DAZN 1 | Spain" tvg-logo="https://liveplayback.net/uploads/1715571844.png" group-title="กีฬา",DAZN 1 | Spain
-https://floral-night-e2a4.dookeela.workers.dev/edge/dazn1es/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dazn1es/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dazn2" tvg-name="DAZN 2 Germany" tvg-logo="https://liveplayback.net/uploads/1694286704.png" group-title="กีฬา",DAZN 2 Germany
-https://floral-night-e2a4.dookeela.workers.dev/edge/dazn2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dazn2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dazn2es" tvg-name="DAZN 2 | Spain" tvg-logo="https://liveplayback.net/uploads/1715571857.png" group-title="กีฬา",DAZN 2 | Spain
-https://floral-night-e2a4.dookeela.workers.dev/edge/dazn2es/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dazn2es/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dazn3es" tvg-name="DAZN 3 | Spain" tvg-logo="https://liveplayback.net/uploads/1737512608.png" group-title="กีฬา",DAZN 3 | Spain
-https://floral-night-e2a4.dookeela.workers.dev/edge/dazn3es/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dazn3es/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dazn4es" tvg-name="DAZN 4 | Spain" tvg-logo="https://liveplayback.net/uploads/1737512619.png" group-title="กีฬา",DAZN 4 | Spain
-https://floral-night-e2a4.dookeela.workers.dev/edge/dazn4es/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dazn4es/playlist.m3u8
 
 #EXTINF:-1 tvg-id="daznf1" tvg-name="DAZN F1 (Spain)" tvg-logo="https://liveplayback.net/uploads/1696279327.png" group-title="กีฬา",DAZN F1 (Spain)
-https://floral-night-e2a4.dookeela.workers.dev/edge/daznf1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/daznf1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dazn-laliga" tvg-name="DAZN Laliga" tvg-logo="https://liveplayback.net/uploads/1711566401.png" group-title="กีฬา",DAZN Laliga
-https://floral-night-e2a4.dookeela.workers.dev/edge/dazn-laliga/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dazn-laliga/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dazn-unbeaten" tvg-name="DAZN Unbeaten" tvg-logo="https://liveplayback.net/uploads/1704685964.png" group-title="กีฬา",DAZN Unbeaten
-https://floral-night-e2a4.dookeela.workers.dev/edge/dazn-unbeaten/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dazn-unbeaten/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dkl-movies" tvg-name="DKL MOVIES" tvg-logo="https://liveplayback.net/uploads/1707127821.png" group-title="บันเทิง",DKL MOVIES
-https://floral-night-e2a4.dookeela.workers.dev/edge/dkl-movies/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dkl-movies/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dklsport1" tvg-name="DKL Sport 1" tvg-logo="https://liveplayback.net/uploads/1695137395.png" group-title="กีฬา",DKL Sport 1
-https://floral-night-e2a4.dookeela.workers.dev/edge/dklsport1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dklsport1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dklsport2" tvg-name="DKL Sport 2" tvg-logo="https://liveplayback.net/uploads/1695137408.png" group-title="กีฬา",DKL Sport 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/dklsport2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dklsport2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dklsport3" tvg-name="DKL Sport 3" tvg-logo="https://liveplayback.net/uploads/1695137420.png" group-title="กีฬา",DKL Sport 3
-https://floral-night-e2a4.dookeela.workers.dev/edge/dklsport3/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dklsport3/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dmax" tvg-name="DMAX" tvg-logo="https://liveplayback.net/uploads/1714101765.png" group-title="สาระความรู้",DMAX
-https://floral-night-e2a4.dookeela.workers.dev/edge/dmax/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dmax/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dw-english" tvg-name="DW English" tvg-logo="https://liveplayback.net/uploads/1741548645.png" group-title="ข่าว",DW English
-https://floral-night-e2a4.dookeela.workers.dev/edge/dw-english/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dw-english/playlist.m3u8
 
 #EXTINF:-1 tvg-id="diemasport1" tvg-name="Diema Sport" tvg-logo="https://liveplayback.net/uploads/1664315169.png" group-title="กีฬา",Diema Sport
-https://floral-night-e2a4.dookeela.workers.dev/edge/diemasport1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/diemasport1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="digisport1" tvg-name="Digi Sport 1 Romania" tvg-logo="https://liveplayback.net/uploads/1664126175.png" group-title="กีฬา",Digi Sport 1 Romania
-https://floral-night-e2a4.dookeela.workers.dev/edge/digisport1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/digisport1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="digisport2" tvg-name="Digi Sport 2 Romania" tvg-logo="https://liveplayback.net/uploads/1667654703.png" group-title="กีฬา",Digi Sport 2 Romania
-https://floral-night-e2a4.dookeela.workers.dev/edge/digisport2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/digisport2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="discovery" tvg-name="Discovery" tvg-logo="https://liveplayback.net/uploads/1706112738.png" group-title="สาระความรู้",Discovery
-https://floral-night-e2a4.dookeela.workers.dev/edge/discovery/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/discovery/playlist.m3u8
 
 #EXTINF:-1 tvg-id="discovery-asia" tvg-name="Discovery Asia" tvg-logo="https://liveplayback.net/uploads/1706112755.png" group-title="สาระความรู้",Discovery Asia
-https://floral-night-e2a4.dookeela.workers.dev/edge/discovery-asia/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/discovery-asia/playlist.m3u8
 
 #EXTINF:-1 tvg-id="disney-channel" tvg-name="Disney Channel" tvg-logo="https://liveplayback.net/uploads/1716361978.png" group-title="การ์ตูนและรายการเด็ก",Disney Channel
-https://floral-night-e2a4.dookeela.workers.dev/edge/disney-channel/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/disney-channel/playlist.m3u8
 
 #EXTINF:-1 tvg-id="disney-junior" tvg-name="Disney Junior" tvg-logo="https://liveplayback.net/uploads/1716362497.png" group-title="การ์ตูนและรายการเด็ก",Disney Junior
-https://floral-night-e2a4.dookeela.workers.dev/edge/disney-junior/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/disney-junior/playlist.m3u8
 
 #EXTINF:-1 tvg-id="disneyxd" tvg-name="Disney XD" tvg-logo="https://liveplayback.net/uploads/1716362753.png" group-title="การ์ตูนและรายการเด็ก",Disney XD
-https://floral-night-e2a4.dookeela.workers.dev/edge/disneyxd/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/disneyxd/playlist.m3u8
 
 #EXTINF:-1 tvg-id="dreamworks" tvg-name="DreamWorks" tvg-logo="https://liveplayback.net/uploads/1723200736.png" group-title="การ์ตูนและรายการเด็ก",DreamWorks
-https://floral-night-e2a4.dookeela.workers.dev/edge/dreamworks/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/dreamworks/playlist.m3u8
 
 #EXTINF:-1 tvg-id="foxsports1nl" tvg-name="ESPN 1 Netherlands" tvg-logo="https://liveplayback.net/uploads/1664501652.png" group-title="กีฬา",ESPN 1 Netherlands
-https://floral-night-e2a4.dookeela.workers.dev/edge/foxsports1nl/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/foxsports1nl/playlist.m3u8
 
 #EXTINF:-1 tvg-id="foxsports2nl" tvg-name="ESPN 2 Netherlands" tvg-logo="https://liveplayback.net/uploads/1664501662.png" group-title="กีฬา",ESPN 2 Netherlands
-https://floral-night-e2a4.dookeela.workers.dev/edge/foxsports2nl/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/foxsports2nl/playlist.m3u8
 
 #EXTINF:-1 tvg-id="foxsports3nl" tvg-name="ESPN 3 Netherlands" tvg-logo="https://liveplayback.net/uploads/1664501676.png" group-title="กีฬา",ESPN 3 Netherlands
-https://floral-night-e2a4.dookeela.workers.dev/edge/foxsports3nl/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/foxsports3nl/playlist.m3u8
 
 #EXTINF:-1 tvg-id="foxsports4nl" tvg-name="ESPN 4 Netherlands" tvg-logo="https://liveplayback.net/uploads/1664501687.png" group-title="กีฬา",ESPN 4 Netherlands
-https://floral-night-e2a4.dookeela.workers.dev/edge/foxsports4nl/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/foxsports4nl/playlist.m3u8
 
 #EXTINF:-1 tvg-id="daznproleague1" tvg-name="Eleven Pro League 1" tvg-logo="https://liveplayback.net/uploads/1722089133.png" group-title="กีฬา",Eleven Pro League 1
-https://floral-night-e2a4.dookeela.workers.dev/edge/daznproleague1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/daznproleague1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="elevensports1pl" tvg-name="Eleven Sports 1 | Poland" tvg-logo="https://liveplayback.net/uploads/1755193750.png" group-title="กีฬา",Eleven Sports 1 | Poland
-https://floral-night-e2a4.dookeela.workers.dev/edge/elevensports1pl/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/elevensports1pl/playlist.m3u8
 
 #EXTINF:-1 tvg-id="elevensports2pl" tvg-name="Eleven Sports 2 | Poland" tvg-logo="https://liveplayback.net/uploads/1755193861.png" group-title="กีฬา",Eleven Sports 2 | Poland
-https://floral-night-e2a4.dookeela.workers.dev/edge/elevensports2pl/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/elevensports2pl/playlist.m3u8
 
 #EXTINF:-1 tvg-id="elevensports3pl" tvg-name="Eleven Sports 3 | Poland" tvg-logo="https://liveplayback.net/uploads/1755107581.png" group-title="กีฬา",Eleven Sports 3 | Poland
-https://floral-night-e2a4.dookeela.workers.dev/edge/elevensports3pl/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/elevensports3pl/playlist.m3u8
 
 #EXTINF:-1 tvg-id="elevensports4pl" tvg-name="Eleven Sports 4 | Poland" tvg-logo="https://liveplayback.net/uploads/1755107660.png" group-title="กีฬา",Eleven Sports 4 | Poland
-https://floral-night-e2a4.dookeela.workers.dev/edge/elevensports4pl/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/elevensports4pl/playlist.m3u8
 
 #EXTINF:-1 tvg-id="euronews" tvg-name="Euro News" tvg-logo="https://liveplayback.net/uploads/1731890666.png" group-title="ข่าว",Euro News
-https://floral-night-e2a4.dookeela.workers.dev/edge/euronews/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/euronews/playlist.m3u8
 
 #EXTINF:-1 tvg-id="eurosport" tvg-name="Eurosport" tvg-logo="https://liveplayback.net/uploads/1753040524.png" group-title="กีฬา",Eurosport
-https://floral-night-e2a4.dookeela.workers.dev/edge/eurosport/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/eurosport/playlist.m3u8
 
 #EXTINF:-1 tvg-id="eurosport1es" tvg-name="Eurosport 1 | Spain" tvg-logo="https://liveplayback.net/uploads/1711566124.png" group-title="กีฬา",Eurosport 1 | Spain
-https://floral-night-e2a4.dookeela.workers.dev/edge/eurosport1es/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/eurosport1es/playlist.m3u8
 
 #EXTINF:-1 tvg-id="eurosport2es" tvg-name="Eurosport 2 | Spain" tvg-logo="https://liveplayback.net/uploads/1711566136.png" group-title="กีฬา",Eurosport 2 | Spain
-https://floral-night-e2a4.dookeela.workers.dev/edge/eurosport2es/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/eurosport2es/playlist.m3u8
 
 #EXTINF:-1 tvg-id="fifaplus" tvg-name="FIFA Plus" tvg-logo="https://liveplayback.net/uploads/1739094315.png" group-title="กีฬา",FIFA Plus
-https://floral-night-e2a4.dookeela.workers.dev/edge/fifaplus/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/fifaplus/playlist.m3u8
 
 #EXTINF:-1 tvg-id="foxsports1usa" tvg-name="FOX Sports 1 USA" tvg-logo="https://liveplayback.net/uploads/1664219664.png" group-title="กีฬา",FOX Sports 1 USA
-https://floral-night-e2a4.dookeela.workers.dev/edge/foxsports1usa/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/foxsports1usa/playlist.m3u8
 
 #EXTINF:-1 tvg-id="foxsports2usa" tvg-name="FOX Sports 2 USA" tvg-logo="https://liveplayback.net/uploads/1673668104.png" group-title="กีฬา",FOX Sports 2 USA
-https://floral-night-e2a4.dookeela.workers.dev/edge/foxsports2usa/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/foxsports2usa/playlist.m3u8
 
 #EXTINF:-1 tvg-id="fashiontv" tvg-name="Fashion TV" tvg-logo="https://liveplayback.net/uploads/1731888593.png" group-title="บันเทิง",Fashion TV
-https://floral-night-e2a4.dookeela.workers.dev/edge/fashiontv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/fashiontv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="fight-sports" tvg-name="Fight Sports" tvg-logo="https://liveplayback.net/uploads/1708490904.png" group-title="กีฬา",Fight Sports
-https://floral-night-e2a4.dookeela.workers.dev/edge/fight-sports/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/fight-sports/playlist.m3u8
 
 #EXTINF:-1 tvg-id="foodnetwork" tvg-name="Food Network" tvg-logo="https://liveplayback.net/uploads/1717696062.png" group-title="บันเทิง",Food Network
-https://floral-night-e2a4.dookeela.workers.dev/edge/foodnetwork/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/foodnetwork/playlist.m3u8
 
 #EXTINF:-1 tvg-id="foodiez-channel" tvg-name="Foodiez Channel" tvg-logo="https://liveplayback.net/uploads/1772460739.png" group-title="สาระความรู้",Foodiez Channel
-https://floral-night-e2a4.dookeela.workers.dev/edge/foodiez-channel/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/foodiez-channel/playlist.m3u8
 
 #EXTINF:-1 tvg-id="france24" tvg-name="France 24" tvg-logo="https://liveplayback.net/uploads/1731889662.png" group-title="ข่าว",France 24
-https://floral-night-e2a4.dookeela.workers.dev/edge/france24/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/france24/playlist.m3u8
 
 #EXTINF:-1 tvg-id="gmm25" tvg-name="GMM25" tvg-logo="https://liveplayback.net/uploads/1725896937.png" group-title="บันเทิง",GMM25
-https://floral-night-e2a4.dookeela.workers.dev/edge/gmm25/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/gmm25/playlist.m3u8
 
 #EXTINF:-1 tvg-id="golfchannel" tvg-name="Golf Plus+" tvg-logo="https://liveplayback.net/uploads/1664801941.png" group-title="กีฬา",Golf Plus+
-https://floral-night-e2a4.dookeela.workers.dev/edge/golfchannel/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/golfchannel/playlist.m3u8
 
 #EXTINF:-1 tvg-id="hbo" tvg-name="HBO" tvg-logo="https://liveplayback.net/uploads/1703686191.png" group-title="บันเทิง",HBO
-https://floral-night-e2a4.dookeela.workers.dev/edge/hbo/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/hbo/playlist.m3u8
 
 #EXTINF:-1 tvg-id="hbo-family" tvg-name="HBO Family" tvg-logo="https://liveplayback.net/uploads/1703786776.png" group-title="บันเทิง",HBO Family
-https://floral-night-e2a4.dookeela.workers.dev/edge/hbo-family/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/hbo-family/playlist.m3u8
 
 #EXTINF:-1 tvg-id="hbo-hits" tvg-name="HBO Hits" tvg-logo="https://liveplayback.net/uploads/1703786599.png" group-title="บันเทิง",HBO Hits
-https://floral-night-e2a4.dookeela.workers.dev/edge/hbo-hits/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/hbo-hits/playlist.m3u8
 
 #EXTINF:-1 tvg-id="hbo-signature" tvg-name="HBO Signature" tvg-logo="https://liveplayback.net/uploads/1703786305.png" group-title="บันเทิง",HBO Signature
-https://floral-night-e2a4.dookeela.workers.dev/edge/hbo-signature/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/hbo-signature/playlist.m3u8
 
 #EXTINF:-1 tvg-id="hits" tvg-name="HITS" tvg-logo="https://liveplayback.net/uploads/1706112791.png" group-title="บันเทิง",HITS
-https://floral-night-e2a4.dookeela.workers.dev/edge/hits/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/hits/playlist.m3u8
 
 #EXTINF:-1 tvg-id="hits-movies" tvg-name="HITS MOVIES" tvg-logo="https://liveplayback.net/uploads/1714100677.png" group-title="บันเทิง",HITS MOVIES
-https://floral-night-e2a4.dookeela.workers.dev/edge/hits-movies/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/hits-movies/playlist.m3u8
 
 #EXTINF:-1 tvg-id="hitsnow" tvg-name="HITS NOW" tvg-logo="https://liveplayback.net/uploads/1733772007.png" group-title="บันเทิง",HITS NOW
-https://floral-night-e2a4.dookeela.workers.dev/edge/hitsnow/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/hitsnow/playlist.m3u8
 
 #EXTINF:-1 tvg-id="hubsports2" tvg-name="HUB Sports 2" tvg-logo="https://liveplayback.net/uploads/1725050242.png" group-title="กีฬา",HUB Sports 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/hubsports2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/hubsports2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="history" tvg-name="History" tvg-logo="https://liveplayback.net/uploads/1713231372.png" group-title="สาระความรู้",History
-https://floral-night-e2a4.dookeela.workers.dev/edge/history/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/history/playlist.m3u8
 
 #EXTINF:-1 tvg-id="hunan-tv-hd" tvg-name="Hunan TV HD" tvg-logo="https://liveplayback.net/uploads/1741273908.png" group-title="บันเทิง",Hunan TV HD
-https://floral-night-e2a4.dookeela.workers.dev/edge/hunan-tv-hd/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/hunan-tv-hd/playlist.m3u8
 
 #EXTINF:-1 tvg-id="kbskorea" tvg-name="KBS Korea" tvg-logo="https://liveplayback.net/uploads/1725961079.png" group-title="บันเทิง",KBS Korea
-https://floral-night-e2a4.dookeela.workers.dev/edge/kbskorea/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/kbskorea/playlist.m3u8
 
 #EXTINF:-1 tvg-id="kbsworld" tvg-name="KBS World HD" tvg-logo="https://liveplayback.net/uploads/1719897483.png" group-title="บันเทิง",KBS World HD
-https://floral-night-e2a4.dookeela.workers.dev/edge/kbsworld/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/kbsworld/playlist.m3u8
 
 #EXTINF:-1 tvg-id="l1max" tvg-name="L1Max" tvg-logo="https://liveplayback.net/uploads/1723923355.png" group-title="กีฬา",L1Max
-https://floral-night-e2a4.dookeela.workers.dev/edge/l1max/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/l1max/playlist.m3u8
 
 #EXTINF:-1 tvg-id="lfctv" tvg-name="LFCTV" tvg-logo="https://liveplayback.net/uploads/1669940282.png" group-title="กีฬา",LFCTV
-https://floral-night-e2a4.dookeela.workers.dev/edge/lfctv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/lfctv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="laliga-hypermotion-tv" tvg-name="LaLiga Hypermotion TV" tvg-logo="https://liveplayback.net/uploads/1718320056.png" group-title="กีฬา",LaLiga Hypermotion TV
-https://floral-night-e2a4.dookeela.workers.dev/edge/laliga-hypermotion-tv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/laliga-hypermotion-tv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="laliga-hypermotion-tv-2" tvg-name="LaLiga Hypermotion TV 2" tvg-logo="https://liveplayback.net/uploads/1718320112.png" group-title="กีฬา",LaLiga Hypermotion TV 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/laliga-hypermotion-tv-2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/laliga-hypermotion-tv-2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="laliga-hypermotion-tv-3" tvg-name="LaLiga Hypermotion TV 3" tvg-logo="https://liveplayback.net/uploads/1718320120.png" group-title="กีฬา",LaLiga Hypermotion TV 3
-https://floral-night-e2a4.dookeela.workers.dev/edge/laliga-hypermotion-tv-3/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/laliga-hypermotion-tv-3/playlist.m3u8
 
 #EXTINF:-1 tvg-id="lovenature4k" tvg-name="Love Nature 4K" tvg-logo="https://liveplayback.net/uploads/1729286214.png" group-title="สาระความรู้",Love Nature 4K
-https://floral-night-e2a4.dookeela.workers.dev/edge/lovenature4k/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/lovenature4k/playlist.m3u8
 
 #EXTINF:-1 tvg-id="mlaliga" tvg-name="M+ LALIGA" tvg-logo="https://liveplayback.net/uploads/1761504193.png" group-title="กีฬา",M+ LALIGA
-https://floral-night-e2a4.dookeela.workers.dev/edge/mlaliga/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/mlaliga/playlist.m3u8
 
 #EXTINF:-1 tvg-id="mlaliga2" tvg-name="M+ LALIGA 2" tvg-logo="https://liveplayback.net/uploads/1761504242.png" group-title="กีฬา",M+ LALIGA 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/mlaliga2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/mlaliga2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="mlaliga3" tvg-name="M+ LALIGA 3" tvg-logo="https://liveplayback.net/uploads/1761504270.png" group-title="กีฬา",M+ LALIGA 3
-https://floral-night-e2a4.dookeela.workers.dev/edge/mlaliga3/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/mlaliga3/playlist.m3u8
 
 #EXTINF:-1 tvg-id="mlaliga4" tvg-name="M+ LALIGA 4" tvg-logo="https://liveplayback.net/uploads/1761504285.png" group-title="กีฬา",M+ LALIGA 4
-https://floral-night-e2a4.dookeela.workers.dev/edge/mlaliga4/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/mlaliga4/playlist.m3u8
 
 #EXTINF:-1 tvg-id="mlaliga5" tvg-name="M+ LALIGA 5" tvg-logo="https://liveplayback.net/uploads/1764756845.png" group-title="กีฬา",M+ LALIGA 5
-https://floral-night-e2a4.dookeela.workers.dev/edge/mlaliga5/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/mlaliga5/playlist.m3u8
 
 #EXTINF:-1 tvg-id="maxsport1hr" tvg-name="MAX Sport 1 | Croatia" tvg-logo="https://liveplayback.net/uploads/1731005824.png" group-title="กีฬา",MAX Sport 1 | Croatia
-https://floral-night-e2a4.dookeela.workers.dev/edge/maxsport1hr/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/maxsport1hr/playlist.m3u8
 
 #EXTINF:-1 tvg-id="mcothd" tvg-name="MCOT HD" tvg-logo="https://liveplayback.net/uploads/1671966260.png" group-title="กีฬา",MCOT HD
-https://floral-night-e2a4.dookeela.workers.dev/edge/mcothd/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/mcothd/playlist.m3u8
 
 #EXTINF:-1 tvg-id="mlb" tvg-name="MLB" tvg-logo="https://liveplayback.net/uploads/1695548172.png" group-title="กีฬา",MLB
-https://floral-night-e2a4.dookeela.workers.dev/edge/mlb/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/mlb/playlist.m3u8
 
 #EXTINF:-1 tvg-id="mono29" tvg-name="MONO29 (โมโน 29)" tvg-logo="https://liveplayback.net/uploads/1703787713.png" group-title="กีฬา",MONO29 (โมโน 29)
-https://floral-night-e2a4.dookeela.workers.dev/edge/mono29/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/mono29/playlist.m3u8
 
 #EXTINF:-1 tvg-id="mono29plus" tvg-name="MONO29 Plus" tvg-logo="https://liveplayback.net/uploads/1703787733.png" group-title="บันเทิง",MONO29 Plus
-https://floral-night-e2a4.dookeela.workers.dev/edge/mono29plus/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/mono29plus/playlist.m3u8
 
 #EXTINF:-1 tvg-id="mtv" tvg-name="MTV" tvg-logo="https://liveplayback.net/uploads/1721687257.png" group-title="บันเทิง",MTV
-https://floral-night-e2a4.dookeela.workers.dev/edge/mtv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/mtv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="mutv" tvg-name="MUTV" tvg-logo="https://liveplayback.net/uploads/1665106261.png" group-title="กีฬา",MUTV
-https://floral-night-e2a4.dookeela.workers.dev/edge/mutv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/mutv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="mono-29-music-station" tvg-name="Mono 29 Music station" tvg-logo="https://liveplayback.net/uploads/1742428538.png" group-title="บันเทิง",Mono 29 Music station
-https://floral-night-e2a4.dookeela.workers.dev/edge/mono-29-music-station/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/mono-29-music-station/playlist.m3u8
 
 #EXTINF:-1 tvg-id="monomax1" tvg-name="Monomax 1" tvg-logo="https://liveplayback.net/uploads/1753517049.png" group-title="กีฬา",Monomax 1
-https://floral-night-e2a4.dookeela.workers.dev/edge/monomax1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/monomax1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="monomax-2" tvg-name="Monomax 2 โมโนแมกซ์ 2" tvg-logo="https://liveplayback.net/uploads/1755093093.png" group-title="กีฬา",Monomax 2 โมโนแมกซ์ 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/monomax-2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/monomax-2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="moonbug" tvg-name="Moonbug" tvg-logo="https://liveplayback.net/uploads/1721687729.png" group-title="การ์ตูนและรายการเด็ก",Moonbug
-https://floral-night-e2a4.dookeela.workers.dev/edge/moonbug/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/moonbug/playlist.m3u8
 
 #EXTINF:-1 tvg-id="nba" tvg-name="NBA TV" tvg-logo="https://liveplayback.net/uploads/1664532126.png" group-title="กีฬา",NBA TV
-https://floral-night-e2a4.dookeela.workers.dev/edge/nba/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/nba/playlist.m3u8
 
 #EXTINF:-1 tvg-id="nbt2hd" tvg-name="NBT 2 HD" tvg-logo="https://liveplayback.net/uploads/1725895790.png" group-title="บันเทิง",NBT 2 HD
-https://floral-night-e2a4.dookeela.workers.dev/edge/nbt2hd/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/nbt2hd/playlist.m3u8
 
 #EXTINF:-1 tvg-id="nfl" tvg-name="NFL Network" tvg-logo="https://liveplayback.net/uploads/1694909293.png" group-title="กีฬา",NFL Network
-https://floral-night-e2a4.dookeela.workers.dev/edge/nfl/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/nfl/playlist.m3u8
 
 #EXTINF:-1 tvg-id="nhk" tvg-name="NHK WORLD-JAPAN" tvg-logo="https://liveplayback.net/uploads/1731890206.png" group-title="ข่าว",NHK WORLD-JAPAN
-https://floral-night-e2a4.dookeela.workers.dev/edge/nhk/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/nhk/playlist.m3u8
 
 #EXTINF:-1 tvg-id="nationtv" tvg-name="Nation TV" tvg-logo="https://liveplayback.net/uploads/1725896561.png" group-title="บันเทิง",Nation TV
-https://floral-night-e2a4.dookeela.workers.dev/edge/nationtv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/nationtv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="national-geographic" tvg-name="National Geographic" tvg-logo="https://liveplayback.net/uploads/1716366217.png" group-title="สาระความรู้",National Geographic
-https://floral-night-e2a4.dookeela.workers.dev/edge/national-geographic/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/national-geographic/playlist.m3u8
 
 #EXTINF:-1 tvg-id="nickjr" tvg-name="Nick Jr." tvg-logo="https://liveplayback.net/uploads/1708344362.png" group-title="การ์ตูนและรายการเด็ก",Nick Jr.
-https://floral-night-e2a4.dookeela.workers.dev/edge/nickjr/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/nickjr/playlist.m3u8
 
 #EXTINF:-1 tvg-id="nickelodeon" tvg-name="Nickelodeon" tvg-logo="https://liveplayback.net/uploads/1708344306.png" group-title="การ์ตูนและรายการเด็ก",Nickelodeon
-https://floral-night-e2a4.dookeela.workers.dev/edge/nickelodeon/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/nickelodeon/playlist.m3u8
 
 #EXTINF:-1 tvg-id="onefc" tvg-name="ONE Championship" tvg-logo="https://liveplayback.net/uploads/1774002787.png" group-title="กีฬา",ONE Championship
-https://floral-night-e2a4.dookeela.workers.dev/edge/onefc/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/onefc/playlist.m3u8
 
 #EXTINF:-1 tvg-id="playsports63" tvg-name="PLAY SPORTS 63" tvg-logo="https://liveplayback.net/uploads/1772699287.png" group-title="กีฬา",PLAY SPORTS 63
-https://floral-night-e2a4.dookeela.workers.dev/edge/playsports63/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/playsports63/playlist.m3u8
 
 #EXTINF:-1 tvg-id="pptv" tvg-name="PPTV" tvg-logo="https://liveplayback.net/uploads/1664499074.png" group-title="กีฬา",PPTV
-https://floral-night-e2a4.dookeela.workers.dev/edge/pptv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/pptv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="polsatsport1" tvg-name="Polsat Sport 1 | Poland" tvg-logo="https://liveplayback.net/uploads/1721182604.png" group-title="กีฬา",Polsat Sport 1 | Poland
-https://floral-night-e2a4.dookeela.workers.dev/edge/polsatsport1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/polsatsport1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="polsatsport2" tvg-name="Polsat Sport 2 | Poland" tvg-logo="https://liveplayback.net/uploads/1723569749.png" group-title="กีฬา",Polsat Sport 2 | Poland
-https://floral-night-e2a4.dookeela.workers.dev/edge/polsatsport2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/polsatsport2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="polsatsport3" tvg-name="Polsat Sport 3 | Poland" tvg-logo="https://liveplayback.net/uploads/1722964013.png" group-title="กีฬา",Polsat Sport 3 | Poland
-https://floral-night-e2a4.dookeela.workers.dev/edge/polsatsport3/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/polsatsport3/playlist.m3u8
 
 #EXTINF:-1 tvg-id="polsatsportpremium1" tvg-name="Polsat Sport Premium 1 | Poland" tvg-logo="https://liveplayback.net/uploads/1721584784.png" group-title="กีฬา",Polsat Sport Premium 1 | Poland
-https://floral-night-e2a4.dookeela.workers.dev/edge/polsatsportpremium1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/polsatsportpremium1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="polsatsportpremium2" tvg-name="Polsat Sport Premium 2 | Poland" tvg-logo="https://liveplayback.net/uploads/1724779203.png" group-title="กีฬา",Polsat Sport Premium 2 | Poland
-https://floral-night-e2a4.dookeela.workers.dev/edge/polsatsportpremium2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/polsatsportpremium2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="primasport1" tvg-name="Prima Sport 1" tvg-logo="https://liveplayback.net/uploads/1694689157.png" group-title="กีฬา",Prima Sport 1
-https://floral-night-e2a4.dookeela.workers.dev/edge/primasport1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/primasport1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="primasport2" tvg-name="Prima Sport 2" tvg-logo="https://liveplayback.net/uploads/1695249914.png" group-title="กีฬา",Prima Sport 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/primasport2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/primasport2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="primasport3" tvg-name="Prima Sport 3" tvg-logo="https://liveplayback.net/uploads/1695604346.png" group-title="กีฬา",Prima Sport 3
-https://floral-night-e2a4.dookeela.workers.dev/edge/primasport3/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/primasport3/playlist.m3u8
 
 #EXTINF:-1 tvg-id="primasport4" tvg-name="Prima Sport 4" tvg-logo="https://liveplayback.net/uploads/1695398839.png" group-title="กีฬา",Prima Sport 4
-https://floral-night-e2a4.dookeela.workers.dev/edge/primasport4/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/primasport4/playlist.m3u8
 
 #EXTINF:-1 tvg-id="primasport5" tvg-name="Prima Sport 5" tvg-logo="https://liveplayback.net/uploads/1696610104.png" group-title="กีฬา",Prima Sport 5
-https://floral-night-e2a4.dookeela.workers.dev/edge/primasport5/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/primasport5/playlist.m3u8
 
 #EXTINF:-1 tvg-id="primatv" tvg-name="Prima TV" tvg-logo="https://liveplayback.net/uploads/1697334593.png" group-title="กีฬา",Prima TV
-https://floral-night-e2a4.dookeela.workers.dev/edge/primatv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/primatv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="rock-action" tvg-name="ROCK Action" tvg-logo="https://liveplayback.net/uploads/1718690264.png" group-title="บันเทิง",ROCK Action
-https://floral-night-e2a4.dookeela.workers.dev/edge/rock-action/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/rock-action/playlist.m3u8
 
 #EXTINF:-1 tvg-id="rock-entertainment" tvg-name="ROCK ENTERTAINMENT" tvg-logo="https://liveplayback.net/uploads/1718690283.png" group-title="บันเทิง",ROCK ENTERTAINMENT
-https://floral-night-e2a4.dookeela.workers.dev/edge/rock-entertainment/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/rock-entertainment/playlist.m3u8
 
 #EXTINF:-1 tvg-id="rt-documentary" tvg-name="RT Documentary" tvg-logo="https://liveplayback.net/uploads/1731890461.png" group-title="สาระความรู้",RT Documentary
-https://floral-night-e2a4.dookeela.workers.dev/edge/rt-documentary/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/rt-documentary/playlist.m3u8
 
 #EXTINF:-1 tvg-id="rush-stories" tvg-name="RUSH Stories" tvg-logo="https://liveplayback.net/uploads/1741273735.png" group-title="บันเทิง",RUSH Stories
-https://floral-night-e2a4.dookeela.workers.dev/edge/rush-stories/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/rush-stories/playlist.m3u8
 
 #EXTINF:-1 tvg-id="realmadridtv" tvg-name="Real Madrid TV" tvg-logo="https://liveplayback.net/uploads/1755295527.png" group-title="กีฬา",Real Madrid TV
-https://floral-night-e2a4.dookeela.workers.dev/edge/realmadridtv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/realmadridtv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="redbull-tv" tvg-name="Red Bull TV" tvg-logo="https://liveplayback.net/uploads/1711566263.png" group-title="กีฬา",Red Bull TV
-https://floral-night-e2a4.dookeela.workers.dev/edge/redbull-tv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/redbull-tv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="rock-x-stream" tvg-name="Rock X Stream" tvg-logo="https://liveplayback.net/uploads/1772989735.png" group-title="บันเทิง",Rock X Stream
-https://floral-night-e2a4.dookeela.workers.dev/edge/rock-x-stream/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/rock-x-stream/playlist.m3u8
 
 #EXTINF:-1 tvg-id="spl01" tvg-name="SPL01" tvg-logo="https://liveplayback.net/uploads/1726225121.png" group-title="กีฬา",SPL01
-https://floral-night-e2a4.dookeela.workers.dev/edge/spl01/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/spl01/playlist.m3u8
 
 #EXTINF:-1 tvg-id="spl02" tvg-name="SPL02" tvg-logo="https://liveplayback.net/uploads/1726225130.png" group-title="กีฬา",SPL02
-https://floral-night-e2a4.dookeela.workers.dev/edge/spl02/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/spl02/playlist.m3u8
 
 #EXTINF:-1 tvg-id="spotv" tvg-name="SPOTV" tvg-logo="https://liveplayback.net/uploads/1664529562.png" group-title="กีฬา",SPOTV
-https://floral-night-e2a4.dookeela.workers.dev/edge/spotv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/spotv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="spotv2" tvg-name="SPOTV 2" tvg-logo="https://liveplayback.net/uploads/1664529575.png" group-title="กีฬา",SPOTV 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/spotv2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/spotv2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="showtime" tvg-name="Showtime" tvg-logo="https://liveplayback.net/uploads/1770674151.png" group-title="บันเทิง",Showtime
-https://floral-night-e2a4.dookeela.workers.dev/edge/showtime/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/showtime/playlist.m3u8
 
 #EXTINF:-1 tvg-id="skysportsf1" tvg-name="Sky Sports F1 | UK" tvg-logo="https://liveplayback.net/uploads/1712888821.png" group-title="กีฬา",Sky Sports F1 | UK
-https://floral-night-e2a4.dookeela.workers.dev/edge/skysportsf1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/skysportsf1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="skysportsplus" tvg-name="Sky Sports+" tvg-logo="https://liveplayback.net/uploads/1725980915.png" group-title="กีฬา",Sky Sports+
-https://floral-night-e2a4.dookeela.workers.dev/edge/skysportsplus/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/skysportsplus/playlist.m3u8
 
 #EXTINF:-1 tvg-id="sporttvplus" tvg-name="Sport TV +" tvg-logo="https://liveplayback.net/uploads/1736239662.png" group-title="กีฬา",Sport TV +
-https://floral-night-e2a4.dookeela.workers.dev/edge/sporttvplus/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/sporttvplus/playlist.m3u8
 
 #EXTINF:-1 tvg-id="sporttv1" tvg-name="Sport TV 1" tvg-logo="https://liveplayback.net/uploads/1663979709.png" group-title="กีฬา",Sport TV 1
-https://floral-night-e2a4.dookeela.workers.dev/edge/sporttv1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/sporttv1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="sporttv2" tvg-name="Sport TV 2" tvg-logo="https://liveplayback.net/uploads/1663979801.png" group-title="กีฬา",Sport TV 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/sporttv2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/sporttv2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="sporttv3" tvg-name="Sport TV 3" tvg-logo="https://liveplayback.net/uploads/1663980327.png" group-title="กีฬา",Sport TV 3
-https://floral-night-e2a4.dookeela.workers.dev/edge/sporttv3/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/sporttv3/playlist.m3u8
 
 #EXTINF:-1 tvg-id="sporttv4" tvg-name="Sport TV 4" tvg-logo="https://liveplayback.net/uploads/1664041351.png" group-title="กีฬา",Sport TV 4
-https://floral-night-e2a4.dookeela.workers.dev/edge/sporttv4/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/sporttv4/playlist.m3u8
 
 #EXTINF:-1 tvg-id="sporttv5" tvg-name="Sport TV 5" tvg-logo="https://liveplayback.net/uploads/1664125991.png" group-title="กีฬา",Sport TV 5
-https://floral-night-e2a4.dookeela.workers.dev/edge/sporttv5/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/sporttv5/playlist.m3u8
 
 #EXTINF:-1 tvg-id="sporttv6" tvg-name="Sport TV 6" tvg-logo="https://liveplayback.net/uploads/1736239304.png" group-title="กีฬา",Sport TV 6
-https://floral-night-e2a4.dookeela.workers.dev/edge/sporttv6/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/sporttv6/playlist.m3u8
 
 #EXTINF:-1 tvg-id="sporttv7" tvg-name="Sport TV 7" tvg-logo="https://liveplayback.net/uploads/1736239646.png" group-title="กีฬา",Sport TV 7
-https://floral-night-e2a4.dookeela.workers.dev/edge/sporttv7/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/sporttv7/playlist.m3u8
 
 #EXTINF:-1 tvg-id="3bbsports1" tvg-name="Sports One" tvg-logo="https://liveplayback.net/uploads/1720429672.png" group-title="กีฬา",Sports One
-https://floral-night-e2a4.dookeela.workers.dev/edge/3bbsports1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/3bbsports1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tsports7" tvg-name="T Sports 7" tvg-logo="https://liveplayback.net/uploads/1673134276.png" group-title="กีฬา",T Sports 7
-https://floral-night-e2a4.dookeela.workers.dev/edge/tsports7/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tsports7/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tlc" tvg-name="TLC" tvg-logo="https://liveplayback.net/uploads/1717696038.png" group-title="บันเทิง",TLC
-https://floral-night-e2a4.dookeela.workers.dev/edge/tlc/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tlc/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tnn" tvg-name="TNN" tvg-logo="https://liveplayback.net/uploads/1725896332.png" group-title="บันเทิง",TNN
-https://floral-night-e2a4.dookeela.workers.dev/edge/tnn/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tnn/playlist.m3u8
 
 #EXTINF:-1 tvg-id="btsport5" tvg-name="TNT Sports 5 UK" tvg-logo="https://liveplayback.net/uploads/1691521854.png" group-title="กีฬา",TNT Sports 5 UK
-https://floral-night-e2a4.dookeela.workers.dev/edge/btsport5/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/btsport5/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tntusa" tvg-name="TNT USA" tvg-logo="https://liveplayback.net/uploads/1694456079.png" group-title="กีฬา",TNT USA
-https://floral-night-e2a4.dookeela.workers.dev/edge/tntusa/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tntusa/playlist.m3u8
 
 #EXTINF:-1 tvg-id="topnews" tvg-name="TOP NEWS" tvg-logo="https://liveplayback.net/uploads/1742428070.png" group-title="ข่าว",TOP NEWS
-https://floral-night-e2a4.dookeela.workers.dev/edge/topnews/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/topnews/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tudnusa" tvg-name="TUDN USA" tvg-logo="https://liveplayback.net/uploads/1689987703.png" group-title="กีฬา",TUDN USA
-https://floral-night-e2a4.dookeela.workers.dev/edge/tudnusa/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tudnusa/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tvokey" tvg-name="TV OKEY | Malaysia" tvg-logo="https://liveplayback.net/uploads/1719438426.png" group-title="กีฬา",TV OKEY | Malaysia
-https://floral-night-e2a4.dookeela.workers.dev/edge/tvokey/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tvokey/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tvbclassichd" tvg-name="TVB CLASSIC HD" tvg-logo="https://liveplayback.net/uploads/1719898154.png" group-title="บันเทิง",TVB CLASSIC HD
-https://floral-night-e2a4.dookeela.workers.dev/edge/tvbclassichd/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tvbclassichd/playlist.m3u8
 
 #EXTINF:-1 tvg-id="thaipbs" tvg-name="Thai PBS" tvg-logo="https://liveplayback.net/uploads/1725895931.png" group-title="บันเทิง",Thai PBS
-https://floral-night-e2a4.dookeela.workers.dev/edge/thaipbs/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/thaipbs/playlist.m3u8
 
 #EXTINF:-1 tvg-id="thainess" tvg-name="Thainess" tvg-logo="https://liveplayback.net/uploads/1742428803.png" group-title="บันเทิง",Thainess
-https://floral-night-e2a4.dookeela.workers.dev/edge/thainess/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/thainess/playlist.m3u8
 
 #EXTINF:-1 tvg-id="true4u" tvg-name="True 4 U" tvg-logo="https://liveplayback.net/uploads/1725896844.png" group-title="บันเทิง",True 4 U
-https://floral-night-e2a4.dookeela.workers.dev/edge/true4u/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/true4u/playlist.m3u8
 
 #EXTINF:-1 tvg-id="true4k" tvg-name="True 4K" tvg-logo="https://liveplayback.net/uploads/1736811193.png" group-title="กีฬา",True 4K
-https://floral-night-e2a4.dookeela.workers.dev/edge/true4k/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/true4k/playlist.m3u8
 
 #EXTINF:-1 tvg-id="trueasianmore" tvg-name="True Asian More" tvg-logo="https://liveplayback.net/uploads/1719205850.png" group-title="บันเทิง",True Asian More
-https://floral-night-e2a4.dookeela.workers.dev/edge/trueasianmore/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/trueasianmore/playlist.m3u8
 
 #EXTINF:-1 tvg-id="trueballthai9" tvg-name="True Ball Thai 9" tvg-logo="https://liveplayback.net/uploads/1723660123.png" group-title="กีฬา",True Ball Thai 9
-https://floral-night-e2a4.dookeela.workers.dev/edge/trueballthai9/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/trueballthai9/playlist.m3u8
 
 #EXTINF:-1 tvg-id="trueexploresci" tvg-name="True Explore Sci" tvg-logo="https://liveplayback.net/uploads/1724167268.png" group-title="สาระความรู้",True Explore Sci
-https://floral-night-e2a4.dookeela.workers.dev/edge/trueexploresci/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/trueexploresci/playlist.m3u8
 
 #EXTINF:-1 tvg-id="trueexplorewild" tvg-name="True Explore Wild" tvg-logo="https://liveplayback.net/uploads/1724166218.png" group-title="สาระความรู้",True Explore Wild
-https://floral-night-e2a4.dookeela.workers.dev/edge/trueexplorewild/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/trueexplorewild/playlist.m3u8
 
 #EXTINF:-1 tvg-id="truefilm1" tvg-name="True Film 1" tvg-logo="https://liveplayback.net/uploads/1720380229.png" group-title="บันเทิง",True Film 1
-https://floral-night-e2a4.dookeela.workers.dev/edge/truefilm1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/truefilm1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="truefilm2" tvg-name="True Film 2" tvg-logo="https://liveplayback.net/uploads/1720723122.png" group-title="บันเทิง",True Film 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/truefilm2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/truefilm2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="truefilmasia" tvg-name="True Film Asia" tvg-logo="https://liveplayback.net/uploads/1719205705.png" group-title="บันเทิง",True Film Asia
-https://floral-night-e2a4.dookeela.workers.dev/edge/truefilmasia/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/truefilmasia/playlist.m3u8
 
 #EXTINF:-1 tvg-id="truemoviehits" tvg-name="True Movie Hits" tvg-logo="https://liveplayback.net/uploads/1719803882.png" group-title="บันเทิง",True Movie Hits
-https://floral-night-e2a4.dookeela.workers.dev/edge/truemoviehits/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/truemoviehits/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tpf3" tvg-name="True Premier Football 3" tvg-logo="https://liveplayback.net/uploads/1664499681.png" group-title="กีฬา",True Premier Football 3
-https://floral-night-e2a4.dookeela.workers.dev/edge/tpf3/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tpf3/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tpf4" tvg-name="True Premier Football 4" tvg-logo="https://liveplayback.net/uploads/1664499692.png" group-title="กีฬา",True Premier Football 4
-https://floral-night-e2a4.dookeela.workers.dev/edge/tpf4/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tpf4/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tpf5" tvg-name="True Premier Football 5" tvg-logo="https://liveplayback.net/uploads/1664499700.png" group-title="กีฬา",True Premier Football 5
-https://floral-night-e2a4.dookeela.workers.dev/edge/tpf5/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tpf5/playlist.m3u8
 
 #EXTINF:-1 tvg-id="trueseries" tvg-name="True Series" tvg-logo="https://liveplayback.net/uploads/1719205991.png" group-title="บันเทิง",True Series
-https://floral-night-e2a4.dookeela.workers.dev/edge/trueseries/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/trueseries/playlist.m3u8
 
 #EXTINF:-1 tvg-id="truesparkplay" tvg-name="True Spark Play" tvg-logo="https://liveplayback.net/uploads/1720723541.png" group-title="การ์ตูนและรายการเด็ก",True Spark Play
-https://floral-night-e2a4.dookeela.workers.dev/edge/truesparkplay/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/truesparkplay/playlist.m3u8
 
 #EXTINF:-1 tvg-id="truetennis" tvg-name="True Tennis" tvg-logo="https://liveplayback.net/uploads/1717257614.png" group-title="กีฬา",True Tennis
-https://floral-night-e2a4.dookeela.workers.dev/edge/truetennis/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/truetennis/playlist.m3u8
 
 #EXTINF:-1 tvg-id="truethaifilm" tvg-name="True Thai Film" tvg-logo="https://liveplayback.net/uploads/1706539896.png" group-title="บันเทิง",True Thai Film
-https://floral-night-e2a4.dookeela.workers.dev/edge/truethaifilm/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/truethaifilm/playlist.m3u8
 
 #EXTINF:-1 tvg-id="truex-zyte" tvg-name="True X-Zyte" tvg-logo="https://liveplayback.net/uploads/1719206155.png" group-title="บันเทิง",True X-Zyte
-https://floral-night-e2a4.dookeela.workers.dev/edge/truex-zyte/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/truex-zyte/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tycsports" tvg-name="TyC Sports Internacional" tvg-logo="https://liveplayback.net/uploads/1699121407.png" group-title="กีฬา",TyC Sports Internacional
-https://floral-night-e2a4.dookeela.workers.dev/edge/tycsports/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tycsports/playlist.m3u8
 
 #EXTINF:-1 tvg-id="ufcfightpass" tvg-name="UFC Fight Pass" tvg-logo="https://liveplayback.net/uploads/1731847474.png" group-title="กีฬา",UFC Fight Pass
-https://floral-night-e2a4.dookeela.workers.dev/edge/ufcfightpass/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/ufcfightpass/playlist.m3u8
 
 #EXTINF:-1 tvg-id="universo" tvg-name="UNIVERSO [USA]" tvg-logo="https://liveplayback.net/uploads/1698455515.png" group-title="กีฬา",UNIVERSO [USA]
-https://floral-night-e2a4.dookeela.workers.dev/edge/universo/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/universo/playlist.m3u8
 
 #EXTINF:-1 tvg-id="volleyball1" tvg-name="Volleyball 1" tvg-logo="https://liveplayback.net/uploads/1728462430.png" group-title="กีฬา",Volleyball 1
-https://floral-night-e2a4.dookeela.workers.dev/edge/volleyball1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/volleyball1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="volleyball2" tvg-name="Volleyball 2" tvg-logo="https://liveplayback.net/uploads/1728462447.png" group-title="กีฬา",Volleyball 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/volleyball2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/volleyball2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="volleyball3" tvg-name="Volleyball 3" tvg-logo="https://liveplayback.net/uploads/1728462457.png" group-title="กีฬา",Volleyball 3
-https://floral-night-e2a4.dookeela.workers.dev/edge/volleyball3/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/volleyball3/playlist.m3u8
 
 #EXTINF:-1 tvg-id="volleyball4" tvg-name="Volleyball 4" tvg-logo="https://liveplayback.net/uploads/1728462466.png" group-title="กีฬา",Volleyball 4
-https://floral-night-e2a4.dookeela.workers.dev/edge/volleyball4/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/volleyball4/playlist.m3u8
 
 #EXTINF:-1 tvg-id="volleyball5" tvg-name="Volleyball 5" tvg-logo="https://liveplayback.net/uploads/1728462475.png" group-title="กีฬา",Volleyball 5
-https://floral-night-e2a4.dookeela.workers.dev/edge/volleyball5/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/volleyball5/playlist.m3u8
 
 #EXTINF:-1 tvg-id="w-sport" tvg-name="W-Sport" tvg-logo="https://liveplayback.net/uploads/1753040687.png" group-title="กีฬา",W-Sport
-https://floral-night-e2a4.dookeela.workers.dev/edge/w-sport/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/w-sport/playlist.m3u8
 
 #EXTINF:-1 tvg-id="wwe" tvg-name="WWE Network" tvg-logo="https://liveplayback.net/uploads/1696317392.png" group-title="กีฬา",WWE Network
-https://floral-night-e2a4.dookeela.workers.dev/edge/wwe/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/wwe/playlist.m3u8
 
 #EXTINF:-1 tvg-id="warnertv" tvg-name="Warner TV" tvg-logo="https://liveplayback.net/uploads/1703832225.png" group-title="บันเทิง",Warner TV
-https://floral-night-e2a4.dookeela.workers.dev/edge/warnertv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/warnertv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="workpointtv" tvg-name="Workpoint TV" tvg-logo="https://liveplayback.net/uploads/1725896683.png" group-title="บันเทิง",Workpoint TV
-https://floral-night-e2a4.dookeela.workers.dev/edge/workpointtv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/workpointtv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="yunnan-international" tvg-name="Yunnan International" tvg-logo="https://liveplayback.net/uploads/1741274034.png" group-title="บันเทิง",Yunnan International
-https://floral-night-e2a4.dookeela.workers.dev/edge/yunnan-international/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/yunnan-international/playlist.m3u8
 
 #EXTINF:-1 tvg-id="beinsport1fr" tvg-name="beIN Sports 1 France" tvg-logo="https://liveplayback.net/uploads/1664323955.png" group-title="กีฬา",beIN Sports 1 France
-https://floral-night-e2a4.dookeela.workers.dev/edge/beinsport1fr/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/beinsport1fr/playlist.m3u8
 
 #EXTINF:-1 tvg-id="beinsports1tu" tvg-name="beIN Sports 1 Turkey" tvg-logo="https://liveplayback.net/uploads/1664502528.png" group-title="กีฬา",beIN Sports 1 Turkey
-https://floral-night-e2a4.dookeela.workers.dev/edge/beinsports1tu/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/beinsports1tu/playlist.m3u8
 
 #EXTINF:-1 tvg-id="beinmax10fr" tvg-name="beIN Sports 10 Max" tvg-logo="https://liveplayback.net/uploads/1733602113.png" group-title="กีฬา",beIN Sports 10 Max
-https://floral-night-e2a4.dookeela.workers.dev/edge/beinmax10fr/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/beinmax10fr/playlist.m3u8
 
 #EXTINF:-1 tvg-id="beinsport2fr" tvg-name="beIN Sports 2 France" tvg-logo="https://liveplayback.net/uploads/1685036091.png" group-title="กีฬา",beIN Sports 2 France
-https://floral-night-e2a4.dookeela.workers.dev/edge/beinsport2fr/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/beinsport2fr/playlist.m3u8
 
 #EXTINF:-1 tvg-id="beinsports2tu" tvg-name="beIN Sports 2 Turkey" tvg-logo="https://liveplayback.net/uploads/1664502539.png" group-title="กีฬา",beIN Sports 2 Turkey
-https://floral-night-e2a4.dookeela.workers.dev/edge/beinsports2tu/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/beinsports2tu/playlist.m3u8
 
 #EXTINF:-1 tvg-id="beinsport3fr" tvg-name="beIN Sports 3 France" tvg-logo="https://liveplayback.net/uploads/1733600709.png" group-title="กีฬา",beIN Sports 3 France
-https://floral-night-e2a4.dookeela.workers.dev/edge/beinsport3fr/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/beinsport3fr/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bein3tu" tvg-name="beIN Sports 3 Turkey" tvg-logo="https://liveplayback.net/uploads/1664581228.png" group-title="กีฬา",beIN Sports 3 Turkey
-https://floral-night-e2a4.dookeela.workers.dev/edge/bein3tu/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bein3tu/playlist.m3u8
 
 #EXTINF:-1 tvg-id="beinmax4fr" tvg-name="beIN Sports 4 Max" tvg-logo="https://liveplayback.net/uploads/1733601219.png" group-title="กีฬา",beIN Sports 4 Max
-https://floral-night-e2a4.dookeela.workers.dev/edge/beinmax4fr/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/beinmax4fr/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bein4tu" tvg-name="beIN Sports 4 Turkey" tvg-logo="https://liveplayback.net/uploads/1664581241.png" group-title="กีฬา",beIN Sports 4 Turkey
-https://floral-night-e2a4.dookeela.workers.dev/edge/bein4tu/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bein4tu/playlist.m3u8
 
 #EXTINF:-1 tvg-id="beinmax7fr" tvg-name="beIN Sports 7 Max" tvg-logo="https://liveplayback.net/uploads/1733601777.png" group-title="กีฬา",beIN Sports 7 Max
-https://floral-night-e2a4.dookeela.workers.dev/edge/beinmax7fr/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/beinmax7fr/playlist.m3u8
 
 #EXTINF:-1 tvg-id="beinmax8fr" tvg-name="beIN Sports 8 Max" tvg-logo="https://liveplayback.net/uploads/1733602058.png" group-title="กีฬา",beIN Sports 8 Max
-https://floral-night-e2a4.dookeela.workers.dev/edge/beinmax8fr/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/beinmax8fr/playlist.m3u8
 
 #EXTINF:-1 tvg-id="beinmax9fr" tvg-name="beIN Sports 9 Max" tvg-logo="https://liveplayback.net/uploads/1733602083.png" group-title="กีฬา",beIN Sports 9 Max
-https://floral-night-e2a4.dookeela.workers.dev/edge/beinmax9fr/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/beinmax9fr/playlist.m3u8
 
 #EXTINF:-1 tvg-id="cartoonito" tvg-name="cartoonito" tvg-logo="https://liveplayback.net/uploads/1704039063.png" group-title="การ์ตูนและรายการเด็ก",cartoonito
-https://floral-night-e2a4.dookeela.workers.dev/edge/cartoonito/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/cartoonito/playlist.m3u8
 
 #EXTINF:-1 tvg-id="iqiyi" tvg-name="iQIYI" tvg-logo="https://liveplayback.net/uploads/1706405008.png" group-title="บันเทิง",iQIYI
-https://floral-night-e2a4.dookeela.workers.dev/edge/iqiyi/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/iqiyi/playlist.m3u8
 
 #EXTINF:-1 tvg-id="nicktoons" tvg-name="nicktoons | Germany" tvg-logo="https://liveplayback.net/uploads/1713282303.png" group-title="การ์ตูนและรายการเด็ก",nicktoons | Germany
-https://floral-night-e2a4.dookeela.workers.dev/edge/nicktoons/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/nicktoons/playlist.m3u8
 
 #EXTINF:-1 tvg-id="one31" tvg-name="one31" tvg-logo="https://liveplayback.net/uploads/1683394005.png" group-title="กีฬา",one31
-https://floral-night-e2a4.dookeela.workers.dev/edge/one31/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/one31/playlist.m3u8
 
 #EXTINF:-1 tvg-id="sportdigital" tvg-name="sportdigital" tvg-logo="https://liveplayback.net/uploads/1664202734.png" group-title="กีฬา",sportdigital
-https://floral-night-e2a4.dookeela.workers.dev/edge/sportdigital/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/sportdigital/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tsp1" tvg-name="truesports 1" tvg-logo="https://liveplayback.net/uploads/1664802455.png" group-title="กีฬา",truesports 1
-https://floral-night-e2a4.dookeela.workers.dev/edge/tsp1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tsp1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tsp2" tvg-name="truesports 2" tvg-logo="https://liveplayback.net/uploads/1664499966.png" group-title="กีฬา",truesports 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/tsp2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tsp2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tsp3" tvg-name="truesports 3" tvg-logo="https://liveplayback.net/uploads/1664802480.png" group-title="กีฬา",truesports 3
-https://floral-night-e2a4.dookeela.workers.dev/edge/tsp3/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tsp3/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tsp4" tvg-name="truesports 4" tvg-logo="https://liveplayback.net/uploads/1717396131.png" group-title="กีฬา",truesports 4
-https://floral-night-e2a4.dookeela.workers.dev/edge/tsp4/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tsp4/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tsp5" tvg-name="truesports 5" tvg-logo="https://liveplayback.net/uploads/1664847910.png" group-title="กีฬา",truesports 5
-https://floral-night-e2a4.dookeela.workers.dev/edge/tsp5/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tsp5/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tsp7" tvg-name="truesports 7" tvg-logo="https://liveplayback.net/uploads/1664847921.png" group-title="กีฬา",truesports 7
-https://floral-night-e2a4.dookeela.workers.dev/edge/tsp7/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tsp7/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tvn" tvg-name="tvN" tvg-logo="https://liveplayback.net/uploads/1703833429.png" group-title="บันเทิง",tvN
-https://floral-night-e2a4.dookeela.workers.dev/edge/tvn/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tvn/playlist.m3u8
 
 #EXTINF:-1 tvg-id="tvn-movies" tvg-name="tvN MOVIES" tvg-logo="https://liveplayback.net/uploads/1714100840.png" group-title="บันเทิง",tvN MOVIES
-https://floral-night-e2a4.dookeela.workers.dev/edge/tvn-movies/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/tvn-movies/playlist.m3u8
 
 #EXTINF:-1 tvg-id="ch3hd" tvg-name="ช่อง 3" tvg-logo="https://liveplayback.net/uploads/1685812254.png" group-title="กีฬา",ช่อง 3
-https://floral-night-e2a4.dookeela.workers.dev/edge/ch3hd/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/ch3hd/playlist.m3u8
 
 #EXTINF:-1 tvg-id="ch5hd" tvg-name="ช่อง 5" tvg-logo="https://liveplayback.net/uploads/1664574997.png" group-title="กีฬา",ช่อง 5
-https://floral-night-e2a4.dookeela.workers.dev/edge/ch5hd/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/ch5hd/playlist.m3u8
 
 #EXTINF:-1 tvg-id="ch7hd" tvg-name="ช่อง 7" tvg-logo="https://liveplayback.net/uploads/1688059473.png" group-title="กีฬา",ช่อง 7
-https://floral-night-e2a4.dookeela.workers.dev/edge/ch7hd/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/ch7hd/playlist.m3u8
 
 #EXTINF:-1 tvg-id="knowledge-tank" tvg-name="ทรู ปลูกปัญญา" tvg-logo="https://liveplayback.net/uploads/1742239916.png" group-title="สาระความรู้",ทรู ปลูกปัญญา
-https://floral-night-e2a4.dookeela.workers.dev/edge/knowledge-tank/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/knowledge-tank/playlist.m3u8
 
 #EXTINF:-1 tvg-id="trueidsports1" tvg-name="ทรูไอดี สปอร์ต" tvg-logo="https://liveplayback.net/uploads/1743311087.png" group-title="กีฬา",ทรูไอดี สปอร์ต
-https://floral-night-e2a4.dookeela.workers.dev/edge/trueidsports1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/trueidsports1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bein1" tvg-name="บีอินสปอตส์ 1" tvg-logo="https://liveplayback.net/uploads/1664500365.png" group-title="กีฬา",บีอินสปอตส์ 1
-https://floral-night-e2a4.dookeela.workers.dev/edge/bein1/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bein1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bein1_617" tvg-name="บีอินสปอตส์ 1 (617)" tvg-logo="https://liveplayback.net/uploads/1726690688.png" group-title="กีฬา",บีอินสปอตส์ 1 (617)
-https://floral-night-e2a4.dookeela.workers.dev/edge/bein1_617/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bein1_617/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bein10" tvg-name="บีอินสปอตส์ 10" tvg-logo="https://liveplayback.net/uploads/1724346113.png" group-title="กีฬา",บีอินสปอตส์ 10
-https://floral-night-e2a4.dookeela.workers.dev/edge/bein10/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bein10/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bein2" tvg-name="บีอินสปอตส์ 2" tvg-logo="https://liveplayback.net/uploads/1690843424.png" group-title="กีฬา",บีอินสปอตส์ 2
-https://floral-night-e2a4.dookeela.workers.dev/edge/bein2/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bein2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bein3" tvg-name="บีอินสปอตส์ 3" tvg-logo="https://liveplayback.net/uploads/1663980670.png" group-title="กีฬา",บีอินสปอตส์ 3
-https://floral-night-e2a4.dookeela.workers.dev/edge/bein3/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bein3/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bein4" tvg-name="บีอินสปอตส์ 4" tvg-logo="https://liveplayback.net/uploads/1692816640.png" group-title="กีฬา",บีอินสปอตส์ 4
-https://floral-night-e2a4.dookeela.workers.dev/edge/bein4/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bein4/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bein5" tvg-name="บีอินสปอตส์ 5" tvg-logo="https://liveplayback.net/uploads/1693290376.png" group-title="กีฬา",บีอินสปอตส์ 5
-https://floral-night-e2a4.dookeela.workers.dev/edge/bein5/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bein5/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bein6" tvg-name="บีอินสปอตส์ 6" tvg-logo="https://liveplayback.net/uploads/1694719513.png" group-title="กีฬา",บีอินสปอตส์ 6
-https://floral-night-e2a4.dookeela.workers.dev/edge/bein6/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bein6/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bein7" tvg-name="บีอินสปอตส์ 7" tvg-logo="https://liveplayback.net/uploads/1694719622.png" group-title="กีฬา",บีอินสปอตส์ 7
-https://floral-night-e2a4.dookeela.workers.dev/edge/bein7/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bein7/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bein8" tvg-name="บีอินสปอตส์ 8" tvg-logo="https://liveplayback.net/uploads/1724241278.png" group-title="กีฬา",บีอินสปอตส์ 8
-https://floral-night-e2a4.dookeela.workers.dev/edge/bein8/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bein8/playlist.m3u8
 
 #EXTINF:-1 tvg-id="bein9" tvg-name="บีอินสปอตส์ 9" tvg-logo="https://liveplayback.net/uploads/1724241287.png" group-title="กีฬา",บีอินสปอตส์ 9
-https://floral-night-e2a4.dookeela.workers.dev/edge/bein9/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/bein9/playlist.m3u8
 
 #EXTINF:-1 tvg-id="mangorn" tvg-name="มังกร" tvg-logo="https://liveplayback.net/uploads/1705503765.png" group-title="บันเทิง",มังกร
-https://floral-night-e2a4.dookeela.workers.dev/edge/mangorn/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/mangorn/playlist.m3u8
 
 #EXTINF:-1 tvg-id="samrujlok" tvg-name="สำรวจโลก" tvg-logo="https://liveplayback.net/uploads/1705536821.png" group-title="สาระความรู้",สำรวจโลก
-https://floral-night-e2a4.dookeela.workers.dev/edge/samrujlok/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/samrujlok/playlist.m3u8
 
 #EXTINF:-1 tvg-id="thairathtv" tvg-name="ไทยรัฐทีวี" tvg-logo="https://liveplayback.net/uploads/1686800227.png" group-title="กีฬา",ไทยรัฐทีวี
-https://floral-night-e2a4.dookeela.workers.dev/edge/thairathtv/playlist.m3u8
+https://ec2.stream.liveplayback.net/dookeela/thairathtv/playlist.m3u8
 
