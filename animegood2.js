@@ -241,8 +241,7 @@ const progressFile = `${JSON_DIR}/${cat.slug}_progress.json`;
 
 let startPage = 1;
 console.log("🆕 เริ่มหน้า 1 ทุกครั้ง");
-
-  // ⭐ เพิ่มตรงนี้
+  
   fs.writeFileSync(
     progressFile,
     JSON.stringify({ page: 1 }, null, 2)
@@ -250,7 +249,6 @@ console.log("🆕 เริ่มหน้า 1 ทุกครั้ง");
 
   console.log("🆕 สร้าง progress ใหม่");
 
-}
 
 let currentData=[];
 let currentFilePath=`${JSON_DIR}/${cat.slug}.json`;
@@ -598,6 +596,7 @@ console.log("⚠️ build m3u error")
 }
 
 clearInterval(autoSave);
+}
 }process.exit(0);
 
 })();
