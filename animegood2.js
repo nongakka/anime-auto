@@ -240,15 +240,7 @@ if(!fs.existsSync(JSON_DIR)){
 const progressFile = `${JSON_DIR}/${cat.slug}_progress.json`;
 
 let startPage = 1;
-
-if (fs.existsSync(progressFile)) {
-
-  const saved = JSON.parse(fs.readFileSync(progressFile));
-  startPage = saved.page || 1;
-
-  console.log("🔁 Resume จากหน้า", startPage);
-
-} else {
+console.log("🆕 เริ่มหน้า 1 ทุกครั้ง");
 
   // ⭐ เพิ่มตรงนี้
   fs.writeFileSync(
@@ -290,7 +282,7 @@ const handler = getHandler(cat.url);
 let finished = false;
 let episodeCounter = 0;
 let emptyPageCount = 0;
-
+let noUpdateCount = 0;
 //save auto
 const autoSave = setInterval(()=>{
   if(currentData.length > 0){
@@ -305,7 +297,9 @@ const autoSave = setInterval(()=>{
 //LOOP
 
 for (let page = startPage; page <= (TEST_MODE ? 1 : 150); page++) {
-  
+
+let hasUpdateInPage = false;
+	
   fs.writeFileSync(
     progressFile,
     JSON.stringify({ page: page }, null, 2)
@@ -373,18 +367,20 @@ if (movie && movie.episodes && movie.episodes.length > 0) {
   console.log("🔄 ตรวจ EP ใหม่:", movie.title);
 }
   
-      if (!movie) {
-        movie = {
-          title: basic.title,
-          link,
-          image: basic.image || "",
-          episodes: []
-        };
+if (!movie) {
+  movie = {
+    title: basic.title,
+    link,
+    image: basic.image || "",
+    episodes: []
+  };
 
-        currentData.push(movie);
-        oldMap.set(link, movie);
-        saveData();
-      }
+  currentData.unshift(movie); // ⭐ เปลี่ยนตรงนี้
+  oldMap.set(link, movie);
+  saveData();
+
+  hasUpdateInPage = true; // ⭐ เพิ่ม
+}
 
       const { data: detailHtml } =
         await fetchWithRetry(link);
@@ -408,9 +404,8 @@ if (movie && movie.episodes && movie.episodes.length > 0) {
 
 
         if (movie.episodes.find(x => x.link === epLink)) {
-          console.log("⛔ ตอนซ้ำ หยุดเรื่อง");
-          break;
-        }
+  continue; // ⭐ เปลี่ยนจาก break → continue
+}
 
         console.log("↳ ดึงตอน:", $a.text().trim());
 
@@ -448,11 +443,13 @@ if(servers.length > 0){
           console.log("⚠️ server error:", epLink);
         }
 
-        movie.episodes.push({
-          name: $a.text().trim(),
-          link: epLink,
-          servers
-        });
+movie.episodes.unshift({
+  name: $a.text().trim(),
+  link: epLink,
+  servers
+});
+
+hasUpdateInPage = true; // ⭐ เพิ่ม
 
         episodeCounter++;
 
@@ -507,7 +504,17 @@ if(servers.length > 0){
     console.log("💾 บันทึก progress:", page + 1);
 
   }
+if (!hasUpdateInPage) {
+  noUpdateCount++;
+  console.log(`❌ ไม่มีของใหม่ (${noUpdateCount}/3)`);
 
+  if (noUpdateCount >= 3) {
+    console.log("🛑 หยุด scraper เพราะไม่มีข้อมูลใหม่");
+    break;
+  }
+} else {
+  noUpdateCount = 0;
+}
   await randomDelay(300,600);
 }
 
