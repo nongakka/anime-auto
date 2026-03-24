@@ -597,6 +597,6 @@ console.log("⚠️ build m3u error")
 
 clearInterval(autoSave);
 }
-}process.exit(0);
+process.exit(0);
 
 })();
