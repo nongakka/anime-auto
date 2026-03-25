@@ -1,5 +1,8 @@
 #EXTM3U
 
+#EXTINF:-1 tvg-id="abcnews" tvg-name="ABC News Live" tvg-logo="https://liveplayback.net/uploads/1774368084.png" group-title="ข่าว",ABC News Live
+https://ec2.stream.liveplayback.net/dookeela/abcnews/playlist.m3u8
+
 #EXTINF:-1 tvg-id="amc" tvg-name="AMC | USA" tvg-logo="https://liveplayback.net/uploads/1716339097.png" group-title="บันเทิง",AMC | USA
 https://ec2.stream.liveplayback.net/dookeela/amc/playlist.m3u8
 
