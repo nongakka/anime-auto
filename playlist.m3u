@@ -249,6 +249,9 @@ https://ec2.stream.liveplayback.net/dookeela/eurosport1es/playlist.m3u8
 #EXTINF:-1 tvg-id="eurosport2es" tvg-name="Eurosport 2 | Spain" tvg-logo="https://liveplayback.net/uploads/1711566136.png" group-title="กีฬา",Eurosport 2 | Spain
 https://ec2.stream.liveplayback.net/dookeela/eurosport2es/playlist.m3u8
 
+#EXTINF:-1 tvg-id="f1tv" tvg-name="F1TV" tvg-logo="https://liveplayback.net/uploads/1774759298.png" group-title="กีฬา",F1TV
+https://ec2.stream.liveplayback.net/dookeela/f1tv/playlist.m3u8
+
 #EXTINF:-1 tvg-id="fifaplus" tvg-name="FIFA Plus" tvg-logo="https://liveplayback.net/uploads/1739094315.png" group-title="กีฬา",FIFA Plus
 https://ec2.stream.liveplayback.net/dookeela/fifaplus/playlist.m3u8
 

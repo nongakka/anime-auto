@@ -831,6 +831,16 @@
       ]
     },
     {
+      "id": "f1tv",
+      "name": "F1TV",
+      "logo": "https://liveplayback.net/uploads/1774759298.png",
+      "poster": "https://liveplayback.net/uploads/1774759298.png",
+      "group": "กีฬา",
+      "streams": [
+        "https://ec2.stream.liveplayback.net/dookeela/f1tv/playlist.m3u8"
+      ]
+    },
+    {
       "id": "fifaplus",
       "name": "FIFA Plus",
       "logo": "https://liveplayback.net/uploads/1739094315.png",
