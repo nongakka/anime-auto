@@ -324,11 +324,11 @@ emptyPageCount = 0;
 
   emptyPageCount++;
 
-  console.log(`ไม่มีข้อมูล หน้า ${page} (${emptyPageCount}/3)`);
+  console.log(`ไม่มีข้อมูล หน้า ${page} (${emptyPageCount}/2)`);
 
-  if (emptyPageCount >= 3) {
+  if (emptyPageCount >= 2) {
 
-    console.log("หยุด scraper เพราะเจอหน้าว่าง 3 หน้า");
+    console.log("หยุด scraper เพราะเจอหน้าว่าง 2 หน้า");
 
     finished = true;
 
