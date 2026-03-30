@@ -347,63 +347,74 @@ emptyPageCount = 0;
 emptyPageCount = 0;
     
      let animeCount = 0;
-     for (const el of articles) {
+	  
+for (const el of articles) {
 
-      const basic = extractBasicInfo($cat, el);
-      if (!basic.title) continue;
-       
-	animeCount++
-	if(TEST_MODE && animeCount > 1) break
-      
-	const link = normalizeUrl(basic.link);
-      	if (!link) continue;
+  try {
 
-      // ⭐ เพิ่มตรงนี้
-let movie = oldMap.get(link);
+    const basic = extractBasicInfo($cat, el);
+    if (!basic.title) continue;
 
-if (movie && movie.episodes && movie.episodes.length > 0) {
-  console.log("🔄 ตรวจ EP ใหม่:", movie.title);
-}
-  
-if (!movie) {
-  movie = {
-    title: basic.title,
-    link,
-    image: basic.image || "",
-    episodes: []
-  };
+    animeCount++
+    if(TEST_MODE && animeCount > 1) break
 
-  currentData.unshift(movie); // ⭐ เปลี่ยนตรงนี้
-  oldMap.set(link, movie);
-  saveData();
+    const link = normalizeUrl(basic.link);
+    if (!link) continue;
 
-  hasUpdateInPage = true; // ⭐ เพิ่ม
-}
+    let movie = oldMap.get(link);
 
-      const { data: detailHtml } =
-        await fetchWithRetry(link);
+    if (movie && movie.episodes && movie.episodes.length > 0) {
+      console.log("🔄 ตรวจ EP ใหม่:", movie.title);
+    }
 
-      const $detail = cheerio.load(detailHtml);
+    if (!movie) {
+      movie = {
+        title: basic.title,
+        link,
+        image: basic.image || "",
+        episodes: []
+      };
 
-      const epElements =
-        autoDetect($detail, handler.episodeSelectors).toArray();
+      currentData.unshift(movie);
+      oldMap.set(link, movie);
+      saveData();
 
-	let epCount = 0;
+      hasUpdateInPage = true;
+    }
 
-      for (const el2 of epElements) {
+    // ✅ กันหน้า detail พัง
+    const res = await fetchWithRetry(link).catch(()=>null);
+
+    if (!res || !res.data) {
+      console.log("⚠️ โหลดหน้าไม่ได้:", link);
+      continue;
+    }
+
+    const $detail = cheerio.load(res.data);
+
+    const epElements =
+      autoDetect($detail, handler.episodeSelectors).toArray();
+
+    let epCount = 0;
+
+    // =====================
+    // EP LOOP
+    // =====================
+    for (const el2 of epElements) {
+
+      try {
 
         const $a = $detail(el2);
 
         let epLink = normalizeUrl($a.attr("href"));
         if (!epLink) continue;
-	
-	epCount++
-	if(TEST_MODE && epCount > 1) break
 
+        epCount++
+        if(TEST_MODE && epCount > 1) break
 
         if (movie.episodes.find(x => x.link === epLink)) {
-  continue; // ⭐ เปลี่ยนจาก break → continue
-}
+          continue;
+        }
 
         console.log("↳ ดึงตอน:", $a.text().trim());
 
@@ -412,62 +423,45 @@ if (!movie) {
         let servers = [];
 
         try {
-          
-servers = await siteHandler.getServers(epLink);
-
-// ⭐ แปลง embed → m3u8
-if(servers.length > 0){
-
-  const embed = servers[0].url
-
-  if(embed && embed.includes("moji.team-indy.net")){
-
-    const m3u8 = await extractM3U8(epLink)
-
-    if(m3u8){
-
-      servers[0].name = "Main m3u8"
-      servers[0].url = m3u8
-
-      // ลบ field m3u8 ที่ซ้ำ
-      delete servers[0].m3u8
-
-    }
-
-  }
-
-}
+          servers = await siteHandler.getServers(epLink);
         } catch (err) {
           console.log("⚠️ server error:", epLink);
+          continue;
         }
 
-movie.episodes.unshift({
-  name: $a.text().trim(),
-  link: epLink,
-  servers
-});
+        movie.episodes.unshift({
+          name: $a.text().trim(),
+          link: epLink,
+          servers
+        });
 
-hasUpdateInPage = true; // ⭐ เพิ่ม
-
+        hasUpdateInPage = true;
         episodeCounter++;
 
         saveData();
 
         if (episodeCounter % 50 === 0) {
-
-          console.log("🚀 commit partial");
-
-          commitProgress(
-            `update ${cat.slug} episodes ${episodeCounter}`
-          );
+          commitProgress(`update ${cat.slug} episodes ${episodeCounter}`);
         }
 
         await randomDelay(50,150);
+
+      } catch (err) {
+        console.log("⚠️ ข้ามตอน:", err.message);
+        continue;
       }
 
     }
 
-    pageSuccess = true;
+  } catch (err) {
+
+    console.log("❌ ข้ามเรื่อง:", err.message);
+    continue;
+
+  }
+
+}
+pageSuccess = true;
 
   } catch (err) {
 
