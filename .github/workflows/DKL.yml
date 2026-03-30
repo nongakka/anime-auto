@@ -2,8 +2,7 @@ name: DKL
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 15 * * *"
+    
 
 permissions:
   contents: write
