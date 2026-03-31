@@ -436,10 +436,13 @@ epElements = epElements.reverse();
           servers
         });
 
+		  const index = currentData.findIndex(x => x.link === movie.link);
+			if (index > 0) {
+  			currentData.splice(index, 1);
+  			currentData.unshift(movie);
+		}
         hasUpdateInPage = true;
         episodeCounter++;
-
-        saveData();
 
         if (episodeCounter % 50 === 0) {
           commitProgress(`update ${cat.slug} episodes ${episodeCounter}`);
