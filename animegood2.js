@@ -392,8 +392,9 @@ for (const el of articles) {
 
     const $detail = cheerio.load(res.data);
 
-    const epElements =
-      autoDetect($detail, handler.episodeSelectors).toArray();
+    let epElements =
+  autoDetect($detail, handler.episodeSelectors).toArray();
+epElements = epElements.reverse();
 
     let epCount = 0;
 
