@@ -386,8 +386,14 @@ if (movie && movie.episodes && movie.episodes.length > 0) {
         saveData();
       }
 
-      const { data: detailHtml } =
-        await fetchWithRetry(link);
+      const res = await fetchWithRetry(link).catch(()=>null);
+
+if (!res || !res.data) {
+  console.log("⚠️ ข้ามเรื่อง (ลิ้งเสีย):", link);
+  continue;
+}
+
+const $detail = cheerio.load(res.data);
 
       const $detail = cheerio.load(detailHtml);
 
@@ -407,10 +413,11 @@ if (movie && movie.episodes && movie.episodes.length > 0) {
 	if(TEST_MODE && epCount > 1) break
 
 
-        if (movie.episodes.find(x => x.link === epLink)) {
-          console.log("⛔ ตอนซ้ำ หยุดเรื่อง");
-          break;
-        }
+        const epName = $a.text().trim();
+
+if (movie.episodes.find(x => x.link === epLink)) {
+  continue;
+}
 
         console.log("↳ ดึงตอน:", $a.text().trim());
 
@@ -421,7 +428,10 @@ if (movie && movie.episodes && movie.episodes.length > 0) {
         try {
           
 servers = await siteHandler.getServers(epLink);
-
+servers = servers.filter(s =>
+  s.url && !s.url.includes("embed2")
+);
+			
 // ⭐ แปลง embed → m3u8
 if(servers.length > 0){
 
@@ -433,11 +443,10 @@ if(servers.length > 0){
 
     if(m3u8){
 
-      servers[0].name = "Main m3u8"
-      servers[0].url = m3u8
-
-      // ลบ field m3u8 ที่ซ้ำ
-      delete servers[0].m3u8
+      servers.unshift({
+        name: "Main m3u8",
+        url: m3u8
+      });
 
     }
 
@@ -556,7 +565,9 @@ for(const file of files){
 
       if(!ep.servers || ep.servers.length===0) continue
 
-      let stream = ep.servers[0].url
+      let stream =
+  ep.servers.find(s => s.url.includes(".m3u8"))?.url ||
+  ep.servers[0]?.url;
 
 if(stream && !stream.includes(".m3u8")){
   stream = stream
