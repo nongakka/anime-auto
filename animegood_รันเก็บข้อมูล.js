@@ -426,31 +426,47 @@ if (movie.episodes.find(x => x.link === epLink)) {
         try {
           
 servers = await siteHandler.getServers(epLink);
-servers = servers.filter(s =>
-  s.url && !s.url.includes("embed2")
-);
-			
-// ⭐ แปลง embed → m3u8
-if(servers.length > 0){
 
-  const embed = servers[0].url
+// 🔥 หา embed จริง
+const embed = servers.find(s => 
+  s.url && s.url.includes("moji.team-indy.net")
+)?.url;
 
-  if(embed && embed.includes("moji.team-indy.net")){
+// 🔥 แปลง embed → m3u8
+if (embed) {
+  const m3u8 = await extractM3U8(epLink);
 
-    const m3u8 = await extractM3U8(epLink)
-
-    if(m3u8){
-
-      servers.unshift({
-        name: "Main m3u8",
-        url: m3u8
-      });
-
-    }
-
+  if (m3u8) {
+    servers.unshift({
+      name: "Main m3u8",
+      url: m3u8
+    });
   }
-
 }
+
+// 🔥 filter ลิ้งไม่ดี
+servers = servers.filter(s =>
+  s.url &&
+  !s.url.includes("embed2") &&
+  !s.url.includes("short.icu")
+);
+
+// 🔥 แก้ // → https
+servers = servers.map(s => {
+  if (s.url.startsWith("//")) {
+    s.url = "https:" + s.url;
+  }
+  return s;
+});
+
+// 🔥 ลบ duplicate
+const seen = new Set();
+servers = servers.filter(s => {
+  if (seen.has(s.url)) return false;
+  seen.add(s.url);
+  return true;
+});
+			
         } catch (err) {
           console.log("⚠️ server error:", epLink);
         }
