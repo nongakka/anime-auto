@@ -467,7 +467,7 @@ if(servers.length > 0){
 
         saveData();
 
-        if (episodeCounter % 50 === 0) {
+        if (episodeCounter % 150 === 0) {
 
           console.log("🚀 commit partial");
 
