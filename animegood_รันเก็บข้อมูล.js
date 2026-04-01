@@ -395,9 +395,7 @@ if (!res || !res.data) {
 
 const $detail = cheerio.load(res.data);
 
-      const $detail = cheerio.load(detailHtml);
-
-      const epElements =
+       const epElements =
         autoDetect($detail, handler.episodeSelectors).toArray();
 
 	let epCount = 0;
