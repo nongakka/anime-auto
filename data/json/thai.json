@@ -90768,6 +90768,86 @@
             "url": "https://ok.ru/videoembed/4609020791313"
           }
         ]
+      },
+      {
+        "name": "Sabikui Bisco บิสโก้ นรชนคนโคตรเห็ด พากย์ไทย ตอนที่ 9",
+        "link": "https://anime-infy.com/watch/sabikui-bisco-ep-9",
+        "servers": [
+          {
+            "name": "Main m3u8",
+            "url": "https://moji.abcdxzy.xyz:8443/vod/6OBgXOVm/video.mp4/playlist.m3u8"
+          },
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/6OBgXOVm/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://player.anime-infy.com/embed/6OBgXOVm/"
+          }
+        ]
+      },
+      {
+        "name": "Sabikui Bisco บิสโก้ นรชนคนโคตรเห็ด พากย์ไทย ตอนที่ 10",
+        "link": "https://anime-infy.com/watch/sabikui-bisco-ep-10",
+        "servers": [
+          {
+            "name": "Main m3u8",
+            "url": "https://moji.abcdxzy.xyz:8443/vod/9jqB7Dqw/video.mp4/playlist.m3u8"
+          },
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/9jqB7Dqw/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://player.anime-infy.com/embed/9jqB7Dqw/"
+          }
+        ]
+      },
+      {
+        "name": "Sabikui Bisco บิสโก้ นรชนคนโคตรเห็ด พากย์ไทย ตอนที่ 11",
+        "link": "https://anime-infy.com/watch/sabikui-bisco-ep-11",
+        "servers": [
+          {
+            "name": "Main m3u8",
+            "url": "https://moji.abcdxzy.xyz:8443/vod/iAtLF9SP/video.mp4/playlist.m3u8"
+          },
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/iAtLF9SP/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://player.anime-infy.com/embed/iAtLF9SP/"
+          },
+          {
+            "name": "Player 3",
+            "url": "https://ok.ru/videoembed/4668595178001"
+          }
+        ]
+      },
+      {
+        "name": "Sabikui Bisco บิสโก้ นรชนคนโคตรเห็ด พากย์ไทย ตอนที่ 12",
+        "link": "https://anime-infy.com/watch/sabikui-bisco-ep-12",
+        "servers": [
+          {
+            "name": "Main m3u8",
+            "url": "https://moji.abcdxzy.xyz:8443/vod/3z05SDI/video.mp4/playlist.m3u8"
+          },
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/3z05SDI/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://player.anime-infy.com/embed/3z05SDI/"
+          },
+          {
+            "name": "Player 3",
+            "url": "https://ok.ru/videoembed/4685435177489"
+          }
+        ]
       }
     ]
   }
