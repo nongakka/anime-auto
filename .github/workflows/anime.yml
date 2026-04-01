@@ -29,7 +29,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install gh -y
 
       - name: Run scraper
-        run: node animegood2.js
+        run: node animegood_รันเก็บข้อมูล.js
 
       - name: Commit results
         run: |
