@@ -209,6 +209,15 @@ function commitProgress(message){
       return;
     }
 
+    // 🔥 เพิ่มตรงนี้
+    try {
+      execSync("git rebase --abort");
+    } catch {}
+
+    try {
+      execSync("rm -rf .git/rebase-merge");
+    } catch {}
+
     execSync("git pull --rebase origin main");
     execSync("git push");
 
