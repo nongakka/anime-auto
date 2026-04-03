@@ -56473,5 +56473,34 @@
         ]
       }
     ]
+  },
+  {
+    "title": "Wo Wei Dao Zong ข้าคือปรมาจารย์กระบี่",
+    "link": "https://anime-infy.com/wo-wei-dao-zong",
+    "image": "https://anime-infy.com/wp-content/uploads/2025/07/Wo-Wei-Dao-Zong.jpg",
+    "episodes": [
+      {
+        "name": "Wo Wei Dao Zong ข้าคือปรมาจารย์กระบี่ ซับไทย ตอนที่ 1",
+        "link": "https://anime-infy.com/watch/wo-wei-dao-zong-ep-1-subth",
+        "servers": [
+          {
+            "name": "Main m3u8",
+            "url": "https://moji.abcdxzy.xyz:8443/vod/zu7WcKseFI/video.mp4/playlist.m3u8"
+          },
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/zu7WcKseFI/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://player.anime-infy.com/embed/zu7WcKseFI/"
+          },
+          {
+            "name": "Player 4",
+            "url": "https://ok.ru/videoembed/9964385798676"
+          }
+        ]
+      }
+    ]
   }
 ]
