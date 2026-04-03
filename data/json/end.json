@@ -65406,6 +65406,138 @@
             "url": "https://ok.ru/videoembed/10038267415060"
           }
         ]
+      },
+      {
+        "name": "Zaixia Yingtai ข้านี่แหละจู้อิงไถ ซับไทย ตอนที่ 7",
+        "link": "https://anime-infy.com/watch/zaixia-yingtai-ep-7-subth",
+        "servers": [
+          {
+            "name": "Main m3u8",
+            "url": "https://moji.abcdxzy.xyz:8443/vod/fVJoiHzGpT/video.mp4/playlist.m3u8"
+          },
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/fVJoiHzGpT/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://player.anime-infy.com/embed/fVJoiHzGpT/"
+          },
+          {
+            "name": "Player 4",
+            "url": "https://ok.ru/videoembed/10038267480596"
+          }
+        ]
+      },
+      {
+        "name": "Zaixia Yingtai ข้านี่แหละจู้อิงไถ ซับไทย ตอนที่ 8",
+        "link": "https://anime-infy.com/watch/zaixia-yingtai-ep-8-subth",
+        "servers": [
+          {
+            "name": "Main m3u8",
+            "url": "https://moji.abcdxzy.xyz:8443/vod/hmNBzQrvHb/video.mp4/playlist.m3u8"
+          },
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/hmNBzQrvHb/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://player.anime-infy.com/embed/hmNBzQrvHb/"
+          },
+          {
+            "name": "Player 4",
+            "url": "https://ok.ru/videoembed/10055000197652"
+          }
+        ]
+      },
+      {
+        "name": "Zaixia Yingtai ข้านี่แหละจู้อิงไถ ซับไทย ตอนที่ 9",
+        "link": "https://anime-infy.com/watch/zaixia-yingtai-ep-9-subth",
+        "servers": [
+          {
+            "name": "Main m3u8",
+            "url": "https://moji.abcdxzy.xyz:8443/vod/D9HA3Xx6JI/video.mp4/playlist.m3u8"
+          },
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/D9HA3Xx6JI/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://player.anime-infy.com/embed/D9HA3Xx6JI/"
+          },
+          {
+            "name": "Player 4",
+            "url": "https://ok.ru/videoembed/10080521226772"
+          }
+        ]
+      },
+      {
+        "name": "Zaixia Yingtai ข้านี่แหละจู้อิงไถ ซับไทย ตอนที่ 10",
+        "link": "https://anime-infy.com/watch/zaixia-yingtai-ep-10-subth",
+        "servers": [
+          {
+            "name": "Main m3u8",
+            "url": "https://moji.abcdxzy.xyz:8443/vod/0BSHTaqoeS/video.mp4/playlist.m3u8"
+          },
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/0BSHTaqoeS/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://player.anime-infy.com/embed/0BSHTaqoeS/"
+          },
+          {
+            "name": "Player 4",
+            "url": "https://ok.ru/videoembed/10103405283860"
+          }
+        ]
+      },
+      {
+        "name": "Zaixia Yingtai ข้านี่แหละจู้อิงไถ ซับไทย ตอนที่ 11",
+        "link": "https://anime-infy.com/watch/zaixia-yingtai-ep-11-subth",
+        "servers": [
+          {
+            "name": "Main m3u8",
+            "url": "https://moji.abcdxzy.xyz:8443/vod/bh12GmWlr/video.mp4/playlist.m3u8"
+          },
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/bh12GmWlr/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://player.anime-infy.com/embed/bh12GmWlr/"
+          },
+          {
+            "name": "Player 4",
+            "url": "https://ok.ru/videoembed/10124785289748"
+          }
+        ]
+      },
+      {
+        "name": "Zaixia Yingtai ข้านี่แหละจู้อิงไถ ซับไทย ตอนที่ 12",
+        "link": "https://anime-infy.com/watch/zaixia-yingtai-ep-12-subth",
+        "servers": [
+          {
+            "name": "Main m3u8",
+            "url": "https://moji.abcdxzy.xyz:8443/vod/xC2rQ0aMeN/video.mp4/playlist.m3u8"
+          },
+          {
+            "name": "Main",
+            "url": "https://moji.team-indy.net/embed/xC2rQ0aMeN/"
+          },
+          {
+            "name": "Player 2",
+            "url": "https://player.anime-infy.com/embed/xC2rQ0aMeN/"
+          },
+          {
+            "name": "Player 4",
+            "url": "https://ok.ru/videoembed/10147937520148"
+          }
+        ]
       }
     ]
   }
